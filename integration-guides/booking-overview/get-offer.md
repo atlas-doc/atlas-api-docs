@@ -317,7 +317,7 @@ This speeds up support review.
 
 * [Search](search.md)
 * [Create Order](create-order.md)
-* [Payment & Ticketing](payment-and-ticketing.md)
+* [Payment & Ticketing](../../readme/booking-overview/payment-and-ticketing/)
 * [Seats & Baggage](seats-and-baggage.md)
 
 ### Full API reference

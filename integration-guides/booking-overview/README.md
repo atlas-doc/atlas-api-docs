@@ -15,7 +15,7 @@ Use this section for the end-to-end booking flow.
 * [Verify](verify.md)
 * [Create Order](create-order.md)
 * [Confirm Order](confirm-order.md)
-* [Payment & Ticketing](payment-and-ticketing.md)
+* [Payment & Ticketing](../../readme/booking-overview/payment-and-ticketing/)
 * [Query Order](query-order.md)
 * [Seats & Baggage](seats-and-baggage.md)
 

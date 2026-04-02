@@ -61,7 +61,7 @@ Use popup mode or iframe mode to display the FR confirmation page to the user.
 {% step %}
 ### Pay and issue
 
-Only after the user completes confirmation, call [Payment & Ticketing](../booking-overview/payment-and-ticketing.md).
+Only after the user completes confirmation, call [Payment & Ticketing](../../readme/booking-overview/payment-and-ticketing/).
 {% endstep %}
 
 {% step %}
@@ -207,6 +207,6 @@ Use the FR-specific UAT file below.
 ### Related pages
 
 * [Confirm Order](../booking-overview/confirm-order.md)
-* [Payment & Ticketing](../booking-overview/payment-and-ticketing.md)
+* [Payment & Ticketing](../../readme/booking-overview/payment-and-ticketing/)
 * [UAT Submission Guide](../quick-start/uat-submission-guide.md)
 * [Special Integrations](./)

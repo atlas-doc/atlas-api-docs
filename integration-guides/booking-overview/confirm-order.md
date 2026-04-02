@@ -30,7 +30,7 @@ You may also see this step called `Order Commit`.
 ### Related pages
 
 * [Create Order](create-order.md)
-* [Payment & Ticketing](payment-and-ticketing.md)
+* [Payment & Ticketing](../../readme/booking-overview/payment-and-ticketing/)
 * [FR Integration](../special-integrations/fr-integration.md)
 * [Booking APIs](../../api-reference/booking-apis/)
 

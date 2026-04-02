@@ -32,7 +32,7 @@ Use this page to place the booking after verification.
 ### Related pages
 
 * [Verify](verify.md)
-* [Payment & Ticketing](payment-and-ticketing.md)
+* [Payment & Ticketing](../../readme/booking-overview/payment-and-ticketing/)
 * [Booking APIs](../../api-reference/booking-apis/)
 
 ### Full API reference

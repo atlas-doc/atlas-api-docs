@@ -107,6 +107,7 @@ Common in FR flow when `orderCommit.do` was not completed.
 
 ### Related pages
 
-* [Payment & Ticketing](../../integration-guides/booking-overview/payment-and-ticketing.md)
+* [Payment & Ticketing](../../readme/booking-overview/payment-and-ticketing/)
+* [Hybrid Payment Guide](../../readme/booking-overview/payment-and-ticketing/hybrid-payment-guide.md)
 * [Payments](../faqs/atlas-api-payments.md)
 * [Query Order](../../integration-guides/booking-overview/query-order.md)

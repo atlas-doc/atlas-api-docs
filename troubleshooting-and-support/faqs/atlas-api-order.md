@@ -112,5 +112,5 @@ If one baggage product applies across a two-segment journey, send:
 ### Related pages
 
 * [Create Order](../../integration-guides/booking-overview/create-order.md)
-* [Payment & Ticketing](../../integration-guides/booking-overview/payment-and-ticketing.md)
+* [Payment & Ticketing](../../readme/booking-overview/payment-and-ticketing/)
 * [Query Order](../../integration-guides/booking-overview/query-order.md)

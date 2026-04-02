@@ -146,5 +146,5 @@ Atlas deposit balance is too low at ticketing time.
 
 * [Verify](../../integration-guides/booking-overview/verify.md)
 * [Create Order](../../integration-guides/booking-overview/create-order.md)
-* [Payment & Ticketing](../../integration-guides/booking-overview/payment-and-ticketing.md)
+* [Payment & Ticketing](../../readme/booking-overview/payment-and-ticketing/)
 * [Query Order](../../integration-guides/booking-overview/query-order.md)

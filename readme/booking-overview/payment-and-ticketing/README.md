@@ -84,14 +84,15 @@ Use the API response `status` as the source of truth.
 
 ### Related pages
 
-* [Create Order](create-order.md)
-* [Confirm Order](confirm-order.md)
-* [Query Order](query-order.md)
-* [Error Codes](../../troubleshooting-and-support/errors-handing/)
-* [Booking APIs](../../api-reference/booking-apis/)
+* [Create Order](../../../integration-guides/booking-overview/create-order.md)
+* [Confirm Order](../../../integration-guides/booking-overview/confirm-order.md)
+* [Query Order](../../../integration-guides/booking-overview/query-order.md)
+* [Hybrid Payment Guide](hybrid-payment-guide.md)
+* [Error Codes](../../../troubleshooting-and-support/errors-handing/)
+* [Booking APIs](../../../api-reference/booking-apis/)
 
 ### Full API reference
 
 See endpoint-level details here:
 
-* [Payment & Ticketing](../../api-reference/booking-apis/payment-and-ticketing.md)
+* [Payment & Ticketing](../../../api-reference/booking-apis/payment-and-ticketing.md)

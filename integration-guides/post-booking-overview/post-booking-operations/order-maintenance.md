@@ -30,4 +30,5 @@ See endpoint-level details here:
 
 * [Post-booking Overview](../)
 * [Post-booking APIs](../../../api-reference/post-booking-apis/)
+* [Hybrid Payment Guide](../../../readme/booking-overview/payment-and-ticketing/hybrid-payment-guide.md)
 * [Error Codes](../../../troubleshooting-and-support/errors-handing/)

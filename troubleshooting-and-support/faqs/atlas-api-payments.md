@@ -97,6 +97,6 @@ Cardholder country, province, city, postcode and address are required only for a
 
 ### Related pages
 
-* [Payment & Ticketing](../../integration-guides/booking-overview/payment-and-ticketing.md)
+* [Payment & Ticketing](../../readme/booking-overview/payment-and-ticketing/)
 * [Error Codes](../errors-handing/)
 * [Finance](atlas-api-finance.md)

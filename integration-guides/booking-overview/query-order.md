@@ -25,7 +25,7 @@ Use this page to check the latest booking state.
 
 ### Related pages
 
-* [Payment & Ticketing](payment-and-ticketing.md)
+* [Payment & Ticketing](../../readme/booking-overview/payment-and-ticketing/)
 * [Post-ticketing Ancillaries](../post-booking-overview/post-booking-operations/post-ticketing-ancillaries.md)
 * [Booking APIs](../../api-reference/booking-apis/)
 

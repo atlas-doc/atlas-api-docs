@@ -207,5 +207,5 @@ Make sure travelers are prepared with the required original documents.
 
 * [Search](../booking-overview/search.md)
 * [Create Order](../booking-overview/create-order.md)
-* [Payment & Ticketing](../booking-overview/payment-and-ticketing.md)
+* [Payment & Ticketing](../../readme/booking-overview/payment-and-ticketing/)
 * [Special Integrations](./)
