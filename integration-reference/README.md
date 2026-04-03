@@ -29,6 +29,6 @@ Use this section for shared reference data used across Atlas API flows.
 
 ### Related sections
 
-* [Integration Guides](../)
+* [Integration Guides](<../README (1).md>)
 * [API Reference](../api-reference/)
 * [Troubleshooting & Support](../troubleshooting-and-support/)

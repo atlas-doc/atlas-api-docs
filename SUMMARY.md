@@ -1,7 +1,8 @@
 # Table of contents
 
+* [📣 What's New](README.md)
 * [💬Need Help? Ask Eva →](https://www.atriptech.com/)
-* [Integration Guides](README.md)
+* [Integration Guides](<README (1).md>)
   * [Quick Start](integration-guides/quick-start/README.md)
     * [Sandbox Access](integration-guides/quick-start/making-requests.md)
     * [Sandbox Development](integration-guides/quick-start/sandbox-development.md)

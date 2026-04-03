@@ -42,6 +42,6 @@ Use endpoint-level details here:
 
 ### Related pages
 
-* [Integration Guides](../../)
+* [Integration Guides](<../../README (1).md>)
 * [Post-booking Overview](../post-booking-overview/)
 * [Webhook Overview](../webhook-overview/)

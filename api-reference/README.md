@@ -26,6 +26,6 @@ Use this section for exact endpoint schemas, fields, and samples.
 
 ### Recommended usage
 
-1. Start with [Integration Guides](../) for workflow and onboarding order.
+1. Start with [Integration Guides](<../README (1).md>) for workflow and onboarding order.
 2. Use this section for request and response details.
 3. Use [Troubleshooting & Support](../troubleshooting-and-support/) for troubleshooting.

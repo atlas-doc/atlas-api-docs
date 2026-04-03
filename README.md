@@ -1,95 +1,39 @@
 ---
-description: >-
-  Start here for onboarding, core booking flows, post-booking actions, and
-  operational setup.
+description: Track recent documentation updates and newly published guides.
 ---
 
-# Integration Guides
+# 📣 What's New
 
-Use this section to complete your Atlas API integration from setup to go-live.
+Check this page first for recent documentation updates.
 
-### Recommended reading order
+{% hint style="success" %}
+Latest update: [Hybrid Payment Guide](readme/booking-overview/payment-and-ticketing/hybrid-payment-guide.md) is now live.
+{% endhint %}
 
-1. [Quick Start](integration-guides/quick-start/)
-2. [Sandbox Access](integration-guides/quick-start/making-requests.md)
-3. [Sandbox Development](integration-guides/quick-start/sandbox-development.md)
-4. [Booking Overview](integration-guides/booking-overview/)
-5. [Webhook Overview](integration-guides/webhook-overview/)
-6. [UAT Validation](integration-guides/quick-start/uat-submission-guide.md)
-7. [Production Go-Live](integration-guides/quick-start/production-go-live.md)
+### Latest highlight
 
-### Choose the right path
+#### Hybrid Payment Guide
 
-#### New integration
+New guide under **Payment & Ticketing**.
 
-Start with [Quick Start](integration-guides/quick-start/).
+Use it when you need to:
 
-Then move through:
+* switch from VCC pass-through to deposit
+* decide whether to reuse or regenerate an order
+* handle hybrid payment fallback in ATRIP and API flows
 
-* [Sandbox Access](integration-guides/quick-start/making-requests.md)
-* [Sandbox Development](integration-guides/quick-start/sandbox-development.md)
-* [UAT Validation](integration-guides/quick-start/uat-submission-guide.md)
-* [Production Go-Live](integration-guides/quick-start/production-go-live.md)
+### Change log
 
-#### Core booking flow
+{% updates format="full" %}
+{% update date="2026-04-03" %}
+## Added Hybrid Payment Guide
 
-Use [Booking Overview](integration-guides/booking-overview/) for search, verify, order, payment, and order lookup.
+Published [Hybrid Payment Guide](readme/booking-overview/payment-and-ticketing/hybrid-payment-guide.md) under **Payment & Ticketing**.
 
-#### Post-booking operations
+Use it when you need to:
 
-Use [Post-booking Overview](integration-guides/post-booking-overview/) and [Post-booking Operations](integration-guides/post-booking-overview/post-booking-operations/) for refunds, maintenance, ancillaries, and claims.
-
-#### Special programs
-
-Use [Special Integrations](integration-guides/special-integrations/) only when your business flow requires airline-specific or discounted fare logic.
-
-#### Operational tools
-
-Use [Utility API Overview](integration-guides/utility-api-overview/) for balance, email, export, and ATRIP access.
-
-#### Shared test and reference data
-
-Use [Integration Reference](integration-reference/) for shared values, sandbox test routes, and sandbox test cards.
-
-### Typical integration flow
-
-{% stepper %}
-{% step %}
-### Sandbox Access
-
-Collect sandbox credentials and confirm required request headers.
-{% endstep %}
-
-{% step %}
-### Sandbox Development
-
-Build the booking flow in sandbox and validate webhook handling.
-{% endstep %}
-
-{% step %}
-### UAT Validation
-
-Submit the required UAT track with evidence.
-{% endstep %}
-
-{% step %}
-### Production Go-Live
-
-After UAT passes and your account is switched to `LIVE`, generate production credentials and switch to production endpoints for go-live.
-{% endstep %}
-{% endstepper %}
-
-### When to use the API reference
-
-Use [API Reference](api-reference/) when you need exact schemas, parameters, and endpoint-level examples.
-
-### Browse endpoint groups
-
-* [Booking APIs](api-reference/booking-apis/)
-* [Post-booking APIs](api-reference/post-booking-apis/)
-* [Webhook & Incident APIs](api-reference/webhook-and-incident-apis/)
-* [Utility APIs](api-reference/utility-apis/)
-
-### Need troubleshooting help
-
-Use [Troubleshooting & Support](troubleshooting-and-support/) for FAQs, error codes, and escalation paths.
+* switch from VCC pass-through to deposit
+* decide whether to reuse or regenerate an order
+* handle hybrid payment fallback in ATRIP and API flows
+{% endupdate %}
+{% endupdates %}
