@@ -2,8 +2,9 @@
 description: >-
   Understand Atlas hybrid payment and switch between VCC and deposit when the
   order supports it.
+icon: right-left
 layout:
-  width: default
+  width: wide
   title:
     visible: true
   description:
@@ -19,7 +20,7 @@ layout:
   tags:
     visible: true
 tags:
-  - tag: update
+  - tag: newpage
     primary: true
 ---
 
