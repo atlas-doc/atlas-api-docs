@@ -2,6 +2,25 @@
 description: >-
   Understand Atlas hybrid payment and switch between VCC and deposit when the
   order supports it.
+layout:
+  width: default
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+tags:
+  - tag: update
+    primary: true
 ---
 
 # Hybrid Payment Guide

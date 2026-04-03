@@ -1,0 +1,5 @@
+- tag: new
+  label: New
+- tag: update
+  label: Update
+  color: orange
