@@ -6,6 +6,8 @@ description: >-
 
 # Kickoff Checklist
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page in the first integration call.
 
 Its goal is simple.

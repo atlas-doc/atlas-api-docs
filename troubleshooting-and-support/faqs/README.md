@@ -6,6 +6,8 @@ description: >-
 
 # FAQs
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this section for common integration questions and edge cases.
 
 ### FAQ categories

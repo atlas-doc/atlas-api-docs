@@ -6,6 +6,8 @@ description: >-
 
 # Airline Status Update Notification
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this webhook when you need to react to airline-level availability changes.
 
 ### Trigger

@@ -6,6 +6,8 @@ description: >-
 
 # Reference Data
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this section for stable reference data reused across integration flows.
 
 ### Pages in this section

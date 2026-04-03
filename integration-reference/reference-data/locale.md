@@ -4,6 +4,8 @@ description: Supported locale values by airline for request fields such as FR or
 
 # Locale Reference
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page when an airline requires a supported locale value in the request.
 
 ### What this page covers

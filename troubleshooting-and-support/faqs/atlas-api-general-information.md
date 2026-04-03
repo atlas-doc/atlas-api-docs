@@ -6,6 +6,8 @@ description: >-
 
 # Getting Started
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page for commercial, onboarding, performance, and support basics.
 
 ### Which airlines can we sell through Atlas?

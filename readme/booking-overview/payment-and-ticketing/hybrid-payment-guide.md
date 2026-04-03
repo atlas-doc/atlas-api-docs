@@ -26,6 +26,8 @@ tags:
 
 # Hybrid Payment Guide
 
+{% include "../../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page when you need both the payment model and the fallback logic.
 
 ### What hybrid payment means

@@ -6,6 +6,8 @@ description: >-
 
 # Payments
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page for payment mode, VCC, and card data questions.
 
 ### Which payment methods does Atlas support?

@@ -4,6 +4,8 @@ description: Webhook event sent when Atlas captures an airline email related to 
 
 # Email Notification
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this webhook when you need to process airline email activity tied to orders.
 
 ### Trigger

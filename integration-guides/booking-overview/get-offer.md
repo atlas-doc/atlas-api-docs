@@ -6,6 +6,8 @@ description: >-
 
 # Get Offer
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page when you need an independent offer lookup flow.
 
 {% hint style="info" %}

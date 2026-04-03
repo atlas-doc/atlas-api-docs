@@ -6,6 +6,8 @@ description: >-
 
 # Incident Notification
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this webhook when Atlas detects an operational incident affecting an order.
 
 ### Trigger

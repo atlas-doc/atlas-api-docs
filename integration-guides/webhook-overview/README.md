@@ -4,6 +4,8 @@ description: Webhook setup, event coverage, and incident follow-up guidance.
 
 # Webhook Overview
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this section to register webhook endpoints and consume event notifications.
 
 ### Overview

@@ -4,6 +4,8 @@ description: Get sandbox access and confirm request basics before development.
 
 # Sandbox Access
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page to get sandbox access and prepare your first API calls.
 
 ### Goal of this phase

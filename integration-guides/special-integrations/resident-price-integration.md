@@ -6,6 +6,8 @@ description: >-
 
 # Resident Price Integration
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page when you need resident fare support for eligible Spain domestic bookings.
 
 ### When to use this flow

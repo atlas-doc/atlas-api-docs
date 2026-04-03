@@ -4,6 +4,8 @@ description: Track recent documentation updates and newly published guides.
 
 # 📣 What's New
 
+{% include ".gitbook/includes/eva-help-hint.md" %}
+
 Check this page first for recent documentation updates.
 
 {% hint style="success" %}

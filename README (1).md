@@ -6,6 +6,8 @@ description: >-
 
 # Integration Guides
 
+{% include ".gitbook/includes/eva-help-hint.md" %}
+
 Use this section to complete your Atlas API integration from setup to go-live.
 
 ### Recommended reading order

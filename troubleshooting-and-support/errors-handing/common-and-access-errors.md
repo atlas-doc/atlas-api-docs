@@ -6,6 +6,8 @@ description: >-
 
 # Common & Access Errors
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page when a request fails before business processing starts.
 
 ### What this page covers

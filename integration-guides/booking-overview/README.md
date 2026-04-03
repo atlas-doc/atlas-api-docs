@@ -4,6 +4,8 @@ description: Core APIs for search, verify, order, payment, and ticketing workflo
 
 # Booking Overview
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this section for the end-to-end booking flow.
 
 <figure><img src="../../.gitbook/assets/FlowChart_2_IssueTicket.png" alt=""><figcaption><p>Booking flow from search to payment and follow-up</p></figcaption></figure>

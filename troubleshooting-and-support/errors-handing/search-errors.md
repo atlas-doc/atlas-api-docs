@@ -6,6 +6,8 @@ description: >-
 
 # Search Errors
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page when `search.do`, `smartSearch.do`, or `getOffers.do` fails.
 
 ### Highest-frequency codes

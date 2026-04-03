@@ -6,6 +6,8 @@ description: >-
 
 # Post-booking Overview
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this section after the booking flow is complete.
 
 ### Pages in this section

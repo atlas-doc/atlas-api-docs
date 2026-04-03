@@ -1,7 +1,7 @@
 # Table of contents
 
-* [📣 What's New](README.md)
 * [💬Need Help? Ask Eva →](https://www.atriptech.com/)
+* [📣 What's New](README.md)
 * [Integration Guides](<README (1).md>)
   * [Quick Start](integration-guides/quick-start/README.md)
     * [Sandbox Access](integration-guides/quick-start/making-requests.md)

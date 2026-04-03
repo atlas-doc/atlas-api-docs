@@ -6,6 +6,8 @@ description: >-
 
 # Before Integration
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page before kickoff, solution review, or integration planning.
 
 It covers the questions teams usually need answered before development starts.

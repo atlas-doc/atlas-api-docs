@@ -4,6 +4,8 @@ description: APIs for refund quotation, refund submission, and refund status que
 
 # Refunds
 
+{% include "../../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this section for the full refund lifecycle.
 
 ### What this section covers

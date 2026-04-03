@@ -4,6 +4,8 @@ description: Confirm orders that require a commit step before payment.
 
 # Confirm Order
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page for airlines that need order confirmation before ticketing.
 
 This page uses `Confirm Order` as the primary name.

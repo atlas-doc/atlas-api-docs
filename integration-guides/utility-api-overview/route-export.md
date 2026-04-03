@@ -4,6 +4,8 @@ description: Export route data for analysis or operational workflows.
 
 # Route Export
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page to export supported route data.
 
 This page uses `Route Export` as the primary name.

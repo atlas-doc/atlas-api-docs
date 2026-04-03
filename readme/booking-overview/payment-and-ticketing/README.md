@@ -4,6 +4,8 @@ description: Pay orders and track ticketing completion.
 
 # Payment & Ticketing
 
+{% include "../../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page to complete payment and wait for ticket issuance.
 
 ### Main API

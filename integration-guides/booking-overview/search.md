@@ -4,6 +4,8 @@ description: Search APIs for flight offers, real-time search, and request pollin
 
 # Search
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page to start the booking flow.
 
 {% hint style="warning" %}

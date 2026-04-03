@@ -6,6 +6,8 @@ description: >-
 
 # Sandbox Test Routes
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use these routes when you need stable sandbox search and booking scenarios.
 
 ### How to use this page

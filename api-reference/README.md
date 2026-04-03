@@ -4,6 +4,8 @@ description: Endpoint-level reference organized by workflow and capability.
 
 # API Reference
 
+{% include "../.gitbook/includes/eva-help-hint.md" %}
+
 Use this section for exact endpoint schemas, fields, and samples.
 
 ### Browse by workflow

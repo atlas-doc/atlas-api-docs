@@ -4,6 +4,8 @@ description: Operational APIs for order regeneration, ticket stop, and order loo
 
 # Order Maintenance
 
+{% include "../../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page for follow-up order actions outside the standard booking flow.
 
 ### Main APIs

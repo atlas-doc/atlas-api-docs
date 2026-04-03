@@ -4,6 +4,8 @@ description: Query incident records and filter webhook-related events.
 
 # Incident Query
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page to search incident records when webhook delivery or event state needs confirmation.
 
 ### Main API

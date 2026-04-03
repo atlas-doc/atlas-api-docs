@@ -4,6 +4,8 @@ description: APIs for post-booking ancillaries and related post-ticketing action
 
 # Post-ticketing Ancillaries
 
+{% include "../../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this section for actions after the original ticket is already issued.
 
 ### What this section covers

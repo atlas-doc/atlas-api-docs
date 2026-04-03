@@ -6,6 +6,8 @@ description: >-
 
 # Sandbox Test Cards
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use these cards only in sandbox.
 
 ### Important rules

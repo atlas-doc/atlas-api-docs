@@ -6,6 +6,8 @@ description: >-
 
 # Search & Booking
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page for search response, pricing, and booking timing questions.
 
 ### Can users switch display currency?

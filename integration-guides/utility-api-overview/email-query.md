@@ -4,6 +4,8 @@ description: Query email records linked to bookings or support workflows.
 
 # Email Query
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page to search Atlas email records linked to orders.
 
 This page uses `Email Query` as the primary name.

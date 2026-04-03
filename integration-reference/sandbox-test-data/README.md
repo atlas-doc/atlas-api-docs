@@ -6,6 +6,8 @@ description: >-
 
 # Sandbox Test Data
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this section for published sandbox inputs used during testing.
 
 ### Pages in this section

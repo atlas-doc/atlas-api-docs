@@ -6,6 +6,8 @@ description: >-
 
 # Ticketing Complete Notification
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this webhook when you need the final ticketed result for an order.
 
 ### Trigger

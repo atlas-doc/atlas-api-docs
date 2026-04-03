@@ -4,6 +4,8 @@ description: Overview of balance, email, export, and ATRIP utility APIs.
 
 # Utility API Overview
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this section for non-transactional APIs used by operations teams.
 
 ### Pages in this section

@@ -4,6 +4,8 @@ description: Balance query API for finance and operational checks.
 
 # Balance
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page to check the current account balance.
 
 ### Main API

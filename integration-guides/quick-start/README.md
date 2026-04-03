@@ -4,6 +4,8 @@ description: Four-phase integration path from sandbox access to production go-li
 
 # Quick Start
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this guide to move from Atlas sandbox access to live launch.
 
 <figure><img src="../../.gitbook/assets/FlowChart_1_QuickStart.png" alt=""><figcaption><p>End-to-end integration flow from sandbox access to go-live</p></figcaption></figure>

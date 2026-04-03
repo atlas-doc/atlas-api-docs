@@ -4,6 +4,8 @@ description: Create bookings with passenger, contact, and ancillary data.
 
 # Create Order
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page to place the booking after verification.
 
 ### Main API

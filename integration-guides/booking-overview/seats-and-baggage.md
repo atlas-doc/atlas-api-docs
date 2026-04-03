@@ -4,6 +4,8 @@ description: Query seat availability and luggage options during the booking flow
 
 # Seats & Baggage
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page when seat or baggage selection is needed.
 
 ### Main APIs

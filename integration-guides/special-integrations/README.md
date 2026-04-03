@@ -6,6 +6,8 @@ description: >-
 
 # Special Integrations
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this section only when your integration requires special airline workflows or resident fare logic.
 
 ### Pages in this section

@@ -6,6 +6,8 @@ description: >-
 
 # Top Questions for Partners
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page as a short pre-read before the first integration call.
 
 It is written for business, product, and technical stakeholders together.

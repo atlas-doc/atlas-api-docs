@@ -6,6 +6,8 @@ description: >-
 
 # Orders & Ticketing
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page for order hold, contact email, split orders, and ancillary mapping questions.
 
 ### Does `order.do` hold inventory?

@@ -6,6 +6,8 @@ description: >-
 
 # Integration Reference
 
+{% include "../.gitbook/includes/eva-help-hint.md" %}
+
 Use this section for shared reference data used across Atlas API flows.
 
 ### Pages in this section

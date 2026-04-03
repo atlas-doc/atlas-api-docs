@@ -6,6 +6,8 @@ description: >-
 
 # Finance
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page for balance top-up and transfer timing questions.
 
 ### What is the top-up process?

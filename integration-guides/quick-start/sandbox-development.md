@@ -4,6 +4,8 @@ description: Build and validate the sandbox integration before UAT.
 
 # Sandbox Development
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page to build and validate the full Atlas integration in sandbox.
 
 ### Goal of this phase

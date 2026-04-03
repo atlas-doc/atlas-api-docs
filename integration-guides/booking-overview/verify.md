@@ -6,6 +6,8 @@ description: >-
 
 # Verify
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page after offer selection.
 
 ### Main API

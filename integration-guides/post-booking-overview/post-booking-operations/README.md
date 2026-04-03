@@ -6,6 +6,8 @@ description: >-
 
 # Post-booking Operations
 
+{% include "../../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this section for operational actions after a booking is ticketed or needs follow-up.
 
 ### Pages in this section

@@ -6,6 +6,8 @@ description: >-
 
 # Post-booking
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page for refund, schedule change, and operational follow-up questions.
 
 ### Do we get notified about schedule changes?

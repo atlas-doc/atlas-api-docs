@@ -6,6 +6,8 @@ description: >-
 
 # FR Integration
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page when you integrate Ryanair booking flows.
 
 ### When to use this flow

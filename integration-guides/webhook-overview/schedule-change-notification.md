@@ -6,6 +6,8 @@ description: >-
 
 # Schedule Change Notification
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this webhook when a booked itinerary changes after ticketing.
 
 ### Trigger

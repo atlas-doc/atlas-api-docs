@@ -4,6 +4,8 @@ description: APIs for PNR claim and extraction workflows.
 
 # PNR Claim & Extraction
 
+{% include "../../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page when you need to work with PNR-level utilities.
 
 ### Main APIs

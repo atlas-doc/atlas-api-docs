@@ -4,6 +4,8 @@ description: Retrieve booking details and track order status after creation or p
 
 # Query Order
 
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
+
 Use this page to check the latest booking state.
 
 ### Main API
