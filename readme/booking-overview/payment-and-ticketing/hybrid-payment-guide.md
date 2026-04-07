@@ -1,7 +1,7 @@
 ---
 description: >-
-  Understand Atlas hybrid payment and switch between VCC and deposit when the
-  order supports it.
+  Recover failed VCC pass-through payments by switching to deposit or another
+  card.
 icon: right-left
 layout:
   width: wide
@@ -28,166 +28,190 @@ tags:
 
 {% include "../../../.gitbook/includes/eva-help-hint.md" %}
 
-Use this page when you need both the payment model and the fallback logic.
+Use this page when VCC pass-through fails and you need a safe fallback path.
 
 ### What hybrid payment means
 
-Atlas hybrid payment lets one booking flow use more than one supported payment path.
+Hybrid payment is a retry strategy for one booking.
 
-The main goal is continuity.
+It switches the payment path after a failed payment attempt.
 
-If one payment method cannot complete the order, you can move to another supported method instead of restarting the full process.
+The most common pattern is:
 
-### Supported payment modes
-
-The main modes in this guide are:
-
-* **Deposit**
-* **VCC pass-through**
-
-In the most common hybrid payment flow:
-
-* the first attempt uses VCC pass-through
-* the fallback attempt uses deposit
-
-The exact options still depend on airline, fare, and order capability.
+* first try **VCC pass-through**
+* if that fails, retry with **deposit**
+* or retry with **another card**
 
 {% hint style="info" %}
-Hybrid payment is a controlled fallback model.
+Hybrid payment is a fallback model.
 
-It does not mean every order can switch freely between all payment methods.
+It is not split payment.
 {% endhint %}
 
-### Why to use hybrid payment
+### When to use it
 
-Use hybrid payment when you need a safer path to complete bookings under payment uncertainty.
+Use hybrid payment in these cases:
 
-This is especially useful when:
+* VCC pass-through payment fails
+* `pay.do` succeeds, but the airline rejects the charge
+* the original card is restricted or no longer usable
+* you want deposit as a fallback path
+* Search, Verify, or Order shows VCC support, but you still need a recovery path
 
-* `pay.do` fails for an unpaid order
-* VCC pass-through is not accepted
-* the order supports another payment method
-* airline-side payment fails after the initial payment attempt
+### Before you start VCC pass-through
 
-### What this page covers
+Check these points first:
 
-This page explains:
-
-* the hybrid payment concept
-* when to keep the same order
-* when to regenerate the order
-* how to switch from VCC to deposit
-* how to handle the ATRIP and API flows
-
-### Core rule
-
-Do not retry blindly.
-
-Always confirm:
-
-* the current order status
-* whether the order is still payable
-* which payment methods the order supports
-* whether the same order can be reused or must be regenerated
-
-### Recommended action order
-
-1. Query the order status.
-2. Check whether the order is still unpaid.
-3. Check whether deposit is supported for that order.
-4. Retry payment only when the order is still valid.
-5. Regenerate the order when the original order is cancelled, expired, or no longer payable.
-
-### Quick decision guide
-
-{% stepper %}
-{% step %}
-### Check the current order
-
-Confirm whether the order is still unpaid and payable.
-{% endstep %}
-
-{% step %}
-### Check supported payment methods
-
-Confirm whether the same order still supports deposit or another valid card path.
-{% endstep %}
-
-{% step %}
-### Choose the next path
-
-If the same order is still payable, switch payment method on the same order.
-
-If the order is cancelled, expired, or no longer payable, regenerate the order first.
-{% endstep %}
-{% endstepper %}
-
-### Hybrid payment paths
-
-There are two common paths.
-
-#### Path 1: same order, different payment method
-
-Use this path when:
-
-* the order is still unpaid
-* the order is still payable
-* deposit or another method is still supported on that order
-
-#### Path 2: regenerate, then pay again
-
-Use this path when:
-
-* the original order was cancelled
-* the payment window expired
-* the order is no longer payable
-* airline-side failure makes the original order unusable
-
-### Scenario A: `pay.do` fails
-
-If `pay.do` fails and the order is still not successfully paid, the usual next actions are:
-
-1. retry the same payment when the issue is temporary
-2. switch to deposit when the same order supports deposit
-3. switch to another supported card when card-based payment is still allowed
-
-This scenario stays on the same order only when the order is still payable.
-
-#### Retry with deposit
-
-Use deposit as a fallback when VCC pass-through fails and the same order still accepts payment.
-
-This is the clearest hybrid payment case.
-
-The order stays the same.
-
-Only the payment method changes.
+* confirm the fare supports VCC in `VendorFare`
+* set `paymentMethod: 3`
+* send `supportCreditTransPayment: "1"`
+* send complete `creditCard` data
+* send full billing address data when the airline requires it
+* if the fare or channel does not support VCC, use deposit directly
 
 ```json
 {
-  "orderNo": "XXXX",
+  "orderNo": "XXX",
+  "supportCreditTransPayment": "1",
+  "paymentMethod": 3,
+  "creditCard": {
+    "cardNumber": "4111111111111111",
+    "cardExpireMonth": "12",
+    "cardExpireYear": "2028",
+    "cardCVV": "***",
+    "cardHolderLastName": "ZHANG",
+    "cardHolderFirstName": "SAN",
+    "cardHolderCountry": "CN",
+    "cardHolderCity": "SHANGHAI",
+    "cardHolderPostCode": "200000",
+    "cardHolderAddress": "XXX Road"
+  }
+}
+```
+
+### How hybrid payment differs from other cases
+
+#### Hybrid payment vs normal retry
+
+Normal retry keeps the same payment method.
+
+Examples:
+
+* retry the same VCC after a timeout
+* retry the same `pay.do` after a network issue
+
+Hybrid payment changes the payment path.
+
+Examples:
+
+* switch from VCC to deposit
+* switch from one failed card to another card
+
+#### Hybrid payment vs card change
+
+Changing to another card is a common hybrid case.
+
+If the first VCC fails and the order is still payable, retrying with another VCC still counts as a fallback path.
+
+#### Hybrid payment vs split payment
+
+Hybrid payment does **not** mean:
+
+* split one order amount into two payments
+* pay part by card and part by balance
+* submit two payment sources in one `pay.do`
+
+If your business case needs amount splitting, handle it with a different solution.
+
+### Decision guide
+
+Follow this order every time:
+
+{% stepper %}
+{% step %}
+### Check the payment result
+
+Confirm whether `pay.do` failed, or succeeded but later failed at the airline side.
+{% endstep %}
+
+{% step %}
+### Check whether the original order is still usable
+
+Query the order before any retry.
+
+Only continue on the same order when it is still unpaid and still payable.
+{% endstep %}
+
+{% step %}
+### Choose the next payment path
+
+Use the usual priority:
+
+1. retry the original payment path for temporary issues
+2. switch to another card
+3. switch to deposit
+{% endstep %}
+
+{% step %}
+### Track the final result
+
+After payment, keep querying the order until ticketing completes or the order reaches a final failure state.
+{% endstep %}
+{% endstepper %}
+
+{% hint style="warning" %}
+`pay.do` success does not mean the airline already accepted the payment.
+
+Do not retry before you check the latest order status.
+{% endhint %}
+
+### Common payment paths
+
+#### Scenario A: `pay.do` fails
+
+This is the simpler case.
+
+If the order is still unpaid, you can usually:
+
+1. retry the same payment method
+2. switch to another card
+3. switch to deposit
+
+Use deposit when VCC fails and the same order still supports payment.
+
+```json
+{
+  "orderNo": "XXX",
   "paymentMethod": 1
 }
 ```
 
-#### Retry with another card
+#### Scenario B: `pay.do` succeeds, but airline payment fails
 
-Use another card only when the order still supports card-based payment and the card type matches the order requirements.
+This case needs extra care.
 
-### Scenario B: `pay.do` succeeds but airline payment fails
+Atlas may accept the request, but the airline can still decline the charge later.
 
-This scenario usually requires a different recovery path.
+The original order may then be cancelled automatically.
 
-The payment request may succeed on the Atlas side, but the airline can still reject the payment later.
-
-In that case, the original order may be cancelled or become unusable.
-
-The usual sequence is:
+In that case:
 
 1. confirm the final order status
-2. treat the original order as unusable if it was cancelled
+2. wait for the cancellation event if applicable
 3. regenerate the order
 4. pay the new order with deposit or another supported card
+
+### Simplified example
+
+This is the most common hybrid payment flow:
+
+1. create the order
+2. call `pay.do` with VCC
+3. the airline declines the charge
+4. the original order is cancelled
+5. call `regenerateOrder.do`
+6. call `pay.do` on the new order with deposit
+7. query the order until ticketing completes
 
 ### Regenerate then pay
 
@@ -208,101 +232,95 @@ Then pay the new order:
 }
 ```
 
-This is also part of the hybrid payment model.
+### Webhook example
 
-The payment path changes after the order is regenerated.
+If the airline declines the payment and the order is auto-cancelled, use webhook data as an early signal.
 
-### Decision guide
+```json
+{
+  "type": "order.cancelled",
+  "data": {
+    "orderNo": "{canceled order no}",
+    "errorCode": "604",
+    "errorMessage": "Payment declined by airline"
+  }
+}
+```
 
-Use the same order when:
+### Main risks in VCC pass-through
 
-* the order is unpaid
-* the order is still valid for payment
-* the fallback payment method is supported
+These issues are common in hybrid payment cases:
 
-Regenerate the order when:
-
-* the order is cancelled
-* the order is expired
-* the order status no longer supports payment
-* the airline-side failure invalidates the original order
-
-<details>
-
-<summary>Same order or regenerate order?</summary>
-
-Use the **same order** when the order is still unpaid, still payable, and still supports the fallback payment method.
-
-Use **regenerate order** when the order is cancelled, expired, locked by the previous payment flow, or no longer supports payment.
-
-</details>
+* `pay.do` success is not the final business result
+* the airline can reject payment after Atlas accepts the request
+* card brand or card type mismatch can fail directly
+* missing billing address can trigger airline declines
+* refunds usually return to the original card, not to deposit
+* retries without status checks can cause duplicate charge risk
 
 ### ATRIP flow
 
 {% stepper %}
 {% step %}
-### Open the order
+### Find the original order
 
-Go to **My Orders** in ATRIP Flight Deck and find the affected order.
+Open **ATRIP Flight Deck** and go to **My Orders**.
+
+Find the failed order first.
 {% endstep %}
 
 {% step %}
-### Regenerate if needed
+### Regenerate the order if needed
 
-Use **Regenerate Order** when the original order is cancelled, expired, or no longer payable.
+Use **Regenerate Order** when the original order was cancelled or can no longer be paid.
 {% endstep %}
 
 {% step %}
-### Complete payment with the fallback method
+### Pay with the fallback method
 
-Open the new or existing order and choose a supported fallback payment method.
+Open the new order and choose **Deposit** or another supported card.
 {% endstep %}
 {% endstepper %}
 
-In the common ATRIP fallback flow:
-
-1. open **My Orders**
-2. locate the affected order
-3. use **Regenerate Order** if the original order cannot be reused
-4. open the new or existing order
-5. complete payment with deposit or another supported method
+If you hit an API integration issue, you can also log in to Eva for support.
 
 ### API flow
 
 {% stepper %}
 {% step %}
-### Check the order first
+### Query before retry
 
-Use order query before any retry.
-
-Do not assume the previous payment attempt failed cleanly.
+Check the latest order state before every payment retry.
 {% endstep %}
 
 {% step %}
 ### Decide whether to reuse the order
 
-Reuse the same order only when it is still unpaid and payable.
+Reuse the same order only when it is still unpaid and still payable.
 
-Regenerate the order when it is cancelled, expired, or locked by a failed flow.
+If it is cancelled, regenerate first.
 {% endstep %}
 
 {% step %}
-### Retry with a supported payment method
+### Retry with a supported method
 
-Call `pay.do` with the fallback method.
+Retry with the same method for temporary issues.
 
-Use deposit when VCC is blocked and deposit is supported.
+Switch to deposit or another card when the fallback path is supported.
 {% endstep %}
 {% endstepper %}
 
-### Operational notes
+### Best practices
 
-* supported payment methods vary by airline and fare
-* hybrid payment does not mean every order can switch freely between all methods
-* payment success does not guarantee ticket issuance is complete
-* avoid duplicate payment retries during in-flight processing
-* use order status as the source of truth before every retry
-* keep webhook handling in place for cancellation or payment-related follow-up
+* check supported payment methods before every payment attempt
+* confirm VCC support in `VendorFare` before the first VCC payment
+* send full card data and billing address when required
+* do not reuse a declined or single-use VCC
+* do not keep paying the original order after airline decline
+* listen for webhook events in auto-cancel cases
+* record the original order number, new order number, error code, and switch reason
+* reconcile VCC refunds separately from deposit refunds
+* keep the original failure reason when you switch to deposit
 
 ### Related pages
 
