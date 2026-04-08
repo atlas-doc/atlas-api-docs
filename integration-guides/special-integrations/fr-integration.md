@@ -29,7 +29,73 @@ Compared with the normal booking flow, FR adds extra requirements:
 * special handling for child seating scenarios
 * FR-specific UAT and IP allowlisting
 
-### Standard FR booking flow
+### FR workflow diagram
+
+```mermaid
+sequenceDiagram
+    actor User as End user
+    participant OTA as Subscriber
+    participant Atlas
+    participant FRAPI as RYR_API
+    participant FRUI as RYR_POPUP
+
+    User->>OTA: Search
+    OTA->>Atlas: search.do
+    Atlas->>FRAPI: GET /availability
+    FRAPI-->>Atlas: Fares for selected route and date
+    Atlas-->>OTA: Search.do RS
+    OTA-->>User: Search result
+
+    User->>OTA: Verify
+    OTA->>Atlas: verify.do
+    Atlas->>FRAPI: /flight
+    FRAPI-->>Atlas: 200 OK
+    Atlas-->>OTA: Verify.do RS
+    OTA-->>User: Verify result
+
+    opt Optional seat selection
+        User->>OTA: Select seat
+        OTA->>Atlas: seatAvailability.do
+        Atlas->>FRAPI: Seat availability
+        FRAPI-->>Atlas: Available seats and seat map
+        Atlas-->>OTA: Seats and seat map
+        OTA-->>User: Available seats and seat map
+    end
+
+    User->>OTA: Book
+    OTA->>Atlas: order.do
+    Atlas->>FRAPI: /booking
+    FRAPI-->>Atlas: Order number
+    Atlas-->>OTA: Order.do RS
+    OTA-->>User: Order number
+
+    User->>OTA: Pay on OTA
+    OTA->>Atlas: orderCommit.do
+    Atlas->>FRAPI: Book commit
+    FRAPI-->>Atlas: confirmationUrl
+    Atlas-->>OTA: confirmationUrl
+    OTA->>FRUI: Open popup or iframe
+
+    User->>FRUI: Confirm flights
+    FRUI-->>OTA: Redirect after confirmation
+
+    alt Order confirmed
+        OTA->>Atlas: pay.do
+        Atlas->>FRAPI: POST /encrypt + POST /payment
+        FRAPI-->>Atlas: 200 OK
+        Atlas-->>OTA: Success
+    else Order not confirmed
+        OTA->>Atlas: pay.do
+        Atlas->>FRAPI: POST /encrypt + POST /payment
+        FRAPI-->>Atlas: Failure (order unconfirmed)
+        Atlas->>Atlas: Cancel order
+        Atlas-->>OTA: Failure
+    end
+```
+
+This flow adds an FR confirmation page between `order.do` and `pay.do`.
+
+### FR booking flow
 
 {% stepper %}
 {% step %}
@@ -45,25 +111,51 @@ Call [Verify](../booking-overview/verify.md) and keep the returned `sessionId`.
 {% endstep %}
 
 {% step %}
+### Optional seat selection
+
+If you support FR seat selection, call [Seats & Baggage](../booking-overview/seats-and-baggage.md) before booking.
+
+Skip this step if you use the FR child-seat simplification.
+{% endstep %}
+
+{% step %}
 ### Create the order
 
 Call [Create Order](../booking-overview/create-order.md) with passenger, contact, and required FR fields.
 
-At this stage, the OTA collects payment from the user.\
-Do **not** call `pay.do` yet.
+Make sure the order request includes:
+
+* passenger email
+* subscriber email
+* subscriber company name in `clientContact`
+* `locale`
 {% endstep %}
 
 {% step %}
-### Confirm the order
+### Collect payment and commit the order
 
-Call [Confirm Order](../booking-overview/confirm-order.md).\
-Use popup mode or iframe mode to display the FR confirmation page to the user.
+At this stage, the OTA collects payment from the user.\
+Do **not** call `pay.do` yet.
+
+Then call [Confirm Order](../booking-overview/confirm-order.md).
+
+Atlas returns `confirmationUrl` for popup mode or iframe mode.
+{% endstep %}
+
+{% step %}
+### User confirms on the FR page
+
+Display `confirmationUrl` to the user.
+
+The FR confirmation page contains the required T\&Cs and consent checkbox. The user must complete this step before ticketing.
 {% endstep %}
 
 {% step %}
 ### Pay and issue
 
 Only after the user completes confirmation, call [Payment & Ticketing](../../readme/booking-overview/payment-and-ticketing/).
+
+Payment can use `VCC` or `Deposit`.
 {% endstep %}
 
 {% step %}
@@ -81,6 +173,9 @@ Send the order number and a `redirectUri`.\
 Atlas returns `confirmationUrl`.\
 Redirect the end user to that page.
 
+Prepare a redirect page URL and share it with Atlas.\
+This page should accept `AtlasOrderNumber` as an input parameter.
+
 After the user confirms, FR redirects the user back to your `redirectUri`.
 
 #### Iframe mode
@@ -97,9 +192,11 @@ Do not call `pay.do` before order confirmation finishes.
 
 If the user does not confirm within 30 minutes after order creation:
 
-* the order expires
+* the order status becomes `Expired`
 * Atlas will not issue tickets
 * the OTA should refund the end user if payment was already collected
+
+If `pay.do` is attempted before the user completes FR confirmation, airline payment can fail and the order can be canceled.
 
 ### Required FR business rules
 
@@ -113,6 +210,8 @@ Display airline fare separately from:
 * ancillary charges
 
 Read payment-fee data from `cardChargeList` in search and verify responses.
+
+Make sure the user can clearly identify Ryanair's actual price.
 
 #### Passenger consent
 
@@ -129,8 +228,11 @@ Pass both:
 
 * the passenger email
 * the subscriber email and company name in `clientContact`
+* the required booking `locale`
 
 This helps ensure both sides receive airline communication.
+
+For supported locale values, see [Locale Reference](../../integration-reference/reference-data/locale.md).
 
 ### Child seating rule
 
