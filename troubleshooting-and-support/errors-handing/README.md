@@ -10,6 +10,11 @@ description: >-
 
 Use this page as the main error lookup entry point.
 
+Use it in two ways:
+
+* Start with the flow that failed
+* Check whether the code is safe to retry
+
 ### Start with the right section
 
 * [Common & Access Errors](common-and-access-errors.md)
@@ -18,12 +23,140 @@ Use this page as the main error lookup entry point.
 * [Payment Errors](payment-errors.md)
 * [Refund, Query & Post-booking Errors](refund-query-and-post-booking-errors.md)
 
+### Retry policy
+
+Use this rule before any retry:
+
+* **Yes**: retry now or after a short delay
+* **Partial**: retry only after changing the condition
+* **No**: fix the input, flow, or account setup first
+
+Typical `Partial` cases:
+
+* `110`: add back-off before retry
+* `406`: wait for the in-flight payment to finish
+* `415`: complete `orderCommit.do` first
+* `616` or `633`: switch payment method
+* `108`, `113`, `324`: retry later, not immediately
+
+### Quick decision table
+
+Use this table when you need the next action fast.
+
+| Code  | What it usually means                                 | Retryable | Next action                                            |
+| ----- | ----------------------------------------------------- | --------- | ------------------------------------------------------ |
+| `107` | Balance is below the allowed threshold                | No        | Top up the account, then retry                         |
+| `108` | Route is temporarily restricted or closed             | Partial   | Retry later, not immediately                           |
+| `110` | Search QPS limit hit                                  | Partial   | Add exponential back-off, then retry                   |
+| `112` | Search timed out                                      | Yes       | Retry after a short wait                               |
+| `123` | Search volume is too high for paid orders             | No        | Reduce unnecessary search traffic                      |
+| `126` | Smart search `requestId` is invalid or expired        | No        | Start a new smart search                               |
+| `127` | Search timed out and the request ended                | Yes       | Run a new search                                       |
+| `202` | `routingIdentifier` expired                           | No        | Run search again and use a fresh identifier            |
+| `205` | Verify timed out                                      | Yes       | Retry verify after a short wait                        |
+| `206` | Flight is no longer available after search            | No        | Start from search again                                |
+| `210` | Fare family is sold out                               | No        | Start from search again and rebook                     |
+| `222` | Baggage lookup failed during verify                   | Partial   | Retry verify, then escalate if repeated                |
+| `299` | Verify failed due to transient platform issues        | Partial   | Retry verify once, then restart from search if needed  |
+| `301` | `sessionId` expired                                   | No        | Run `verify.do` again and get a fresh session          |
+| `302` | Flight changed or sold out between verify and order   | No        | Start from search again and rebook                     |
+| `307` | Booking input is invalid                              | No        | Fix the request field and resubmit                     |
+| `308` | Price changed between verify and order                | No        | Regenerate or restart the booking flow                 |
+| `309` | Ancillary `productCode` is invalid or stale           | No        | Use the `productCode` from the current verify response |
+| `316` | Airline-side timeout during booking                   | Yes       | Retry the booking flow after a short wait              |
+| `317` | Airline-side booking failure                          | Partial   | Retry carefully, then escalate if repeated             |
+| `324` | Airline system issue during order                     | Partial   | Retry later, then contact operations if repeated       |
+| `406` | Payment is already in progress                        | Partial   | Wait and query order state before any retry            |
+| `409` | Baggage `productCode` does not match the segment      | No        | Re-check ancillary mapping and resubmit                |
+| `410` | Contact phone format is invalid                       | No        | Fix the phone format and resubmit                      |
+| `411` | Payment failed due to balance or account checks       | No        | Validate balance and payment inputs first              |
+| `415` | FR order was not confirmed                            | Partial   | Call `orderCommit.do` first, then retry `pay.do`       |
+| `604` | Airline rejected the VCC                              | Yes       | Retry with a different valid card                      |
+| `615` | Payment succeeded but airline PNR is still pending    | No        | Do not retry payment; monitor order status instead     |
+| `616` | Card requires 3DS                                     | Yes       | Use a non-3DS card or deposit mode                     |
+| `617` | Deposit balance is too low at ticketing time          | No        | Top up balance before retry                            |
+| `631` | Baggage fare changed during fulfillment               | No        | Restart from verify                                    |
+| `633` | Airline declined payment by risk control              | Partial   | Retry with deposit mode or another valid card          |
+| `703` | Order was not found                                   | No        | Re-check order lookup values                           |
+| `705` | Order query timed out                                 | Yes       | Retry after a short wait                               |
+| `805` | `refundOfferId` expired                               | No        | Request a new refund offer                             |
+| `809` | Refund attempted before ticketing completed           | No        | Wait until ticketing finishes                          |
+| `811` | Refund request is missing required itinerary segments | No        | Submit the full itinerary                              |
+| `824` | Refund was requested for an ancillary order           | No        | Use the original main order number                     |
+
+For detailed handling by flow, use the category pages above before relying on the full legacy table.
+
+{% hint style="warning" %}
+Do not treat every error as retryable.
+
+Some errors need a fresh identifier.\
+Some need a new booking flow.\
+Some must never trigger another payment call.
+{% endhint %}
+
+### High-risk mistakes
+
+These cases cause the most avoidable repeat failures:
+
+#### `110` Too many concurrent requests
+
+Do not retry immediately.
+
+Add exponential back-off.\
+Start around `1s`.\
+Cap around `30s`.
+
+#### `202` Routing identifier expired
+
+Do not retry `verify.do` with the same `routingIdentifier`.
+
+Run search again first.
+
+#### `301` Session does not exist or timed out
+
+Do not reuse the same `sessionId`.
+
+Run `verify.do` again to get a fresh session.
+
+#### `406` Payment operation is in progress
+
+Do not send another payment request while one is still running.
+
+Wait and query the order state.
+
+#### `615` Payment completed but failed to get PNR
+
+Do **not** retry payment.
+
+Atlas will pursue the PNR manually.\
+Use order query to monitor status.
+
+#### `415` Order is not confirmed by user
+
+Common in FR flow.
+
+Call `orderCommit.do` before `pay.do`.
+
+### Pattern-based checks
+
+If the error alone does not explain the failure, check the integration pattern:
+
+* polling stopped after first `TktInProcess`
+* expired `routingIdentifier` reused
+* expired `sessionId` reused
+* ancillary `productCode` reused across sessions
+* sandbox and production credentials mixed
+* webhook not configured, with polling used as the only status source
+
+Use the related flow pages when the issue is caused by implementation behavior, not only by an error code.
+
 ### Recommended troubleshooting order
 
 1. Identify the flow that failed
-2. Check whether the issue is input, inventory, payment, or platform related
-3. Retry only when the error is clearly transient
-4. Escalate with request context if the same error repeats
+2. Check whether the issue is input, inventory, identifier expiry, payment, or platform related
+3. Decide whether the code is `Yes`, `Partial`, or `No` for retry
+4. Retry only when the failure is truly transient
+5. Escalate with request context if the same error repeats
 
 ### Common first checks
 
@@ -32,6 +165,68 @@ Use this page as the main error lookup entry point.
 * Confirm identifiers are fresh
 * Query order state before retrying payment
 * Check balance before retrying search, order, or refund flows
+
+### Quick retry reference
+
+#### Retry now or after short delay
+
+Examples:
+
+* `112`
+* `115`
+* `127`
+* `205`
+* `316`
+* `604`
+* `607`
+* `705`
+
+#### Retry only after changing the condition
+
+Examples:
+
+* `108`
+* `110`
+* `116`
+* `299`
+* `304`
+* `317`
+* `324`
+* `406`
+* `415`
+* `633`
+
+#### Do not retry until input or flow is fixed
+
+Examples:
+
+* `307`
+* `309`
+* `410`
+* `619`
+* `810`
+
+#### Do not retry with the same identifier
+
+Examples:
+
+* `202`
+* `206`
+* `207`
+* `210`
+* `302`
+* `308`
+* `611`
+* `631`
+
+#### Do not retry payment
+
+Examples:
+
+* `318`
+* `402`
+* `404`
+* `615`
 
 ### Full legacy code table
 
