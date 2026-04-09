@@ -24,6 +24,12 @@ Start UAT after:
 * webhook handling is ready if full integration UAT is required
 * your team can execute test cases end to end
 
+{% hint style="info" %}
+Before UAT, run the [Sandbox Validation Test Kit](../../readme/quick-start/sandbox-development/sandbox-validation-test-kit.md).
+
+Use it to confirm credentials, network access, and the basic booking path before formal validation starts.
+{% endhint %}
+
 ### UAT tracks
 
 There are two UAT tracks.
@@ -158,7 +164,8 @@ After UAT passes:
 
 ### Related pages
 
-* [Sandbox Development](sandbox-development.md)
+* [Sandbox Development](../../readme/quick-start/sandbox-development/)
+* [Sandbox Validation Test Kit](../../readme/quick-start/sandbox-development/sandbox-validation-test-kit.md)
 * [Quick Start](./)
 * [Production Go-Live](production-go-live.md)
 * [Webhook Overview](../webhook-overview/)

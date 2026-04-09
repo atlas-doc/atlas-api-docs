@@ -8,6 +8,12 @@ description: Get sandbox access and confirm request basics before development.
 
 Use this page to get sandbox access and prepare your first API calls.
 
+{% hint style="info" %}
+After you get sandbox credentials, run the [Sandbox Validation Test Kit](../../readme/quick-start/sandbox-development/sandbox-validation-test-kit.md).
+
+Use it to confirm credentials, network access, and the no-code booking happy path before development starts.
+{% endhint %}
+
 ### Goal of this phase
 
 Complete the initial access setup for sandbox.
@@ -104,10 +110,11 @@ You can do all of these in sandbox:
 
 ### Next step
 
-Continue with [Sandbox Development](sandbox-development.md).
+Continue with [Sandbox Development](../../readme/quick-start/sandbox-development/).
 
 ### Related pages
 
 * [Quick Start](./)
-* [Sandbox Development](sandbox-development.md)
+* [Sandbox Validation Test Kit](../../readme/quick-start/sandbox-development/sandbox-validation-test-kit.md)
+* [Sandbox Development](../../readme/quick-start/sandbox-development/)
 * [Booking Overview](../booking-overview/)

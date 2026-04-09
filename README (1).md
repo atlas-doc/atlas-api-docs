@@ -14,7 +14,7 @@ Use this section to complete your Atlas API integration from setup to go-live.
 
 1. [Quick Start](integration-guides/quick-start/)
 2. [Sandbox Access](integration-guides/quick-start/making-requests.md)
-3. [Sandbox Development](integration-guides/quick-start/sandbox-development.md)
+3. [Sandbox Development](readme/quick-start/sandbox-development/)
 4. [Booking Overview](integration-guides/booking-overview/)
 5. [Webhook Overview](integration-guides/webhook-overview/)
 6. [UAT Validation](integration-guides/quick-start/uat-submission-guide.md)
@@ -29,7 +29,7 @@ Start with [Quick Start](integration-guides/quick-start/).
 Then move through:
 
 * [Sandbox Access](integration-guides/quick-start/making-requests.md)
-* [Sandbox Development](integration-guides/quick-start/sandbox-development.md)
+* [Sandbox Development](readme/quick-start/sandbox-development/)
 * [UAT Validation](integration-guides/quick-start/uat-submission-guide.md)
 * [Production Go-Live](integration-guides/quick-start/production-go-live.md)
 

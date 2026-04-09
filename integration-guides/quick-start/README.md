@@ -75,7 +75,7 @@ The goal is to complete the end-to-end business flow in sandbox.
 
 Use these pages during development:
 
-* [Sandbox Development](sandbox-development.md)
+* [Sandbox Development](../../readme/quick-start/sandbox-development/)
 * [Booking Overview](../booking-overview/)
 * [Webhook Overview](../webhook-overview/)
 
@@ -131,6 +131,8 @@ Use [Production Go-Live](production-go-live.md) for the go-live checklist.
 
 ### First end-to-end test resource
 
-Use this Postman collection during sandbox development:
+If you want a no-code environment check first, use [Sandbox Validation Test Kit](../../readme/quick-start/sandbox-development/sandbox-validation-test-kit.md).
+
+Then use this Postman collection during sandbox development:
 
 {% file src="../../.gitbook/assets/TheAtlas UAT Test Shopping & Ticketing Services Only Postman Collection.zip" %}
