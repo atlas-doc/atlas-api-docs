@@ -75,7 +75,7 @@ The goal is to complete the end-to-end business flow in sandbox.
 
 Use these pages during development:
 
-* [Sandbox Development](../../readme/quick-start/sandbox-development/)
+* [Sandbox Development](sandbox-development.md)
 * [Booking Overview](../booking-overview/)
 * [Webhook Overview](../webhook-overview/)
 

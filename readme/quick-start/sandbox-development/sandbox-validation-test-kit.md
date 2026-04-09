@@ -160,4 +160,4 @@ After the test kit passes:
 
 * start the API integration
 * keep the same sandbox credentials for development
-* continue with [Sandbox Development](./)
+* continue with [Sandbox Development](../../../integration-guides/quick-start/sandbox-development.md)

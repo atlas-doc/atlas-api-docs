@@ -30,4 +30,4 @@ Use this section for published sandbox inputs used during testing.
 ### Related sections
 
 * [Integration Reference](../)
-* [Sandbox & UAT](../../readme/quick-start/sandbox-development/)
+* [Sandbox & UAT](../../integration-guides/quick-start/sandbox-development.md)

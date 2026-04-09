@@ -164,7 +164,7 @@ After UAT passes:
 
 ### Related pages
 
-* [Sandbox Development](../../readme/quick-start/sandbox-development/)
+* [Sandbox Development](sandbox-development.md)
 * [Sandbox Validation Test Kit](../../readme/quick-start/sandbox-development/sandbox-validation-test-kit.md)
 * [Quick Start](./)
 * [Production Go-Live](production-go-live.md)

@@ -110,11 +110,11 @@ You can do all of these in sandbox:
 
 ### Next step
 
-Continue with [Sandbox Development](../../readme/quick-start/sandbox-development/).
+Continue with [Sandbox Development](sandbox-development.md).
 
 ### Related pages
 
 * [Quick Start](./)
 * [Sandbox Validation Test Kit](../../readme/quick-start/sandbox-development/sandbox-validation-test-kit.md)
-* [Sandbox Development](../../readme/quick-start/sandbox-development/)
+* [Sandbox Development](sandbox-development.md)
 * [Booking Overview](../booking-overview/)

@@ -9,25 +9,40 @@ description: Track recent documentation updates and newly published guides.
 Check this page first for recent documentation updates.
 
 {% hint style="success" %}
-Latest update: [Error Codes](troubleshooting-and-support/errors-handing/) now includes retry guidance and a quick decision table.
+Latest update: [Sandbox Validation Test Kit](readme/quick-start/sandbox-development/sandbox-validation-test-kit.md) is now available for a no-code sandbox happy path check.
 {% endhint %}
 
 ### Latest highlight
 
-#### Error Codes landing page update
+#### Sandbox Validation Test Kit
 
-Updated the main [Error Codes](troubleshooting-and-support/errors-handing/) entry page.
+Published [Sandbox Validation Test Kit](readme/quick-start/sandbox-development/sandbox-validation-test-kit.md) under **Quick Start**.
 
 Use it when you need to:
 
-* decide whether an error is safe to retry
-* quickly identify high-risk no-retry cases
-* route to the correct error section by flow
-* check common next actions for search, verify, order, payment, query, and refund failures
+* validate sandbox credentials before coding
+* confirm network access and core booking flow readiness
+* run `Search`, `Verify`, `Order`, and `Pay` with a ready-made test kit
+* recheck sandbox health after credential or IP changes
 
 ### Change log
 
 {% updates format="full" %}
+{% update date="2026-04-09" %}
+## Added Sandbox Validation Test Kit
+
+Published [Sandbox Validation Test Kit](readme/quick-start/sandbox-development/sandbox-validation-test-kit.md) for a no-code sandbox validation run.
+
+Use it when you need to:
+
+* confirm credentials and network access before development
+* run the core sandbox happy path with Newman
+* verify `Search`, `Verify`, `Order`, and `Pay` in one pass
+* quickly check sandbox readiness after environment changes
+
+The page also explains the expected final retrieve timeout during ticketing polling.
+{% endupdate %}
+
 {% update date="2026-04-08" %}
 ## Improved Error Codes landing page
 

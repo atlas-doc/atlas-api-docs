@@ -4,12 +4,12 @@ description: Build and validate the sandbox integration before UAT.
 
 # Sandbox Development
 
-{% include "../../../.gitbook/includes/eva-help-hint.md" %}
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
 
 Use this page to build and validate the full Atlas integration in sandbox.
 
 {% hint style="info" %}
-Before you build the integration, run the [Sandbox Validation Test Kit](sandbox-validation-test-kit.md).
+Before you build the integration, run the [Sandbox Validation Test Kit](../../readme/quick-start/sandbox-development/sandbox-validation-test-kit.md).
 
 Use it to confirm credentials, network access, and the core happy path without writing code.
 {% endhint %}
@@ -22,7 +22,7 @@ This phase should cover both API execution and webhook follow-up.
 
 ### Fast setup check
 
-Use the [Sandbox Validation Test Kit](sandbox-validation-test-kit.md) before full development work.
+Use the [Sandbox Validation Test Kit](../../readme/quick-start/sandbox-development/sandbox-validation-test-kit.md) before full development work.
 
 It validates `Search`, `Verify`, `Order`, and `Pay`.
 
@@ -130,11 +130,11 @@ Any card number and last name can be used for this specific failure simulation.
 
 Use these shared reference pages when you need published sandbox inputs:
 
-* [Booking Overview](../../../integration-guides/booking-overview/)
-* [Webhook Overview](../../../integration-guides/webhook-overview/)
-* [Sandbox Test Routes](../../../integration-reference/sandbox-test-data/sandbox-test-routes.md)
-* [Sandbox Test Cards](../../../integration-reference/sandbox-test-data/sandbox-test-cards.md)
-* [Integration Reference](../../../integration-reference/)
+* [Booking Overview](../booking-overview/)
+* [Webhook Overview](../webhook-overview/)
+* [Sandbox Test Routes](../../integration-reference/sandbox-test-data/sandbox-test-routes.md)
+* [Sandbox Test Cards](../../integration-reference/sandbox-test-data/sandbox-test-cards.md)
+* [Integration Reference](../../integration-reference/)
 
 ### Complete this phase when
 
@@ -154,4 +154,4 @@ You can do all of these reliably in sandbox:
 
 ### Next step
 
-Move to [UAT Validation](../../../integration-guides/quick-start/uat-submission-guide.md) after the sandbox flow is stable.
+Move to [UAT Validation](uat-submission-guide.md) after the sandbox flow is stable.
