@@ -38,12 +38,13 @@ Run this test:
 
 Use these files:
 
-{% file src="../../../.gitbook/assets/Atlas_UAT_Environment.json" %}
+* `Atlas_UAT_HappyPath.postman_collection.json`
 
 {% file src="../../../.gitbook/assets/Atlas_UAT_HappyPath.postman_collection.json" %}
 
-* `Atlas_UAT_HappyPath.postman_collection.json`
 * `Atlas_UAT_Environment.json`
+
+{% file src="../../../.gitbook/assets/Atlas_UAT_Environment.json" %}
 
 Download both files to the same local folder.
 
@@ -59,6 +60,12 @@ Set:
 
 * `client_id`
 * `client_secret`
+* `currency`
+* `from_date`
+
+Use `USD` for `currency` unless your test case requires a different value.
+
+Update `from_date` to a future date before you run the collection.
 {% endstep %}
 
 {% step %}
@@ -80,11 +87,15 @@ Run the happy path collection with the environment file.
 
 {% code title="Run the test kit" %}
 ```bash
-newman run Atlas_UAT_HappyPath.postman_collection.json \
-  -e Atlas_UAT_Environment.json \
-  --delay-request 10000 \
-  --reporters htmlextra \
-  --reporter-htmlextra-export report.html
+newman run Atlas_UAT_HappyPath.postman_collection.json -e Atlas_UAT_Environment.json --delay-request 10000 --reporters htmlextra --reporter-htmlextra-export report.html
+```
+{% endcode %}
+
+If the command fails, run it with `npx` instead.
+
+{% code title="Fallback with npx" %}
+```bash
+npx newman run Atlas_UAT_HappyPath.postman_collection.json -e Atlas_UAT_Environment.json --delay-request 10000 --reporters htmlextra --reporter-htmlextra-export report.html
 ```
 {% endcode %}
 {% endstep %}

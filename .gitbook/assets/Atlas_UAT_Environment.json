@@ -17,102 +17,46 @@
       "description": "x-atlas-client-secret provided by Atlas"
     },
     {
-      "key": "from_date",
-      "value": "20260509",
+      "key": "currency",
+      "value": "USD",
       "type": "default",
       "enabled": true,
-      "description": "Departure date in YYYYMMDD format. Must be a future date."
+      "description": "Currency for search. Use the currency your account is configured for (e.g. USD, EUR, SGD). Contact Atlas if unsure."
     },
     {
-      "key": "ret_date",
-      "value": "20260516",
+      "key": "from_date",
+      "value": "20260520",
       "type": "default",
       "enabled": true,
-      "description": "Return date for round-trip (Scenario 3). Must be after from_date."
+      "description": "Departure date in YYYYMMDD format. Must be a future date 2-4 weeks out."
     },
     {
       "key": "s1_routingIdentifier",
       "value": "",
       "type": "default",
       "enabled": true,
-      "description": "Auto-populated by Scenario 1 Search step"
+      "description": "Auto-populated by Search step"
     },
     {
       "key": "s1_sessionId",
       "value": "",
       "type": "default",
       "enabled": true,
-      "description": "Auto-populated by Scenario 1 Verify step"
+      "description": "Auto-populated by Verify step"
     },
     {
       "key": "s1_orderNo",
       "value": "",
       "type": "default",
       "enabled": true,
-      "description": "Auto-populated by Scenario 1 Order step"
+      "description": "Auto-populated by Order step"
     },
     {
       "key": "s1_poll_count",
       "value": "0",
       "type": "default",
       "enabled": true,
-      "description": "Internal polling counter for Scenario 1 Retrieve"
-    },
-    {
-      "key": "s2_routingIdentifier",
-      "value": "",
-      "type": "default",
-      "enabled": true,
-      "description": "Auto-populated by Scenario 2 Search step"
-    },
-    {
-      "key": "s2_sessionId",
-      "value": "",
-      "type": "default",
-      "enabled": true,
-      "description": "Auto-populated by Scenario 2 Verify step"
-    },
-    {
-      "key": "s2_orderNo",
-      "value": "",
-      "type": "default",
-      "enabled": true,
-      "description": "Auto-populated by Scenario 2 Order step"
-    },
-    {
-      "key": "s2_poll_count",
-      "value": "0",
-      "type": "default",
-      "enabled": true,
-      "description": "Internal polling counter for Scenario 2 Retrieve"
-    },
-    {
-      "key": "s3_routingIdentifier",
-      "value": "",
-      "type": "default",
-      "enabled": true,
-      "description": "Auto-populated by Scenario 3 Search step"
-    },
-    {
-      "key": "s3_sessionId",
-      "value": "",
-      "type": "default",
-      "enabled": true,
-      "description": "Auto-populated by Scenario 3 Verify step"
-    },
-    {
-      "key": "s3_orderNo",
-      "value": "",
-      "type": "default",
-      "enabled": true,
-      "description": "Auto-populated by Scenario 3 Order step"
-    },
-    {
-      "key": "s3_poll_count",
-      "value": "0",
-      "type": "default",
-      "enabled": true,
-      "description": "Internal polling counter for Scenario 3 Retrieve"
+      "description": "Internal polling counter for Retrieve step"
     }
   ]
 }

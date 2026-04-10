@@ -20,7 +20,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\"cid\":\"{{client_id}}\",\"tripType\":\"1\",\"adultNum\":1,\"childNum\":0,\"infantNum\":0,\"fromCity\":\"JKT\",\"toCity\":\"SUB\",\"fromDate\":\"{{from_date}}\",\"currency\":\"{{currency}}\"}"
+              "raw": "{\"cid\":\"{{client_id}}\",\"tripType\":\"1\",\"adultNum\":1,\"childNum\":0,\"infantNum\":0,\"fromCity\":\"JKT\",\"toCity\":\"SUB\",\"fromDate\":\"{{from_date}}\"}"
             },
             "url": {
               "raw": "https://sandbox.atriptech.com/search.do",
