@@ -40,11 +40,11 @@ Use these files:
 
 * `Atlas_UAT_HappyPath.postman_collection.json`
 
-{% file src="../../../.gitbook/assets/Atlas_UAT_HappyPath.postman_collection.json" %}
+{% file src="../../../.gitbook/assets/Atlas_UAT_HappyPath.postman_collection (2).json" %}
 
 * `Atlas_UAT_Environment.json`
 
-{% file src="../../../.gitbook/assets/Atlas_UAT_Environment.json" %}
+{% file src="../../../.gitbook/assets/Atlas_UAT_Environment (2).json" %}
 
 Download both files to the same local folder.
 
