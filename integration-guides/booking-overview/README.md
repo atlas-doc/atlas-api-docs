@@ -27,7 +27,7 @@ Use this section for the end-to-end booking flow.
 * Retrieve offers through an independent Get Offer flow
 * Verify fares and routing
 * Create orders
-* Confirm FR orders
+* Confirm FR orders when required
 * Pay and issue tickets
 * Retrieve booking details
 * Run advanced search flows
@@ -52,6 +52,14 @@ Recheck fare, routing, and booking requirements before order creation.
 ### Order
 
 Create the booking with passenger, contact, and ancillary details.
+{% endstep %}
+
+{% step %}
+### Optional FR confirmation
+
+Most airlines skip this step.
+
+If the airline is FR, call `orderCommit.do` and wait for user confirmation before payment.
 {% endstep %}
 
 {% step %}
@@ -108,7 +116,7 @@ Complete payment with `pay.do`.
 
 * A standard search-to-ticket flow
 * An independent offer lookup and price-check flow
-* FR order confirmation support
+* FR order confirmation support when applicable
 * Seat and baggage selection
 * Real-time or smart search options
 
