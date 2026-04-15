@@ -26,6 +26,12 @@ Use this section for exact endpoint schemas, fields, and samples.
 * [Balance](utility-apis/balance.md)
 * [ATRIP Token](utility-apis/atrip-token.md)
 
+### Faster implementation with MCP
+
+Use [MCP-Assisted Development](../readme/quick-start/mcp-assisted-development.md) when you need help finding the right workflow, comparing related APIs, or narrowing down the next integration step.
+
+Use this section as the field-level source of truth after MCP points you to the right endpoint.
+
 ### Recommended usage
 
 1. Start with [Integration Guides](<../README (1).md>) for workflow and onboarding order.

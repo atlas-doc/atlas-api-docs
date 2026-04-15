@@ -7,6 +7,7 @@
     * [Sandbox Access](integration-guides/quick-start/making-requests.md)
     * [Sandbox Development](integration-guides/quick-start/sandbox-development.md)
       * [Sandbox Validation Test Kit](readme/quick-start/sandbox-development/sandbox-validation-test-kit.md)
+    * [MCP-Assisted Development](readme/quick-start/mcp-assisted-development.md)
     * [UAT Validation](integration-guides/quick-start/uat-submission-guide.md)
     * [Production Go-Live](integration-guides/quick-start/production-go-live.md)
   * [Booking Overview](integration-guides/booking-overview/README.md)

@@ -76,6 +76,7 @@ The goal is to complete the end-to-end business flow in sandbox.
 Use these pages during development:
 
 * [Sandbox Development](sandbox-development.md)
+* [MCP-Assisted Development](../../readme/quick-start/mcp-assisted-development.md)
 * [Booking Overview](../booking-overview/)
 * [Webhook Overview](../webhook-overview/)
 

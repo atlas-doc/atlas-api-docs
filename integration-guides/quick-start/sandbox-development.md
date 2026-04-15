@@ -58,6 +58,16 @@ Make sure you already have:
 * request headers configured
 * a basic server-side integration ready to test
 
+### Use MCP during development
+
+Use [MCP-Assisted Development](../../readme/quick-start/mcp-assisted-development.md) when you need help finding the right flow, page, or next API step.
+
+It works well for:
+
+* mapping `Search` to `Pay`
+* checking which identifier to keep and reuse
+* routing errors to the right troubleshooting page
+
 ### Development checklist
 
 Complete these items in sandbox:

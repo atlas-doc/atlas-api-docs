@@ -9,10 +9,24 @@ description: Track recent documentation updates and newly published guides.
 Check this page first for recent documentation updates.
 
 {% hint style="success" %}
-Latest update: [Sandbox Validation Test Kit](readme/quick-start/sandbox-development/sandbox-validation-test-kit.md) is now available for a no-code sandbox happy path check.
+Latest update: [MCP-Assisted Development](readme/quick-start/mcp-assisted-development.md) is now available under **Quick Start**.
+{% endhint %}
+
+{% hint style="info" %}
+New: [MCP-Assisted Development](readme/quick-start/mcp-assisted-development.md) explains where GitBook MCP fits in Atlas API development.
 {% endhint %}
 
 ### Latest highlight
+
+#### MCP-Assisted Development
+
+Published [MCP-Assisted Development](readme/quick-start/mcp-assisted-development.md) under **Quick Start**.
+
+Use it when you need to:
+
+* find the right workflow faster
+* understand the next API step in the booking flow
+* route issues to the right troubleshooting page
 
 #### Sandbox Validation Test Kit
 
@@ -28,6 +42,20 @@ Use it when you need to:
 ### Change log
 
 {% updates format="full" %}
+{% update date="2026-04-15" %}
+## Added MCP-Assisted Development
+
+Published [MCP-Assisted Development](readme/quick-start/mcp-assisted-development.md) for teams using GitBook MCP during Atlas API integration.
+
+Use it when you need to:
+
+* find the correct workflow before coding
+* understand which identifier or API comes next
+* jump from development questions to the right reference or troubleshooting page
+
+The guide also includes prompt patterns and usage boundaries for production-safe development.
+{% endupdate %}
+
 {% update date="2026-04-09" %}
 ## Added Sandbox Validation Test Kit
 
