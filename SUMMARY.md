@@ -15,7 +15,7 @@
     * [Get Offer](integration-guides/booking-overview/get-offer.md)
     * [Verify](integration-guides/booking-overview/verify.md)
     * [Create Order](integration-guides/booking-overview/create-order.md)
-    * [Confirm Order](integration-guides/booking-overview/confirm-order.md)
+    * [Confirm Order (FR only)](integration-guides/booking-overview/confirm-order.md)
     * [Payment & Ticketing](readme/booking-overview/payment-and-ticketing/README.md)
       * [Hybrid Payment Guide](readme/booking-overview/payment-and-ticketing/hybrid-payment-guide.md)
     * [Query Order](integration-guides/booking-overview/query-order.md)
