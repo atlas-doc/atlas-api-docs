@@ -8,6 +8,8 @@ description: Four-phase integration path from sandbox access to production go-li
 
 Use this guide to move from Atlas sandbox access to live launch.
 
+{% include "../../.gitbook/includes/sandbox-search-currency-note.md" %}
+
 <figure><img src="../../.gitbook/assets/FlowChart_1_QuickStart.png" alt=""><figcaption><p>End-to-end integration flow from sandbox access to go-live</p></figcaption></figure>
 
 ### Integration flow

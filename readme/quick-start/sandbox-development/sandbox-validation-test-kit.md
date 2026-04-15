@@ -63,7 +63,9 @@ Set:
 * `currency`
 * `from_date`
 
-Use `USD` for `currency` unless your test case requires a different value.
+For first-time integrations, Atlas may not have settlement currency configured yet.
+
+Set `currency` to `USD` for sandbox testing unless your test case requires a different value.
 
 Update `from_date` to a future date before you run the collection.
 {% endstep %}

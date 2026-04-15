@@ -8,6 +8,8 @@ description: Build and validate the sandbox integration before UAT.
 
 Use this page to build and validate the full Atlas integration in sandbox.
 
+{% include "../../.gitbook/includes/sandbox-search-currency-note.md" %}
+
 {% hint style="info" %}
 Before you build the integration, run the [Sandbox Validation Test Kit](../../readme/quick-start/sandbox-development/sandbox-validation-test-kit.md).
 
