@@ -8,6 +8,12 @@ description: Create bookings with passenger, contact, and ancillary data.
 
 Use this page to place the booking after verification.
 
+{% hint style="info" %}
+Before calling `order.do`, read `bookingRequirement` from the verify response.
+
+Use it to decide which passenger and document fields are required for this booking.
+{% endhint %}
+
 ### Main API
 
 * `order.do`
@@ -15,6 +21,7 @@ Use this page to place the booking after verification.
 ### Inputs
 
 * `sessionId` from verify
+* `bookingRequirement` from verify
 * Passenger details
 * Contact details
 * Ancillary selections when needed

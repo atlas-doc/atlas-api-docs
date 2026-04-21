@@ -10,6 +10,12 @@ description: >-
 
 Use this page after offer selection.
 
+{% hint style="info" %}
+Use `bookingRequirement` from the verify response as the source of truth for booking input.
+
+It tells you which passenger and document fields are required for `order.do`.
+{% endhint %}
+
 ### Main API
 
 * `verify.do`
@@ -22,13 +28,14 @@ Use this page after offer selection.
 
 * `sessionId` for order creation
 * Latest fare and routing details
-* Booking requirements and ancillary options
+* `bookingRequirement` for required passenger and document fields
+* Ancillary options
 
 ### Use this when you need
 
 * Fare recheck before booking
 * Final validation of routing details
-* Required passenger and document rules
+* Required passenger and document rules for `order.do`
 
 ### Related pages
 
