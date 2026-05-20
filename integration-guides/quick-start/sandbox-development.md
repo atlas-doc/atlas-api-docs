@@ -56,7 +56,7 @@ Treat sandbox fares and outcomes as test-only.
 Make sure you already have:
 
 * sandbox credentials from ATRIP
-* the correct sandbox endpoint
+* the sandbox base URL: `https://sandbox.atriptech.com/`
 * request headers configured
 * a basic server-side integration ready to test
 

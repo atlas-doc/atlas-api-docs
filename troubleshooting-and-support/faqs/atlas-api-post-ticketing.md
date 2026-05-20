@@ -10,6 +10,10 @@ description: >-
 
 Use this page for refund, schedule change, and operational follow-up questions.
 
+{% hint style="info" %}
+Submit Service Requests through Eva in ATRIP.
+{% endhint %}
+
 ### Do we get notified about schedule changes?
 
 Yes, but not always through a single channel.\
@@ -49,12 +53,12 @@ After Atlas receives the funds, reconciliation and balance credit follow.
 
 ### How should booking changes be requested?
 
-Create a Service Request in ATRIP for name correction, flight change, or similar post-booking action.
+Submit a Service Request through Eva in ATRIP for name correction, flight change, or similar post-booking action.
 
 ### Are booking changes supported through API?
 
 Not as a general self-service API flow.\
-Use a Service Request in ATRIP for change handling.
+Use Eva in ATRIP to submit the Service Request.
 
 ### How are involuntary changes handled?
 
@@ -96,19 +100,19 @@ Do not use the ATRIP **Agent and Passenger Initiated Refund** flow for VCC refun
 Use either:
 
 * the **Refund** button
-* a **Cancel & Refund** service request
+* a **Cancel & Refund** service request through Eva
 
 #### Agency or passenger initiated refund
 
 Use either:
 
-* an **Agency & Passenger Initiated Refund** service request
+* an **Agency & Passenger Initiated Refund** service request through Eva
 * batch upload in the refund module
 
 ### How should refund follow-up be handled?
 
 Wait at least 21 days after refund submission before follow-up.\
-Then use the existing service request, or create a new refund follow-up request in ATRIP.
+Then follow up in the existing service request through Eva, or create a new refund follow-up request in ATRIP.
 
 ### Related pages
 

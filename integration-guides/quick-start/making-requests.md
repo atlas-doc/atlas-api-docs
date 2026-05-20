@@ -37,6 +37,14 @@ In `Sandbox Info`, you can find:
 
 Use these values on every sandbox API call.
 
+### Sandbox base URL
+
+Use this base URL for sandbox API calls:
+
+`https://sandbox.atriptech.com/`
+
+Combine it with the endpoint path for each request.
+
 ### Standard headers
 
 Send these headers by default:
