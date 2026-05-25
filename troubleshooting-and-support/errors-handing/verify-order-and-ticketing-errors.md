@@ -63,6 +63,20 @@ The verification session expired.
 * If verify is still recent, repeat verify
 * Otherwise start from search
 
+#### `307` Illegal booking request parameters
+
+One or more order fields are invalid.
+
+This also includes inconsistent baggage selections across connected segments in the same direction.
+
+Atlas may return baggage options per segment, but order validation still treats one direction as a single baggage choice for connecting flights.
+
+**Action**
+
+* Check `msg` for the exact invalid field
+* Keep baggage consistent across all connected segments in each direction
+* Resubmit after correction
+
 #### `308` Price changed
 
 Pricing changed between verify and order.
