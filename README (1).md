@@ -37,6 +37,10 @@ Then move through:
 
 Use [Booking Overview](integration-guides/booking-overview/) for search, verify, order, payment, and order lookup.
 
+#### Local pricing data
+
+Use [Flight Data Feed](readme/flight-data-feed.md) when you need scheduled full and incremental fare delivery for your own database, AI retrieval, or low-latency display.
+
 #### Post-booking operations
 
 Use [Post-booking Overview](integration-guides/post-booking-overview/) and [Post-booking Operations](integration-guides/post-booking-overview/post-booking-operations/) for refunds, maintenance, ancillaries, and claims.
