@@ -1,5 +1,7 @@
 ---
-description: Go-live validation steps, templates, evidence, and submission path.
+description: >-
+  Atlas API UAT validation guide for templates, execution scope, evidence,
+  submission, and approval before go-live.
 ---
 
 # UAT Validation
@@ -7,6 +9,26 @@ description: Go-live validation steps, templates, evidence, and submission path.
 {% include "../../.gitbook/includes/eva-help-hint.md" %}
 
 Use this page when your sandbox integration is ready for go-live validation.
+
+Start here when you need to:
+
+* choose the correct UAT track
+* prepare the right evidence before submission
+* understand what must be approved before go-live
+
+### FAQ
+
+#### When should we start UAT?
+
+Start UAT only after the sandbox flow is stable end to end.
+
+Your team should be able to run the required test scenarios reliably before formal submission.
+
+#### What does UAT approval prove?
+
+It proves the validated sandbox integration is ready for production transition.
+
+It does not replace the production credential switch or go-live monitoring steps.
 
 ### Goal of this phase
 
@@ -60,6 +82,12 @@ This usually covers:
 * webhooks
 * operational follow-up flows
 
+### How do you choose the right UAT track?
+
+Use **Shopping and Ticketing UAT** for the standard search-to-ticket path.
+
+Use **Full Integration UAT** when you need broader coverage across passenger combinations, trip types, ancillaries, webhook handling, and operational follow-up.
+
 ### What to prepare before submission
 
 Prepare these items before submitting UAT:
@@ -70,6 +98,12 @@ Prepare these items before submitting UAT:
 * relevant order numbers or request IDs
 * webhook evidence when full integration is tested
 * the Postman collection used by your team, if needed
+
+### Best practice
+
+Record expected and actual results clearly for every scenario.
+
+Keep order numbers, request IDs, screenshots, and webhook samples linked to the same test case.
 
 ### Recommended execution order
 
@@ -136,6 +170,12 @@ After you complete the relevant template, submit the results through Eva in ATRI
 * no supporting evidence
 * unclear passenger or trip type coverage
 * webhook flow not demonstrated for full integration UAT
+
+### What comes next?
+
+After approval, continue with [Production Go-Live](production-go-live.md).
+
+At that point, ask for `LIVE` status, generate production credentials, switch endpoints, and run a controlled smoke test.
 
 ### Complete this phase when
 

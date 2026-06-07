@@ -1,7 +1,7 @@
 ---
 description: >-
-  High-priority questions to settle before kickoff, development, and go-live
-  planning.
+  Key Atlas API questions to settle before kickoff, development, UAT, and
+  go-live.
 ---
 
 # Before Integration
@@ -17,6 +17,12 @@ Need a meeting-ready version of this page?
 
 Use [Kickoff Checklist](kickoff-checklist.md).
 {% endhint %}
+
+Start here when you need to:
+
+* choose the right booking and pricing flow
+* confirm payment, ticketing, and refund design
+* define what must be ready before UAT and go-live
 
 ### What should be decided before kickoff?
 
@@ -44,6 +50,14 @@ Use this checklist in the first solution review:
 * webhook is not treated as the only source of truth
 * post-booking changes are routed to ATRIP service requests
 * UAT owner and evidence format are agreed
+
+### FAQ
+
+#### What should we decide before Atlas API kickoff?
+
+Decide the shopping flow, price refresh point, payment mode, ticketing confirmation path, ancillary scope, and post-booking ownership first.
+
+If these points stay open, implementation and kickoff both slow down.
 
 ### Pricing integrity
 
@@ -92,6 +106,12 @@ See:
 * [Booking Overview](../../integration-guides/booking-overview/)
 * [Get Offer](../../integration-guides/booking-overview/get-offer.md)
 * [Verify](../../integration-guides/booking-overview/verify.md)
+
+#### How should we protect pricing integrity before booking?
+
+Do not treat search output as a final booking promise.
+
+Refresh price close to booking time with `verify.do` or `getOffers.do`, then create the order without unnecessary delay.
 
 ### Why can search and verify return different prices?
 
@@ -182,6 +202,12 @@ Use **VCC pass-through** when your business needs direct airline card charging.
 
 Still confirm support per airline and per order before building the final payment path.
 
+#### What should our system store for later follow-up?
+
+Store `routingIdentifier`, `sessionId` or `OfferId`, `orderNo`, `pnrCode`, airline PNR when available, and the payment method used.
+
+These values make ticketing, refund, and support follow-up much easier.
+
 ### Does Atlas issue VCC cards?
 
 No.
@@ -212,8 +238,6 @@ Keep these values in your booking chain:
 * `pnrCode`
 * airline PNR when available
 * payment method used
-
-This makes ticketing, refund, and support follow-up much easier.
 
 ### Is `pnrCode` the airline PNR?
 
@@ -269,6 +293,12 @@ Webhook delivery is best effort.
 Use airline email, incident flows, and order query for final reconciliation.
 
 See [Webhook Overview](../../integration-guides/webhook-overview/).
+
+#### When should we start UAT and prepare for go-live?
+
+Start UAT only after the sandbox flow is stable end to end.
+
+Move to go-live only after UAT approval, production credentials, IP whitelist, and first-order monitoring are ready.
 
 ### When should we start UAT?
 

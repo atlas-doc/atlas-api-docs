@@ -1,5 +1,7 @@
 ---
-description: Pay orders and track ticketing completion.
+description: >-
+  Atlas API payment and ticketing flow for pay.do, payment methods, retry
+  safety, and final ticketing follow-up.
 ---
 
 # Payment & Ticketing
@@ -7,6 +9,28 @@ description: Pay orders and track ticketing completion.
 {% include "../../../.gitbook/includes/eva-help-hint.md" %}
 
 Use this page to complete payment and wait for ticket issuance.
+
+Start here when you need to:
+
+* pay an existing order
+* choose the correct payment method
+* track final ticketing after `pay.do`
+
+### FAQ
+
+#### What do I need before `pay.do`?
+
+You need a valid `orderNo`, a supported payment method, and card data when the method is card-based.
+
+The order must still be unpaid and still support the selected payment path.
+
+#### Does payment success mean ticketing is already complete?
+
+No.
+
+Payment success does not always mean the airline PNR and ticket numbers are already final.
+
+Use order follow-up until the final ticketing state is confirmed.
 
 ### Main API
 
@@ -31,6 +55,14 @@ Confirm these points first:
 
 For standard flows, call `order.do` before `pay.do`.
 
+### What should you keep in mind after payment?
+
+Keep using `orderNo` for order follow-up.
+
+Read the final ticketing state from order query.
+
+Do not send duplicate payment requests when payment may already be in progress or completed.
+
 ### Payment methods
 
 * `1`: Deposit
@@ -52,6 +84,12 @@ Send `creditCard` when using:
 
 `threeDS.ip` is only relevant for MoR.
 
+### What comes next?
+
+After `pay.do`, use [Query Order](../../../integration-guides/booking-overview/query-order.md) until the final ticketed state is confirmed.
+
+Use webhook as a supplement, not as the only confirmation path.
+
 ### What to watch
 
 * supported payment methods vary by airline and fare
@@ -67,6 +105,12 @@ Send `creditCard` when using:
 * use VCC only when the fare supports it
 * poll order status after payment until ticketing completes
 * handle payment retries carefully to avoid duplicate charges
+
+### Safe retry rule
+
+If payment may already have started, query the order first.
+
+Do not retry payment blindly after `402`, `404`, `406`, or similar order-state errors.
 
 ### Common failure cases
 

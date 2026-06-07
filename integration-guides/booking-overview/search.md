@@ -1,5 +1,7 @@
 ---
-description: Search APIs for flight offers, real-time search, and request polling.
+description: >-
+  Atlas API search flow overview for flight offers, Get Offer, smart search, and
+  downstream identifier handling.
 ---
 
 # Search
@@ -13,6 +15,26 @@ Use this page to start the booking flow.
 
 Do not use it for new integrations. Prefer the standard `search.do` flow.
 {% endhint %}
+
+Start here when you need to:
+
+* begin the standard booking flow
+* choose between `search.do` and `getOffers.do`
+* understand which identifier to keep for the next step
+
+### FAQ
+
+#### When should I use `search.do`?
+
+Use `search.do` when Atlas is your main shopping entry point.
+
+Keep the returned `routingIdentifier` for `verify.do`.
+
+#### When should I use `getOffers.do` instead?
+
+Use `getOffers.do` when you already know the target itinerary or need an independent price check.
+
+Keep the returned `OfferId` for the order flow.
 
 ### What this page covers
 
@@ -34,12 +56,36 @@ Do not use it for new integrations. Prefer the standard `search.do` flow.
 * `requestId` for smart search follow-up
 * Offer data for downstream selection
 
+### Which identifier should you keep?
+
+Keep the identifier that matches the flow:
+
+* `routingIdentifier` for the standard search → verify flow
+* `OfferId` for the Get Offer → order flow
+* `requestId` only for smart search follow-up
+
+Do not mix identifiers across flows.
+
 ### Use this when you need
 
 * A standard search-to-book flow
 * An independent offer lookup without standard search
 * Smart or asynchronous search behavior
 * Offer refresh after smart search
+
+### What comes next?
+
+#### Standard flow
+
+Call [Verify](verify.md) with `routingIdentifier`.
+
+#### Get Offer flow
+
+Continue with [Get Offer](get-offer.md) and then create the order with `OfferId`.
+
+#### Smart search flow
+
+Use the smart search follow-up only for existing implementations.
 
 ### Related pages
 

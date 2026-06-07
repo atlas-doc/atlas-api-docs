@@ -1,7 +1,7 @@
 ---
 description: >-
-  Common onboarding questions about coverage, access, pricing, performance, and
-  escalation.
+  Common Atlas API onboarding questions about access, sandbox testing, pricing,
+  performance, airline coverage, and escalation.
 ---
 
 # Getting Started
@@ -10,20 +10,56 @@ description: >-
 
 Use this page for commercial, onboarding, performance, and support basics.
 
+Start here when you need to:
+
+* confirm how to get sandbox access
+* understand what Atlas supports before development
+* find basic guidance on pricing, performance, and escalation
+
+### FAQ
+
+#### How do we start with Atlas API?
+
+Start by confirming commercial fit, NDA steps, and sandbox access.
+
+Then generate sandbox credentials, run the first tests, and move to UAT only after the end-to-end flow is stable.
+
 ### Which airlines can we sell through Atlas?
 
 Atlas connects to 150+ airlines.\
 You can review the current list on the [airline list](https://www.atriptech.com/#/airline/list) and in ATRIP.
+
+#### Can we test before signing?
+
+Yes.
+
+Submit the [get started form](https://atlaslovestravel.com/get-started/).
+
+Atlas will review your company, complete NDA steps, and then issue test credentials.
 
 ### Can we test before signing?
 
 Yes. Submit the [get started form](https://atlaslovestravel.com/get-started/).\
 Atlas will review your company, complete NDA steps, and then issue test credentials.
 
+#### Where do we get sandbox credentials?
+
+Generate them in ATRIP under `Profile` → `My Profile` → `Company Information`.
+
+Use `x-atlas-client-id` and `x-atlas-client-secret` on every sandbox call.
+
 ### Where do we get sandbox credentials?
 
 Generate them in ATRIP under `Profile` → `My Profile` → `Company Information`.\
 Use `x-atlas-client-id` and `x-atlas-client-secret` on every sandbox call.
+
+#### Is there a Postman collection for first tests?
+
+Yes.
+
+Use the Postman collection in [Quick Start](../../integration-guides/quick-start/).
+
+Use the UAT collections later when you prepare validation evidence.
 
 ### Is there a Postman collection for first tests?
 
@@ -31,6 +67,12 @@ Yes.\
 Use the Postman collection in [Quick Start](../../integration-guides/quick-start/).
 
 Use the UAT collections when you prepare validation evidence.
+
+#### How do we start UAT?
+
+Start UAT only after the sandbox flow is stable end to end.
+
+Pick the correct UAT track, complete the template, attach evidence, and submit through Eva in ATRIP.
 
 ### How do we start UAT?
 
@@ -46,6 +88,12 @@ Atlas exposes supported functions per airline and flow.
 
 Pricing depends on market, currency, and commercial terms.\
 Use the [contact form](https://atlaslovestravel.com/contact/) to get local pricing details.
+
+#### What performance should we expect?
+
+Typical response times vary by API and airline conditions.
+
+Use the timeout and response-time guidance below as operational expectations, not as hard guarantees for every request.
 
 ### Does Atlas support promo fares or promo codes?
 
@@ -88,6 +136,12 @@ Fare guarantee does **not** apply to VCC pass-through payments.
 * `verify.do`: about `8s` for 95% of responses
 * `order.do`: about `14s` for 95% of responses
 * `pay.do`: about `2s` for 95% of responses
+
+#### How do we escalate unresolved issues?
+
+Escalate unresolved service issues through **customerfeedback@atlaslovestravel.com**.
+
+Atlas may first ask you to open or reference a Service Request in ATRIP.
 
 ### How do we escalate unresolved issues?
 

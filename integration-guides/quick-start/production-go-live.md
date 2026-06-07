@@ -1,7 +1,7 @@
 ---
 description: >-
-  Switch from sandbox integration to production credentials, endpoints, and live
-  launch.
+  Atlas API production go-live guide for LIVE status, production credentials,
+  endpoint switch, smoke testing, and first-live monitoring.
 ---
 
 # Production Go-Live
@@ -9,6 +9,26 @@ description: >-
 {% include "../../.gitbook/includes/eva-help-hint.md" %}
 
 Use this page when you are ready to move from sandbox to production.
+
+Start here when you need to:
+
+* switch from sandbox to production safely
+* understand what changes at go-live
+* monitor the first live orders and webhook events
+
+### FAQ
+
+#### When can we generate production credentials?
+
+Only after UAT passes and your customer manager switches the account to `LIVE`.
+
+UAT approval alone does not unlock production credentials.
+
+#### What should we monitor right after go-live?
+
+Monitor first live orders, payment results, ticketing follow-up, and webhook delivery closely.
+
+Use a controlled smoke test before normal production traffic ramps up.
 
 ### Goal of this phase
 
@@ -29,6 +49,10 @@ Do not start production setup before your go-live checklist is ready.
 
 You can generate production credentials only after UAT passes and your customer manager switches your account to `LIVE` status.
 
+### What should be ready before go-live?
+
+Make sure UAT is approved, the booking flow is stable, webhook handling is ready, and the team can monitor live transactions from the first order.
+
 ### What changes in production
 
 Move these items from sandbox to production:
@@ -41,6 +65,12 @@ Move these items from sandbox to production:
 Header rules stay the same.
 
 Live bookings and payments are real transactions.
+
+### Best practice
+
+Switch credentials and endpoints in a controlled release.
+
+Validate the first live flow end to end before scaling traffic.
 
 ### Go-live checklist
 
@@ -113,6 +143,10 @@ You have all of these in production:
 * Keep production credentials server-side.
 * Confirm that your production IP whitelist stays up to date.
 * UAT completion alone does not unlock production credentials. Your customer manager must switch the account to `LIVE`.
+
+### What comes next?
+
+After the first live smoke test succeeds, keep monitoring early production traffic until order status, payment handling, and webhook behavior are stable.
 
 ### Related pages
 

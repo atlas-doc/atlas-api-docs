@@ -1,12 +1,32 @@
 ---
 description: >-
-  Common errors for refund quotation, refund submission, refund query, order
-  query, and post-booking ancillaries.
+  Common Atlas API post-booking errors for refund quotation, refund submission,
+  refund query, order query, and post-ticketing ancillaries.
 ---
 
 # Refund, Query & Post-booking Errors
 
 Use this page when issues happen after ticketing.
+
+Start here when you need to:
+
+* understand a refund, order-query, or ancillary failure after booking
+* decide whether to wait, retry, or fix the request first
+* route the case to the correct post-booking workflow
+
+### FAQ
+
+#### Which post-booking errors usually mean we should wait first?
+
+Codes such as `809`, `814`, and `117` usually mean the order or refund process is not ready for the next step yet.
+
+Wait for ticketing or the in-flight submission to finish before retrying.
+
+#### Which post-booking errors usually mean we should not resubmit?
+
+Codes such as `816`, `817`, `818`, `504`, and `505` usually mean a refund or baggage action already exists or was already applied.
+
+Query the current status instead of submitting again.
 
 ### Refund quotation and submission
 
@@ -110,6 +130,44 @@ The baggage was already added in the booking flow or in a previous post-booking 
 **Action**
 
 * Do not submit duplicate baggage orders
+
+### Quick retry guide
+
+#### Wait, then retry
+
+Examples:
+
+* `809`
+* `814`
+* `117`
+* `705`
+
+#### Fix the request first
+
+Examples:
+
+* `801`
+* `811`
+* `703`
+* `502`
+
+#### Do not resubmit
+
+Examples:
+
+* `816`
+* `817`
+* `818`
+* `504`
+* `505`
+
+### What comes next?
+
+Use [Refunds](../../integration-guides/post-booking-overview/post-booking-operations/refunds.md) for refund flow guidance.
+
+Use [Query Order](../../integration-guides/booking-overview/query-order.md) when the current order state is still unclear.
+
+Use [Post-booking Overview](../../integration-guides/post-booking-overview/) to route the case to the right post-booking workflow.
 
 ### Related pages
 

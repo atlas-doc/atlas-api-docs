@@ -1,45 +1,123 @@
 ---
-description: Track recent documentation updates and newly published guides.
+description: >-
+  Latest Atlas API documentation updates, new integration guides, and
+  recommended next reads.
 ---
 
-# 📣 What's New
+# 📣 Atlas API Documentation Updates
 
 {% include ".gitbook/includes/eva-help-hint.md" %}
 
-Check this page first for recent documentation updates.
+Use this page to track the latest Atlas API documentation updates.
 
 {% hint style="success" %}
 Latest update: [MCP-Assisted Development](readme/quick-start/mcp-assisted-development.md) is now available under **Quick Start**.
 {% endhint %}
 
-{% hint style="info" %}
-New: [MCP-Assisted Development](readme/quick-start/mcp-assisted-development.md) explains where GitBook MCP fits in Atlas API development.
-{% endhint %}
+It highlights new guides, major troubleshooting improvements, and the next pages to read by use case.
 
-### Latest highlight
+Start here if you need to:
+
+* find the newest Atlas API guides
+* see what changed for sandbox, booking, payment, or troubleshooting
+* choose the right page to read next
+
+### Latest Atlas API documentation updates
 
 #### MCP-Assisted Development
 
-Published [MCP-Assisted Development](readme/quick-start/mcp-assisted-development.md) under **Quick Start**.
+Read [MCP-Assisted Development](readme/quick-start/mcp-assisted-development.md) when you want to use GitBook MCP during Atlas API integration.
 
-Use it when you need to:
+Best for:
 
-* find the right workflow faster
-* understand the next API step in the booking flow
-* route issues to the right troubleshooting page
+* teams starting a sandbox build
+* developers mapping the booking flow
+* teams routing implementation questions faster
+
+Read next:
+
+* [Quick Start](integration-guides/quick-start/)
+* [API Reference](api-reference/)
 
 #### Sandbox Validation Test Kit
 
-Published [Sandbox Validation Test Kit](readme/quick-start/sandbox-development/sandbox-validation-test-kit.md) under **Quick Start**.
+Read [Sandbox Validation Test Kit](readme/quick-start/sandbox-development/sandbox-validation-test-kit.md) when you need a no-code sandbox validation run before development or after environment changes.
 
-Use it when you need to:
+Best for:
 
 * validate sandbox credentials before coding
 * confirm network access and core booking flow readiness
-* run `Search`, `Verify`, `Order`, and `Pay` with a ready-made test kit
-* recheck sandbox health after credential or IP changes
+* teams rechecking sandbox health after credential or IP changes
 
-### Change log
+Read next:
+
+* [Sandbox Development](integration-guides/quick-start/sandbox-development.md)
+* [UAT Validation](integration-guides/quick-start/uat-submission-guide.md)
+
+#### Error Codes improvements
+
+[Error Codes](troubleshooting-and-support/errors-handing/) now works better as the main troubleshooting entry point.
+
+Best for:
+
+* teams handling high-frequency integration failures
+* developers defining safe retry behavior
+* operations teams checking likely root causes
+
+Read next:
+
+* [Common & Access Errors](troubleshooting-and-support/errors-handing/common-and-access-errors.md)
+* [Verify, Order & Ticketing Errors](troubleshooting-and-support/errors-handing/verify-order-and-ticketing-errors.md)
+
+### Start here by use case
+
+#### New Atlas API integration
+
+Start with:
+
+* [Quick Start](integration-guides/quick-start/)
+* [MCP-Assisted Development](readme/quick-start/mcp-assisted-development.md)
+* [Booking Overview](integration-guides/booking-overview/)
+
+#### Sandbox validation
+
+Start with:
+
+* [Sandbox Access](integration-guides/quick-start/making-requests.md)
+* [Sandbox Validation Test Kit](readme/quick-start/sandbox-development/sandbox-validation-test-kit.md)
+* [Sandbox Development](integration-guides/quick-start/sandbox-development.md)
+
+#### Booking and payment flow
+
+Start with:
+
+* [Booking Overview](integration-guides/booking-overview/)
+* [Payment & Ticketing](readme/booking-overview/payment-and-ticketing/)
+* [Hybrid Payment Guide](readme/booking-overview/payment-and-ticketing/hybrid-payment-guide.md)
+
+#### Troubleshooting and support
+
+Start with:
+
+* [Error Codes](troubleshooting-and-support/errors-handing/)
+* [FAQs](troubleshooting-and-support/faqs/)
+* [Webhook Overview](integration-guides/webhook-overview/)
+
+### FAQ
+
+#### What changed in the Atlas API docs recently?
+
+Recent updates added [MCP-Assisted Development](readme/quick-start/mcp-assisted-development.md), published [Sandbox Validation Test Kit](readme/quick-start/sandbox-development/sandbox-validation-test-kit.md), and improved [Error Codes](troubleshooting-and-support/errors-handing/) as a troubleshooting entry point.
+
+#### Which guide should I read first for sandbox integration?
+
+Start with [Quick Start](integration-guides/quick-start/). Then use [Sandbox Validation Test Kit](readme/quick-start/sandbox-development/sandbox-validation-test-kit.md) to confirm readiness before coding.
+
+#### Where should I start for booking, payment, or troubleshooting?
+
+Use [Booking Overview](integration-guides/booking-overview/) for the main flow, [Payment & Ticketing](readme/booking-overview/payment-and-ticketing/) for payment and polling, and [Error Codes](troubleshooting-and-support/errors-handing/) for failure handling.
+
+### Full change log
 
 {% updates format="full" %}
 {% update date="2026-04-15" %}

@@ -1,7 +1,7 @@
 ---
 description: >-
-  Published sandbox routes, cards, and other test inputs used for integration
-  validation.
+  Atlas API sandbox test data for published routes, test cards, and shared
+  validation inputs.
 ---
 
 # Sandbox Test Data
@@ -9,6 +9,22 @@ description: >-
 {% include "../../.gitbook/includes/eva-help-hint.md" %}
 
 Use this section for published sandbox inputs used during testing.
+
+Start here when you need to:
+
+* run stable sandbox test scenarios
+* find published test card data
+* use shared inputs for sandbox validation or UAT preparation
+
+### FAQ
+
+#### What should I use Sandbox Test Data for?
+
+Use this section for stable sandbox routes, test cards, and other published inputs used during validation.
+
+#### When should I check Sandbox Test Data?
+
+Check it before sandbox validation, scripted testing, or UAT preparation when you need known-good test inputs.
 
 ### Pages in this section
 
@@ -26,6 +42,10 @@ Use this section for published sandbox inputs used during testing.
 * Stable sandbox test scenarios
 * Test payment card numbers
 * Published test inputs for UAT or sandbox validation
+
+### What comes next?
+
+After you pick the required test input, continue with [Sandbox Development](../../integration-guides/quick-start/sandbox-development.md) or [UAT Validation](../../integration-guides/quick-start/uat-submission-guide.md).
 
 ### Related sections
 

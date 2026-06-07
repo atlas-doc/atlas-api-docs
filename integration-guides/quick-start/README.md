@@ -1,5 +1,7 @@
 ---
-description: Four-phase integration path from sandbox access to production go-live.
+description: >-
+  Quick start guide for Atlas API integration from sandbox access to sandbox
+  development, UAT, and production go-live.
 ---
 
 # Quick Start
@@ -11,6 +13,20 @@ Use this guide to move from Atlas sandbox access to live launch.
 {% include "../../.gitbook/includes/sandbox-search-currency-note.md" %}
 
 <figure><img src="../../.gitbook/assets/FlowChart_1_QuickStart.png" alt=""><figcaption><p>End-to-end integration flow from sandbox access to go-live</p></figcaption></figure>
+
+Start here when you need to:
+
+* understand the full Atlas API integration path
+* know what to finish before moving to the next phase
+* find the right page for sandbox, UAT, or go-live work
+
+### FAQ
+
+#### How do I start an Atlas API integration?
+
+Start with sandbox credentials and request basics.
+
+Then build the full booking flow in sandbox, complete UAT, and move to production only after approval and environment switch.
 
 ### Integration flow
 
@@ -39,6 +55,24 @@ Complete the required UAT track after sandbox development is stable.
 After UAT passes and your account is switched to `LIVE`, generate production credentials and switch to production endpoints for go-live.
 {% endstep %}
 {% endstepper %}
+
+### What each phase means
+
+#### Sandbox Access
+
+Get sandbox credentials, confirm headers, and validate basic request handling.
+
+#### Sandbox Development
+
+Build and test the booking flow, payment path, order query, and webhook handling in sandbox.
+
+#### UAT Validation
+
+Submit the required validation evidence and get approval for production readiness.
+
+#### Production Go-Live
+
+Generate production credentials, switch endpoints, run smoke tests, and monitor first live traffic.
 
 ### How the full flow works
 
@@ -125,12 +159,30 @@ This completes the move from test integration to live operation.
 
 Use [Production Go-Live](production-go-live.md) for the go-live checklist.
 
+### What should you keep across the booking flow?
+
+Keep these identifiers through the main flow:
+
+* `routingIdentifier`
+* `sessionId`
+* `orderNo`
+
+If you use the Get Offer path, keep `OfferId` instead of `sessionId`.
+
 ### What each phase produces
 
 * Sandbox Access → sandbox client ID and client secret
 * Sandbox Development → stable sandbox booking and webhook flow
 * UAT Validation → approved validation result
 * Production Go-Live → production-ready environment
+
+### Recommended first path
+
+1. Use [Sandbox Access](making-requests.md) to get credentials and confirm request basics.
+2. Run [Sandbox Validation Test Kit](../../readme/quick-start/sandbox-development/sandbox-validation-test-kit.md) for a fast no-code health check.
+3. Use [Sandbox Development](sandbox-development.md) to implement the full flow.
+4. Move to [UAT Validation](uat-submission-guide.md) after the sandbox flow is stable.
+5. Finish with [Production Go-Live](production-go-live.md).
 
 ### First end-to-end test resource
 

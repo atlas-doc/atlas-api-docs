@@ -1,5 +1,7 @@
 ---
-description: Webhook setup, event coverage, and incident follow-up guidance.
+description: >-
+  Atlas API webhook setup, event coverage, delivery expectations, and incident
+  follow-up guidance.
 ---
 
 # Webhook Overview
@@ -8,11 +10,39 @@ description: Webhook setup, event coverage, and incident follow-up guidance.
 
 Use this section to register webhook endpoints and consume event notifications.
 
+Start here when you need to:
+
+* register webhook delivery before go-live
+* understand which booking events Atlas can notify
+* decide how webhook fits with order query and airline email
+
+### FAQ
+
+#### Are Atlas webhooks guaranteed?
+
+No.
+
+Webhook delivery is best effort.
+
+Use order query, airline email, and incident follow-up for final reconciliation.
+
+#### What should webhook be used for?
+
+Use webhook to speed up event handling for ticketing completion, schedule changes, airline status updates, email capture, and incident follow-up.
+
+Do not treat webhook as the only source of truth for booking state.
+
 ### Overview
 
 Webhooks will automatically notify you on airline changes that affect your customers’ bookings. For example, when an airline has changed the flight schedule affecting one of your orders, the Atlas API will send a notification about this event to your server, and you can process it. For example, you may take actions by updating your database or emailing the customer.
 
 > Atlas provides the webhook functionality on the “best possible basis”. Atlas does not take the responsibility for providing all the notifications. For any schedule changes please always refer to the email sent by the airline to the email id provided in the booking request.
+
+### Recommended webhook model
+
+Use webhook as a near-real-time signal.
+
+Then confirm the final state with order query, incident query, or airline email when needed.
 
 ### Typical flow
 
@@ -43,3 +73,11 @@ Use incident queries and order APIs to confirm final state.
 2. Incident query: [Incident Query](incident-query.md)
 {% endstep %}
 {% endstepper %}
+
+### What webhook should not replace
+
+Webhook should not replace:
+
+* `queryOrderDetails.do` for final ticketing confirmation
+* airline email for schedule-change awareness
+* incident query for deeper incident reconciliation

@@ -1,7 +1,7 @@
 ---
 description: >-
-  Shared reference data, enumerations, and supporting values used across
-  integration flows.
+  Atlas API integration reference for shared values, enumerations, sandbox test
+  data, and supporting inputs across workflows.
 ---
 
 # Integration Reference
@@ -9,6 +9,24 @@ description: >-
 {% include "../.gitbook/includes/eva-help-hint.md" %}
 
 Use this section for shared reference data used across Atlas API flows.
+
+Start here when you need to:
+
+* find a shared value or enumeration used across workflows
+* check published sandbox test inputs
+* confirm supporting data before building or troubleshooting a request
+
+### FAQ
+
+#### What belongs in Integration Reference?
+
+This section holds shared reference values, airline-specific supporting data, and published sandbox test inputs reused across Atlas API workflows.
+
+#### When should I use Integration Reference instead of API Reference?
+
+Use Integration Reference for shared values and test inputs.
+
+Use [API Reference](../api-reference/) for exact endpoint fields, schemas, and samples.
 
 ### Pages in this section
 
@@ -28,6 +46,10 @@ Use this section for shared reference data used across Atlas API flows.
 * A reference list reused across flows
 * Published sandbox test inputs
 * Airline-specific supporting data
+
+### What comes next?
+
+After you find the required value or test input, return to the workflow or endpoint page you are implementing.
 
 ### Related sections
 

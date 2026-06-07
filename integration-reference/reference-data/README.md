@@ -10,6 +10,22 @@ description: >-
 
 Use this section for stable reference data reused across integration flows.
 
+Start here when you need to:
+
+* confirm a shared request value before implementation
+* check a reusable enumeration or lookup value
+* find a supporting reference page used by multiple workflows
+
+### FAQ
+
+#### What is Reference Data used for?
+
+Use this section for stable shared values and lookup data reused across Atlas API flows.
+
+#### When should I open Reference Data instead of a workflow page?
+
+Open Reference Data when you already know the workflow and only need the supporting value, enumeration, or lookup data.
+
 ### Pages in this section
 
 * [Locale Reference](locale.md)
@@ -25,3 +41,7 @@ Use this section for stable reference data reused across integration flows.
 * A supported request value
 * A reference list reused across flows
 * A lookup page used by multiple guides or APIs
+
+### What comes next?
+
+After you confirm the reference value, return to the guide or endpoint page where that value is used.

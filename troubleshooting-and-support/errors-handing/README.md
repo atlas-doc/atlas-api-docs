@@ -1,21 +1,60 @@
 ---
 description: >-
-  Error lookup entry point with grouped troubleshooting guides and the full
-  legacy code catalog.
+  Atlas API error codes, retry guidance, and troubleshooting paths for search,
+  booking, payment, refund, and post-booking flows.
 ---
 
 # Error Codes
 
 {% include "../../.gitbook/includes/eva-help-hint.md" %}
 
-Use this page as the main error lookup entry point.
+Use this page to troubleshoot Atlas API failures by code and flow.
 
-Use it in two ways:
+Start here when you need to:
 
-* Start with the flow that failed
-* Check whether the code is safe to retry
+* identify what an error code usually means
+* decide whether the request is safe to retry
+* jump to the correct troubleshooting page fast
 
-### Start with the right section
+Most teams should first identify the failed step.
+
+Then decide whether the issue is caused by input, identifier expiry, inventory change, payment state, or platform conditions.
+
+### Find the right error guide fast
+
+Use the page that matches the failed stage.
+
+#### Request failed before business processing
+
+Start with [Common & Access Errors](common-and-access-errors.md).
+
+Use it for invalid JSON, missing fields, credential failures, or access issues.
+
+#### Search failed
+
+Start with [Search Errors](search-errors.md).
+
+Use it for timeout, QPS limits, route restrictions, or empty results.
+
+#### Verify, order, or ticketing failed
+
+Start with [Verify, Order & Ticketing Errors](verify-order-and-ticketing-errors.md).
+
+Use it for expired identifiers, stale pricing, invalid booking input, or ticketing-stage failures.
+
+#### Payment failed
+
+Start with [Payment Errors](payment-errors.md).
+
+Use it for duplicate payment risk, unsupported payment methods, VCC failures, or FR confirmation gaps.
+
+#### Refund, query, or post-booking failed
+
+Start with [Refund, Query & Post-booking Errors](refund-query-and-post-booking-errors.md).
+
+Use it for order lookup issues, refund timing, expired refund offers, or ancillary limitations.
+
+### All error guides
 
 * [Common & Access Errors](common-and-access-errors.md)
 * [Search Errors](search-errors.md)
@@ -38,6 +77,10 @@ Typical `Partial` cases:
 * `415`: complete `orderCommit.do` first
 * `616` or `633`: switch payment method
 * `108`, `113`, `324`: retry later, not immediately
+
+{% hint style="warning" %}
+If payment may already have started or completed, query order status before any retry.
+{% endhint %}
 
 ### Quick decision table
 
@@ -227,6 +270,36 @@ Examples:
 * `402`
 * `404`
 * `615`
+
+### FAQ
+
+#### What do Atlas API error codes usually help me decide?
+
+They help you decide whether the failure is caused by request input, expired identifiers, inventory change, payment state, or a transient platform condition.
+
+Use the flow-specific guides above before relying only on the full legacy table.
+
+#### Which Atlas API error codes are usually safe to retry?
+
+Typical retryable cases include short-lived timeout or transient platform conditions such as `112`, `127`, `205`, `316`, and `705`.
+
+Always apply back-off where needed and avoid blind retry loops.
+
+#### Which error codes mean I need a new identifier or a new flow?
+
+Codes such as `202`, `206`, `207`, `210`, `301`, `302`, `308`, and `631` usually mean the current identifier, inventory state, or booking context is no longer valid.
+
+In these cases, restart from the right earlier step instead of resubmitting the same request.
+
+#### Should I retry `pay.do` after a payment error?
+
+Not always.
+
+For `406`, wait and query the order first.
+
+For `402`, `404`, or `615`, do not retry payment until you confirm the actual order state.
+
+For `616` or `633`, change the payment condition first.
 
 ### Full legacy code table
 

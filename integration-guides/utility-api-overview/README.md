@@ -1,5 +1,7 @@
 ---
-description: Overview of balance, email, export, and ATRIP utility APIs.
+description: >-
+  Atlas API utility overview for balance checks, email query, route export, and
+  ATRIP token generation.
 ---
 
 # Utility API Overview
@@ -7,6 +9,25 @@ description: Overview of balance, email, export, and ATRIP utility APIs.
 {% include "../../.gitbook/includes/eva-help-hint.md" %}
 
 Use this section for non-transactional APIs used by operations teams.
+
+Start here when you need to:
+
+* check balance or finance-related status
+* query operational email records
+* export route data
+* generate ATRIP access tokens
+
+### FAQ
+
+#### What are Atlas API utility APIs used for?
+
+They support non-transactional workflows such as finance checks, email lookup, route export, and ATRIP access.
+
+They are not part of the main search-to-ticket booking chain.
+
+#### Which utility page should I open first?
+
+Use **Balance** for finance checks, **Email Query** for captured email lookup, **Route Export** for route data extraction, and **ATRIP Token** for token generation.
 
 ### Pages in this section
 
@@ -35,6 +56,10 @@ Use this section for non-transactional APIs used by operations teams.
 * Export route data
 * Query email records
 * Access ATRIP with generated tokens
+
+### What comes next?
+
+After you identify the utility task, open the matching page in this section for the exact request and response details.
 
 ### Full API reference
 

@@ -1,7 +1,7 @@
 # Table of contents
 
 * [💬Need Help? Ask Eva →](https://www.atriptech.com/)
-* [📣 What's New](README.md)
+* [📣 Atlas API Documentation Updates](README.md)
 * [Integration Guides](<README (1).md>)
   * [Quick Start](integration-guides/quick-start/README.md)
     * [Sandbox Access](integration-guides/quick-start/making-requests.md)
@@ -75,7 +75,7 @@
     * [Sandbox Test Routes](integration-reference/sandbox-test-data/sandbox-test-routes.md)
     * [Sandbox Test Cards](integration-reference/sandbox-test-data/sandbox-test-cards.md)
 * [Troubleshooting & Support](troubleshooting-and-support/README.md)
-  * [FAQs](troubleshooting-and-support/faqs/README.md)
+  * [Atlas API FAQs](troubleshooting-and-support/faqs/README.md)
     * [Before Integration](troubleshooting-and-support/faqs/before-integration.md)
     * [Kickoff Checklist](troubleshooting-and-support/faqs/kickoff-checklist.md)
     * [Top Questions for Partners](troubleshooting-and-support/faqs/top-questions-for-partners.md)

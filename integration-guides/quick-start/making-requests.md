@@ -1,5 +1,7 @@
 ---
-description: Get sandbox access and confirm request basics before development.
+description: >-
+  Atlas API sandbox access guide for credentials, headers, gzip handling, and
+  first authenticated requests before development.
 ---
 
 # Sandbox Access
@@ -13,6 +15,24 @@ After you get sandbox credentials, run the [Sandbox Validation Test Kit](../../r
 
 Use it to confirm credentials, network access, and the no-code booking happy path before development starts.
 {% endhint %}
+
+Start here when you need to:
+
+* generate sandbox credentials
+* confirm the required headers and request format
+* prepare the first authenticated Atlas API calls
+
+### FAQ
+
+#### Where do we get Atlas API sandbox credentials?
+
+Generate them in ATRIP under `Profile` → `My Profile` → `Company Information`.
+
+Use `x-atlas-client-id` and `x-atlas-client-secret` on every sandbox request.
+
+#### What should be ready before sandbox development starts?
+
+Make sure credentials work, standard headers are configured, gzip responses are handled, and the team understands which identifiers are reused later in the booking flow.
 
 ### Goal of this phase
 
@@ -54,6 +74,12 @@ Send these headers by default:
 * `Accept-Encoding: gzip`
 * `x-atlas-client-id: <your-client-id>`
 * `x-atlas-client-secret: <your-client-secret>`
+
+### Best practice
+
+Keep credentials server-side only.
+
+Validate gzip handling and success status rules before building the booking flow.
 
 ### Request basics
 

@@ -1,5 +1,7 @@
 ---
-description: Core APIs for search, verify, order, payment, and ticketing workflows.
+description: >-
+  Atlas API booking flow overview for search, verify, order creation, payment,
+  ticketing, and order follow-up.
 ---
 
 # Booking Overview
@@ -9,6 +11,26 @@ description: Core APIs for search, verify, order, payment, and ticketing workflo
 Use this section for the end-to-end booking flow.
 
 <figure><img src="../../.gitbook/assets/FlowChart_2_IssueTicket.png" alt=""><figcaption><p>Booking flow from search to payment and follow-up</p></figcaption></figure>
+
+Start here when you need to:
+
+* understand the standard Atlas API booking flow
+* choose between `search.do` and `getOffers.do`
+* see which identifier to keep at each step
+
+### FAQ
+
+#### What is the standard Atlas API booking flow?
+
+The standard flow is `search.do` → `verify.do` → `order.do` → `pay.do` → `queryOrderDetails.do`.
+
+If the airline is FR, add `orderCommit.do` before payment.
+
+#### When should I use `getOffers.do` instead of `search.do`?
+
+Use `search.do` when Atlas is your main shopping entry point.
+
+Use `getOffers.do` when you already know the target itinerary or need an independent price check.
 
 ### Pages in this section
 
@@ -21,6 +43,17 @@ Use this section for the end-to-end booking flow.
 * [Query Order](query-order.md)
 * [Seats & Baggage](seats-and-baggage.md)
 
+### Key identifiers in the booking flow
+
+Keep and reuse the right identifier at each stage:
+
+* `routingIdentifier` from `search.do`
+* `sessionId` from `verify.do`
+* `orderNo` from `order.do`
+* airline PNR and `ticketNos` from `queryOrderDetails.do` after ticketing
+
+For the Get Offer path, keep `OfferId` from `getOffers.do`.
+
 ### What this section covers
 
 * Search for flight offers
@@ -32,6 +65,20 @@ Use this section for the end-to-end booking flow.
 * Retrieve booking details
 * Run advanced search flows
 * Query seats and luggage
+
+### Which flow should you choose?
+
+#### Standard search flow
+
+Use this when Atlas is your main shopping and booking layer.
+
+This path uses `search.do` first, then `verify.do` before booking.
+
+#### Get Offer flow
+
+Use this when the itinerary is already known or when you need an independent price check before order creation.
+
+This path starts with `getOffers.do` and uses `OfferId`.
 
 ### Typical flow
 
@@ -69,6 +116,12 @@ Complete payment and wait for ticketing to finish.
 {% endstep %}
 {% endstepper %}
 
+#### When to query seats or baggage
+
+Do not add ancillary lookups to every flow by default.
+
+Query `getLuggage.do` or `seatAvailability.do` only when baggage or seat choice matters before booking.
+
 ### Alternate flow
 
 Use this path when you already know the target itinerary or need an independent price check.
@@ -99,6 +152,14 @@ Complete payment with `pay.do`.
 {% endstep %}
 {% endstepper %}
 
+#### What happens after `pay.do`?
+
+Do not assume payment and final ticketing happen at the same moment.
+
+Use `queryOrderDetails.do` until the order reaches the final ticketed state.
+
+Webhook can help, but it should not be your only confirmation path.
+
 ### Main APIs
 
 * `search.do`
@@ -111,6 +172,30 @@ Complete payment with `pay.do`.
 * `smartSearch.do`
 * `seatAvailability.do`
 * `getLuggage.do`
+
+### Recommended next pages by task
+
+#### Build the standard flow
+
+Use:
+
+* [Search](search.md)
+* [Verify](verify.md)
+* [Create Order](create-order.md)
+
+#### Build payment and follow-up
+
+Use:
+
+* [Payment & Ticketing](../../readme/booking-overview/payment-and-ticketing/)
+* [Query Order](query-order.md)
+
+#### Build the alternate offer path
+
+Use:
+
+* [Get Offer](get-offer.md)
+* [Seats & Baggage](seats-and-baggage.md)
 
 ### Use this when you need
 

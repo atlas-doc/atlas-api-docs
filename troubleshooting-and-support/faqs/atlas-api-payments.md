@@ -1,7 +1,7 @@
 ---
 description: >-
-  Common payment questions about deposit, VCC, card data, and payment
-  limitations.
+  Common Atlas API payment questions about deposit, VCC pass-through, card data,
+  refunds, and payment limitations.
 ---
 
 # Payments
@@ -9,6 +9,20 @@ description: >-
 {% include "../../.gitbook/includes/eva-help-hint.md" %}
 
 Use this page for payment mode, VCC, and card data questions.
+
+Start here when you need to:
+
+* choose between deposit and VCC pass-through
+* understand where refunds go for each payment mode
+* confirm card data requirements before `pay.do`
+
+### FAQ
+
+#### Which payment methods does Atlas support?
+
+The main options are **deposit** and **VCC pass-through**.
+
+Supported options still depend on airline and ticketing channel.
 
 ### Which payment methods does Atlas support?
 
@@ -19,6 +33,12 @@ The main options are:
 
 Supported options still depend on airline and ticketing channel.
 
+#### How does VCC pass-through work?
+
+Send card details in the `pay.do` request.
+
+Atlas passes the card data to the airline, the airline charges you directly, and Atlas deducts the technical service fee from your Atlas account.
+
 ### How does VCC pass-through work?
 
 Send card details in the `pay.do` request.\
@@ -28,6 +48,14 @@ Atlas then deducts the technical service fee from your Atlas account.
 
 Check payment support in the search or verification response before you build the payment flow.
 
+#### Does Atlas issue VCC cards?
+
+No.
+
+Atlas supports VCC pass-through only.
+
+You provide the card details in `pay.do`.
+
 ### Does Atlas issue VCC cards?
 
 No.\
@@ -35,10 +63,22 @@ Atlas supports VCC pass-through only.
 
 You provide the card details in `pay.do`.
 
+#### Where do refunds go for each payment mode?
+
+For **VCC**, refunded funds usually return to the original card.
+
+For **deposit**, Atlas credits your balance after airline funds are received.
+
 ### Where do refunds go for each payment mode?
 
 For **VCC**, refunded funds usually return to the original card.\
 For **deposit**, Atlas credits your balance after airline funds are received.
+
+#### When should we use deposit instead of VCC?
+
+Use deposit when you want a simpler payment path or when VCC is not supported for the airline, order, or mixed-channel itinerary.
+
+Deposit is also the fallback path in some payment-risk or split-payment scenarios.
 
 ### Why is VCC pass-through unavailable on some mixed-airline bookings?
 
@@ -53,6 +93,10 @@ Some airlines require full billing address details.\
 Use the matrix below when you send VCC or card-based payments.
 
 Cardholder country, province, city, postcode and address are required only for a select few airlines as per the table provided below:
+
+{% hint style="info" %}
+Check payment support and required fields in the current search or verification response before sending `pay.do`.
+{% endhint %}
 
 | Airline Code | Airline Name                       | cardHolderCountry | cardHoldProvince | cardHolderCity | cardHolderPostCode | cardHolderAddress |
 | ------------ | ---------------------------------- | ----------------- | ---------------- | -------------- | ------------------ | ----------------- |

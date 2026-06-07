@@ -1,7 +1,7 @@
 ---
 description: >-
-  Common search-stage errors for request limits, route restrictions, search
-  timeout, and unsupported conditions.
+  Common Atlas API search errors for request validation, balance, route
+  restrictions, timeouts, and smart search follow-up.
 ---
 
 # Search Errors
@@ -9,6 +9,26 @@ description: >-
 {% include "../../.gitbook/includes/eva-help-hint.md" %}
 
 Use this page when `search.do`, `smartSearch.do`, or `getOffers.do` fails.
+
+Start here when you need to:
+
+* understand why a search request failed
+* decide whether the issue is input, balance, route, timeout, or concurrency related
+* know whether to retry, fix, or restart the search
+
+### FAQ
+
+#### Which search errors are usually safe to retry?
+
+Timeout and transient load cases such as `112` or `127` are usually retryable after a short wait.
+
+QPS and route-control cases such as `110` or `108` usually need back-off or a condition change first.
+
+#### Which search errors usually need an input fix first?
+
+Codes such as `102`, `124`, and `126` usually mean the request fields, settlement currency, or smart search context are not valid for reuse.
+
+Fix the input or restart the flow before retrying.
 
 ### Highest-frequency codes
 
@@ -95,6 +115,30 @@ The smart search `requestId` is invalid or expired.
 * Start a new smart search
 * Use the new `requestId`
 
+### Quick retry guide
+
+#### Retry after a short wait
+
+Examples:
+
+* `112`
+* `127`
+
+#### Retry only after changing the condition
+
+Examples:
+
+* `108`
+* `110`
+
+#### Fix the request before retry
+
+Examples:
+
+* `102`
+* `124`
+* `126`
+
 ### Quick troubleshooting checklist
 
 1. Validate required fields and date format
@@ -102,6 +146,10 @@ The smart search `requestId` is invalid or expired.
 3. Confirm the route is supported
 4. Check concurrency and retry behavior
 5. Re-run smart search if `requestId` expired
+
+### What comes next?
+
+After you fix the search issue, return to [Search](../../integration-guides/booking-overview/search.md) and continue the booking flow with the correct identifier.
 
 ### Related pages
 

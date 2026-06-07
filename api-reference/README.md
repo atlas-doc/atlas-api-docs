@@ -1,5 +1,7 @@
 ---
-description: Endpoint-level reference organized by workflow and capability.
+description: >-
+  Atlas API endpoint reference for request schemas, response fields, and samples
+  organized by workflow and capability.
 ---
 
 # API Reference
@@ -7,6 +9,26 @@ description: Endpoint-level reference organized by workflow and capability.
 {% include "../.gitbook/includes/eva-help-hint.md" %}
 
 Use this section for exact endpoint schemas, fields, and samples.
+
+Start here when you need to:
+
+* confirm exact request and response fields
+* find the endpoint reference for a workflow
+* validate field-level implementation details after reading the guides
+
+### FAQ
+
+#### When should I use API Reference?
+
+Use API Reference when you need exact endpoint-level details such as request fields, response fields, schemas, and samples.
+
+Use workflow pages first when you need process guidance or decision help.
+
+#### Which page should I open first in API Reference?
+
+Start with the workflow group that matches the task.
+
+Then open the exact endpoint page for the API you are implementing.
 
 ### Browse by workflow
 
@@ -37,3 +59,7 @@ Use this section as the field-level source of truth after MCP points you to the 
 1. Start with [Integration Guides](<../README (1).md>) for workflow and onboarding order.
 2. Use this section for request and response details.
 3. Use [Troubleshooting & Support](../troubleshooting-and-support/) for troubleshooting.
+
+### What comes next?
+
+After you confirm the endpoint schema, return to the matching guide page to continue the integration flow.

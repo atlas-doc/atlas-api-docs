@@ -1,5 +1,7 @@
 ---
-description: Operational APIs for order regeneration, ticket stop, and order lookup.
+description: >-
+  Atlas API order maintenance for order regeneration, ticket stop, and
+  operational order lookup after booking.
 ---
 
 # Order Maintenance
@@ -7,6 +9,22 @@ description: Operational APIs for order regeneration, ticket stop, and order loo
 {% include "../../../.gitbook/includes/eva-help-hint.md" %}
 
 Use this page for follow-up order actions outside the standard booking flow.
+
+Start here when you need to:
+
+* regenerate an expired or failed order
+* stop ticketing when the flow supports it
+* look up orders for operational follow-up
+
+### FAQ
+
+#### When should I use Order Maintenance?
+
+Use this page for operational order actions that happen outside the standard search-to-ticket flow.
+
+#### Which maintenance API should I use first?
+
+Use `regenerateOrder.do` for eligible order regeneration, `stopTicket.do` when ticketing must be stopped, and `orderList.do` when you need operational order lookup.
 
 ### Main APIs
 
@@ -19,6 +37,10 @@ Use this page for follow-up order actions outside the standard booking flow.
 * Regenerate expired or failed orders
 * Stop ticketing operations when supported
 * Search operational order lists
+
+### What comes next?
+
+Open the exact endpoint page below for request and response details, then reconcile the result with the current order state if needed.
 
 ### Full API reference
 

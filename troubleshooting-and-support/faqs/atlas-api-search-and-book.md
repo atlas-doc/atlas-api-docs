@@ -1,7 +1,7 @@
 ---
 description: >-
-  Common booking flow questions about search results, pricing, passenger count,
-  and timing.
+  Common Atlas API booking flow questions about search results, pricing,
+  passenger count, timing, and offer refresh.
 ---
 
 # Search & Booking
@@ -9,6 +9,20 @@ description: >-
 {% include "../../.gitbook/includes/eva-help-hint.md" %}
 
 Use this page for search response, pricing, and booking timing questions.
+
+Start here when you need to:
+
+* choose between `search.do` and `getOffers.do`
+* understand why displayed price changed before booking
+* confirm safe timing between search, verify, and order
+
+### FAQ
+
+#### When should we use `search.do` and when should we use `getOffers.do`?
+
+Use `search.do` when Atlas is your main shopping entry point.
+
+Use `getOffers.do` when you already know the target itinerary or need an independent price check.
 
 ### Can users switch display currency?
 
@@ -52,6 +66,14 @@ Verify checks live fare and availability before order creation.
 If the price changed, use the verify result as the current source of truth.\
 For Get Offer flows, refresh the offer before ordering when needed.
 
+#### What is the safest timing between search, verify, and order?
+
+Up to 2 hours between search and verify is allowed.
+
+Up to 30 minutes between verify and order is allowed.
+
+Shorter is safer in both cases.
+
 ### What does `seatCount` mean?
 
 It is the remaining seat count for the fare.\
@@ -94,6 +116,12 @@ Not in the standard Get Offer flow.\
 That path is built around the returned `OfferId` and then continues to `order.do`.
 
 Use the Get Offer guide and current API reference when implementing that path.
+
+#### When should we refresh a Get Offer result?
+
+Refresh it when passenger count, target flight, expected fare, or booking timing changed.
+
+Do not create an order from stale offer assumptions.
 
 ### When should we refresh a Get Offer result?
 

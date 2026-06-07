@@ -1,7 +1,7 @@
 ---
 description: >-
-  Detailed guides for refund, ancillary, maintenance, and claim actions after
-  ticketing.
+  Atlas API post-booking operations for refunds, ticket maintenance,
+  ancillaries, and PNR claim actions after ticketing.
 ---
 
 # Post-booking Operations
@@ -9,6 +9,24 @@ description: >-
 {% include "../../../.gitbook/includes/eva-help-hint.md" %}
 
 Use this section for operational actions after a booking is ticketed or needs follow-up.
+
+Start here when you need to:
+
+* handle a ticketed order that needs operational action
+* choose between refund, maintenance, ancillary, or PNR claim workflows
+* route a post-ticketing case to the right detailed guide
+
+### FAQ
+
+#### What belongs in post-booking operations?
+
+Use this section for refund actions, ticket maintenance, post-ticketing ancillaries, and PNR claim or extraction work after the original booking flow.
+
+#### Which page should we open first for a post-ticketing case?
+
+Open the page that matches the task.
+
+Use **Refunds** for refund flow, **Order Maintenance** for intervention tasks, **Post-ticketing Ancillaries** for extra seat or baggage handling, and **PNR Claim & Extraction** for claim or extraction cases.
 
 ### Pages in this section
 
@@ -23,6 +41,12 @@ Use this section for operational actions after a booking is ticketed or needs fo
 * Regenerate or stop ticketing operations
 * Add ancillaries to issued tickets
 * Extract PNRs or manage claim flows
+
+### What comes next?
+
+If the current order state is still unclear, check [Query Order](../../booking-overview/query-order.md) first.
+
+Then continue with the matching post-booking workflow page.
 
 ### Related pages
 

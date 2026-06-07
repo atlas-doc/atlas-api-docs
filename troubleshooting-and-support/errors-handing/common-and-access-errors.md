@@ -1,7 +1,7 @@
 ---
 description: >-
-  High-frequency shared errors for authentication, request format, and account
-  access.
+  Common Atlas API access errors for authentication, request format, missing
+  fields, and account-scope failures.
 ---
 
 # Common & Access Errors
@@ -9,6 +9,26 @@ description: >-
 {% include "../../.gitbook/includes/eva-help-hint.md" %}
 
 Use this page when a request fails before business processing starts.
+
+Start here when you need to:
+
+* understand why a request failed before the business flow started
+* check credentials, JSON format, or access scope
+* decide whether to fix the request or retry once
+
+### FAQ
+
+#### Which common access errors usually need a request fix first?
+
+Codes such as `100`, `901`, and `902` usually mean required fields, request format, or permission scope are not correct.
+
+Fix the request before retrying.
+
+#### Which common access errors can be retried once?
+
+Codes such as `9999` or `-1` can be retried once when the issue looks transient.
+
+If the same failure repeats, capture request context and escalate.
 
 ### What this page covers
 
@@ -78,12 +98,33 @@ Fallback error used when a more specific code is not returned.
 * Retry if transient
 * Escalate if repeated
 
+### Quick retry guide
+
+#### Fix the request first
+
+Examples:
+
+* `100`
+* `901`
+* `902`
+
+#### Retry once, then escalate if repeated
+
+Examples:
+
+* `9999`
+* `-1`
+
 ### Recommended troubleshooting order
 
 1. Confirm credentials and account status
 2. Validate JSON format and required fields
 3. Retry once for transient failures
 4. Escalate with request context if the error repeats
+
+### What comes next?
+
+After the access or request issue is fixed, return to the workflow page you were trying to use and continue from there.
 
 ### Related pages
 

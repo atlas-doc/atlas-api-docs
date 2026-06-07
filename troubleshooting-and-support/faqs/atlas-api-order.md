@@ -1,7 +1,7 @@
 ---
 description: >-
-  Common order questions about hold time, email usage, multi-order round trips,
-  and ancillaries.
+  Common Atlas API order and ticketing questions about hold time, contact email,
+  polling, split orders, and ancillaries.
 ---
 
 # Orders & Ticketing
@@ -9,6 +9,22 @@ description: >-
 {% include "../../.gitbook/includes/eva-help-hint.md" %}
 
 Use this page for order hold, contact email, split orders, and ancillary mapping questions.
+
+Start here when you need to:
+
+* understand what happens after `order.do`
+* confirm how to handle `pay.do` and ticketing polling
+* decide how to work with airline PNR, split orders, or ancillaries
+
+### FAQ
+
+#### Does `order.do` hold inventory and price?
+
+Yes.
+
+Atlas holds inventory and price for 30 minutes after order creation.
+
+If payment is not completed in that window, the hold expires.
 
 ### Does `order.do` hold inventory?
 
@@ -43,6 +59,14 @@ Delivery is best effort, not guaranteed.
 
 If your own email is blocked by the airline, Atlas may cancel the booking and return error `321`.
 
+#### Do we need to poll after `pay.do`?
+
+Yes.
+
+Payment and ticket issuance are not always the same moment.
+
+Use `queryOrderDetails.do` until the order reaches the final ticketed state.
+
 ### Do we need to poll after `pay.do`?
 
 Yes.\
@@ -57,6 +81,12 @@ No.\
 `pnrCode` is the Atlas booking reference.
 
 The airline PNR is returned later in order query after the airline generates it.
+
+#### How should we handle split orders for round trips?
+
+Use `allowGenerateMultipleOrders: true` when the itinerary may split into separate one-way orders.
+
+Read each returned `orderNo` separately and pay each supported order separately.
 
 ### When do airline PNR and ticket numbers appear?
 
@@ -93,6 +123,12 @@ Check payment support for each returned order before paying.
 Every flown segment must have its own `segmentIndex` entry.
 
 If verification returns two segments, the order request must also include two ancillary entries when the product applies to both segments.
+
+#### How should ancillaries be mapped for connecting flights?
+
+Map ancillaries at the flown-segment level.
+
+If a product applies to two segments, send one entry per `segmentIndex`.
 
 ### Example
 

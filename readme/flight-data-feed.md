@@ -16,6 +16,26 @@ Use `Flight Data Feed` when your product needs fast local query, bulk pricing da
 Use `Transaction API` when your product needs real-time verify, booking, payment, and ticketing.
 {% endhint %}
 
+Start here when you need to:
+
+* build local flight storage for fast search and ranking
+* choose between Data Feed, Transaction API, or both
+* understand when bulk fare delivery fits better than real-time booking APIs
+
+### FAQ
+
+#### Does Flight Data Feed replace Transaction API?
+
+No.
+
+Use Data Feed for local display, comparison, and analytics.
+
+Use Transaction API for real-time verify, order creation, payment, and ticketing.
+
+#### When should we use Flight Data Feed?
+
+Use it when your product needs low-latency local query, bulk fare storage, or large-scale fare retrieval for AI, metasearch, or packaging workflows.
+
 ### At a glance
 
 * delivery model: full push + incremental push
@@ -255,6 +275,12 @@ This product fits:
 * AI travel agents and metasearch products
 * dynamic packaging and data analysis teams
 * OTAs that want fast display with Atlas booking
+
+### What comes next?
+
+If you need live booking after local search, continue with [Booking Overview](../integration-guides/booking-overview/).
+
+If you are still evaluating onboarding and product fit, use [Getting Started](../troubleshooting-and-support/faqs/atlas-api-general-information.md).
 
 ### Integration options
 

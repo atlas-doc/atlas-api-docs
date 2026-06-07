@@ -1,7 +1,7 @@
 ---
 description: >-
-  Overview of refunds, ancillaries, maintenance, and claim workflows after
-  booking.
+  Atlas API post-booking overview for refunds, ancillaries, order maintenance,
+  and PNR claim workflows after booking.
 ---
 
 # Post-booking Overview
@@ -10,12 +10,41 @@ description: >-
 
 Use this section after the booking flow is complete.
 
+Start here when you need to:
+
+* choose the right post-booking workflow
+* decide whether the case is a refund, ancillary, maintenance, or PNR issue
+* route operational follow-up after ticketing
+
+### FAQ
+
+#### What should I use after the booking flow is complete?
+
+Use this section for refunds, post-ticketing ancillaries, order maintenance, and PNR claim workflows.
+
+Start by checking the current order state before taking post-booking action.
+
+#### Which post-booking path should I choose?
+
+Use **Refunds** for refund quotation, submission, and status tracking.
+
+Use **Post-ticketing Ancillaries** for baggage or seat actions after ticketing.
+
+Use **Order Maintenance** and **PNR Claim & Extraction** when the booking needs operational follow-up or intervention.
+
 ### Pages in this section
 
 * [Post-ticketing Ancillaries](post-booking-operations/post-ticketing-ancillaries.md)
 * [Refunds](post-booking-operations/refunds.md)
 * [Order Maintenance](post-booking-operations/order-maintenance.md)
 * [PNR Claim & Extraction](post-booking-operations/pnr-claim-and-extraction.md)
+
+### Recommended order of checks
+
+1. Confirm the latest booking state.
+2. Decide whether the case is refund, ancillary, maintenance, or PNR related.
+3. Use the matching workflow page.
+4. Reconcile with webhook, order query, or operations follow-up when needed.
 
 ### What this section covers
 
@@ -45,6 +74,24 @@ Add ancillaries or process refunds.
 Use order maintenance and PNR tools when bookings need intervention.
 {% endstep %}
 {% endstepper %}
+
+### Start here by task
+
+#### Refund handling
+
+Use [Refunds](post-booking-operations/refunds.md).
+
+#### Post-ticketing seat or baggage
+
+Use [Post-ticketing Ancillaries](post-booking-operations/post-ticketing-ancillaries.md).
+
+#### Operational intervention
+
+Use [Order Maintenance](post-booking-operations/order-maintenance.md).
+
+#### PNR claim or extraction
+
+Use [PNR Claim & Extraction](post-booking-operations/pnr-claim-and-extraction.md).
 
 ### Related pages
 

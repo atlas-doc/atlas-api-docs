@@ -1,7 +1,7 @@
 ---
 description: >-
-  Independent real-time price check flow for offer retrieval, optional
-  ancillaries, order creation, and ticketing.
+  Atlas API Get Offer flow for real-time price checks, OfferId handling,
+  optional ancillaries, and downstream order creation.
 ---
 
 # Get Offer
@@ -15,6 +15,26 @@ Use OpenAPI naming as the source of truth.
 
 Use `getOffers.do` in docs and integration.
 {% endhint %}
+
+Start here when you need to:
+
+* price a known itinerary without the standard search flow
+* fetch a fresh `OfferId` before order creation
+* run optional baggage or seat lookup before booking
+
+### FAQ
+
+#### When should I use `getOffers.do`?
+
+Use `getOffers.do` when you already know the target itinerary or need an independent price check before booking.
+
+This flow is a good fit when shopping happens outside Atlas and Atlas is used as the booking and pricing layer.
+
+#### What should I keep from the Get Offer response?
+
+Keep `OfferId`.
+
+Use it as the key identifier for downstream order creation.
 
 ### Main API
 
@@ -31,6 +51,16 @@ Use `getOffers.do` in docs and integration.
 * Latest bookable fare
 * Inventory status
 * `OfferId` for downstream order creation
+
+### What comes next?
+
+#### Minimal path
+
+Continue with [Create Order](create-order.md), then [Payment & Ticketing](../../readme/booking-overview/payment-and-ticketing/).
+
+#### Path with ancillaries
+
+If seat or baggage choice matters before booking, use [Seats & Baggage](seats-and-baggage.md) before order creation.
 
 ### How this differs from standard search
 
@@ -108,6 +138,12 @@ Stop and refresh the offer if any of these change:
 * passenger mix
 * expected fare
 * ancillary requirement that affects the booking decision
+
+### Best practice
+
+Refresh the offer when booking-critical input changed or when booking was delayed.
+
+Do not build the order from stale offer assumptions.
 
 ### Typical flow
 

@@ -1,7 +1,7 @@
 ---
 description: >-
-  Error codes, FAQs, and support resources for API troubleshooting and
-  operational follow-up.
+  Atlas API troubleshooting and support entry point for error codes, FAQs, and
+  escalation resources.
 ---
 
 # Troubleshooting & Support
@@ -10,11 +10,29 @@ description: >-
 
 Use this section when you need troubleshooting material, error lookup, or support resources.
 
+Start here when you need to:
+
+* troubleshoot a failed API call
+* check a known integration question or edge case
+* find the right support or escalation path
+
+### FAQ
+
+#### Where should I start when something fails?
+
+Start with [Error Codes](errors-handing/) when you have a returned status code.
+
+Use [FAQs](faqs/) when the issue is about expected behavior, design choices, or common edge cases.
+
+#### When should I use support resources?
+
+Use support resources when error lookup and FAQs do not resolve the issue, or when the case needs operational follow-up beyond self-service troubleshooting.
+
 ### Pages in this section
 
 * [Error Codes](errors-handing/)
 * [FAQs](faqs/)
-* [Help Center](/broken/spaces/cAlPPpTunfEGdmk5fy1e/pages/Uz15LoKbrvyjsHXVzMDH)
+* [Help Center](https://app.gitbook.com/o/BAk4dVh9gDCZNUPtQyDE/s/6gAksXDk6z99aVnKRffY/)
 
 ### What this section covers
 
@@ -50,8 +68,12 @@ Use the support resources when self-service references are not enough.
 * Check common integration edge cases
 * Find self-service support resources
 
+### What comes next?
+
+Start with the page that matches the symptom, then escalate only if self-service guidance is not enough.
+
 ### Related pages
 
 * [Error Codes](errors-handing/)
 * [FAQs](faqs/)
-* [Help Center](/broken/spaces/cAlPPpTunfEGdmk5fy1e/pages/Uz15LoKbrvyjsHXVzMDH)
+* [Help Center](https://app.gitbook.com/o/BAk4dVh9gDCZNUPtQyDE/s/6gAksXDk6z99aVnKRffY/)
