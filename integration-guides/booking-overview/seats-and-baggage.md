@@ -16,6 +16,23 @@ Start here when you need to:
 * query seat availability when seat choice matters
 * decide whether ancillaries belong in the base booking flow
 
+### Service scope
+
+Atlas supports seat selection for these scenarios:
+
+* airlines that support Atlas API seat capability
+* Atlas-issued orders
+* seat selection purchased with the ticket in the booking flow
+
+Atlas does not support seat selection for these scenarios:
+
+* non-Atlas-issued orders
+* post-ticketing seat selection
+
+A non-Atlas-issued order is ticketed by another party.
+
+In this case, Atlas is only used to add seat service after ticketing.
+
 ### FAQ
 
 #### When should I query baggage or seat data?

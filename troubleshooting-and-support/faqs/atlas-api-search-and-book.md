@@ -98,6 +98,16 @@ Choose the itinerary first.
 
 Then query baggage options with `getLuggage.do` when baggage matters before booking.
 
+### What seat selection scenarios are supported?
+
+Atlas supports seat selection for airlines that support Atlas API seat capability.
+
+Atlas supports Atlas-issued orders and seat selection purchased with the ticket in the booking flow.
+
+Atlas does not support non-Atlas-issued orders or post-ticketing seat selection.
+
+See [Seats & Baggage](../../integration-guides/booking-overview/seats-and-baggage.md) for the current support scope.
+
 ### How long can we wait between verification and order?
 
 Up to 2 hours is allowed.\

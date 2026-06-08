@@ -67,8 +67,10 @@ This is handled free of charge.
 
 ### Can baggage or seat be added after ticketing?
 
-Yes, when the airline and order support it.\
-Use the post-ticketing ancillary flow for supported cases.
+Baggage may be added after ticketing when the airline and order support it.\
+Seat selection after ticketing is not supported.
+
+See [Seats & Baggage](../../integration-guides/booking-overview/seats-and-baggage.md) for the current seat-selection support scope.
 
 ### What happens in case of booking or service failure?
 

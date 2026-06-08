@@ -8,6 +8,12 @@ description: APIs for post-booking ancillaries and related post-ticketing action
 
 Use this section for actions after the original ticket is already issued.
 
+{% hint style="info" %}
+Post-ticketing ancillary support here is for baggage.
+
+Post-ticketing seat selection is not supported.
+{% endhint %}
+
 ### What this section covers
 
 * Search post-booking ancillary options

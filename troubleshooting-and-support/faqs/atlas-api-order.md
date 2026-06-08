@@ -100,6 +100,16 @@ Query the order state first.
 
 Wait for final `orderStatus` and `ticketStatus`, or reconcile with webhook events if configured.
 
+### Which seat selection scenarios are supported?
+
+Atlas supports seat selection for airlines that support Atlas API seat capability.
+
+Atlas supports Atlas-issued orders and seat selection purchased with the ticket in the booking flow.
+
+Atlas does not support non-Atlas-issued orders or post-ticketing seat selection.
+
+See [Seats & Baggage](../../integration-guides/booking-overview/seats-and-baggage.md) for the current support scope.
+
 ### Can VCC be used for a round trip built from two one-way fares?
 
 Yes, but the booking may split into two separate orders.
