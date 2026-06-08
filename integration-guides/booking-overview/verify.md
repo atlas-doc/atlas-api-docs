@@ -30,6 +30,8 @@ Call `verify.do` after `search.do` and before `order.do`.
 
 Use it to refresh fare, routing, and booking requirements close to booking time.
 
+Use a `routingIdentifier` that is no more than 6 hours old.
+
 #### What should I read from the verify response?
 
 Read `sessionId`, latest fare details, ancillary options, and `bookingRequirement`.
@@ -42,11 +44,11 @@ Treat `bookingRequirement` as the source of truth for the order request.
 
 ### Inputs
 
-* `routingIdentifier` from search
+* `routingIdentifier` from search, valid for up to 6 hours
 
 ### Key outputs
 
-* `sessionId` for order creation
+* `sessionId` for order creation, valid for up to 2 hours
 * Latest fare and routing details
 * `bookingRequirement` for required passenger and document fields
 * Ancillary options
@@ -58,6 +60,8 @@ Keep:
 * `sessionId` for `order.do`
 * `bookingRequirement` for required input fields
 * current ancillary options when baggage or seats matter before booking
+
+Use `sessionId` within 2 hours.
 
 Do not reuse an expired `sessionId`.
 

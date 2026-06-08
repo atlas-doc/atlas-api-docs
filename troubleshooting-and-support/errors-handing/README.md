@@ -95,13 +95,13 @@ Use this table when you need the next action fast.
 | `123` | Search volume is too high for paid orders             | No        | Reduce unnecessary search traffic                      |
 | `126` | Smart search `requestId` is invalid or expired        | No        | Start a new smart search                               |
 | `127` | Search timed out and the request ended                | Yes       | Run a new search                                       |
-| `202` | `routingIdentifier` expired                           | No        | Run search again and use a fresh identifier            |
+| `202` | `routingIdentifier` expired after 6 hours             | No        | Run search again and use a fresh identifier            |
 | `205` | Verify timed out                                      | Yes       | Retry verify after a short wait                        |
 | `206` | Flight is no longer available after search            | No        | Start from search again                                |
 | `210` | Fare family is sold out                               | No        | Start from search again and rebook                     |
 | `222` | Baggage lookup failed during verify                   | Partial   | Retry verify, then escalate if repeated                |
 | `299` | Verify failed due to transient platform issues        | Partial   | Retry verify once, then restart from search if needed  |
-| `301` | `sessionId` expired                                   | No        | Run `verify.do` again and get a fresh session          |
+| `301` | `sessionId` expired after 2 hours                     | No        | Run `verify.do` again and get a fresh session          |
 | `302` | Flight changed or sold out between verify and order   | No        | Start from search again and rebook                     |
 | `307` | Booking input is invalid                              | No        | Fix the request field and resubmit                     |
 | `308` | Price changed between verify and order                | No        | Regenerate or restart the booking flow                 |
@@ -153,11 +153,15 @@ Cap around `30s`.
 
 Do not retry `verify.do` with the same `routingIdentifier`.
 
+`routingIdentifier` is valid for up to 6 hours after `search.do`.
+
 Run search again first.
 
 #### `301` Session does not exist or timed out
 
 Do not reuse the same `sessionId`.
+
+`sessionId` is valid for up to 2 hours after `verify.do`.
 
 Run `verify.do` again to get a fresh session.
 

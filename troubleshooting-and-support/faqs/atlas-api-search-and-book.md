@@ -68,9 +68,9 @@ For Get Offer flows, refresh the offer before ordering when needed.
 
 #### What is the safest timing between search, verify, and order?
 
-Up to 2 hours between search and verify is allowed.
+Up to 6 hours between search and verify is allowed.
 
-Up to 30 minutes between verify and order is allowed.
+Up to 2 hours between verify and order is allowed.
 
 Shorter is safer in both cases.
 
@@ -81,7 +81,7 @@ Atlas caps the practical maximum at 4 because larger LCC bookings fail more ofte
 
 ### How long can we wait between search and verification?
 
-Up to 2 hours is allowed.\
+Up to 6 hours is allowed.\
 Shorter is better because prices may change.
 
 ### Does Atlas support fare families?
@@ -100,7 +100,7 @@ Then query baggage options with `getLuggage.do` when baggage matters before book
 
 ### How long can we wait between verification and order?
 
-Up to 30 minutes is allowed.\
+Up to 2 hours is allowed.\
 Shorter is better because pricing and availability may change.
 
 ### Can passenger count change between search and order?

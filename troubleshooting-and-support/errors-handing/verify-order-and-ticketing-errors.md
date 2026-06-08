@@ -21,7 +21,7 @@ The `routingIdentifier` does not match a valid search result.
 
 #### `202` Routing identifier expired
 
-The identifier is too old.
+The identifier is older than 6 hours.
 
 **Action**
 
@@ -56,7 +56,7 @@ The `sessionId` is wrong.
 
 #### `301` Session does not exist or timed out
 
-The verification session expired.
+The verification session is older than 2 hours.
 
 **Action**
 

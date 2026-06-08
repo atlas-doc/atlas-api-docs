@@ -28,6 +28,8 @@ Start here when you need to:
 
 You need a fresh `sessionId` from verify, the current `bookingRequirement`, passenger details, contact details, and ancillary selections when required.
 
+Use the `sessionId` within 2 hours after `verify.do`.
+
 #### What should I keep after `order.do`?
 
 Keep the returned `orderNo`.
@@ -40,7 +42,7 @@ Use it for payment, order query, and later follow-up.
 
 ### Inputs
 
-* `sessionId` from verify
+* `sessionId` from verify, valid for up to 2 hours
 * `bookingRequirement` from verify
 * Passenger details
 * Contact details
@@ -57,6 +59,8 @@ Use it for payment, order query, and later follow-up.
 Use `bookingRequirement` to decide which passenger and document fields are mandatory.
 
 Keep ancillary mapping consistent with the current verify response.
+
+Do not use a `sessionId` older than 2 hours.
 
 Do not build the order from stale verify data.
 
