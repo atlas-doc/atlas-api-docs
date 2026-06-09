@@ -54,6 +54,8 @@ Keep and reuse the right identifier at each stage:
 
 For the Get Offer path, keep `OfferId` from `getOffers.do`.
 
+For seat queries, keep `sessionId` from `verify.do` or `OfferId` from `getOffers.do`.
+
 ### What this section covers
 
 * Search for flight offers
@@ -122,6 +124,10 @@ Do not add ancillary lookups to every flow by default.
 
 Query `getLuggage.do` or `seatAvailability.do` only when baggage or seat choice matters before booking.
 
+Call `seatAvailability.do` only with a valid `sessionId` or `OfferId`.
+
+Do not call it from flight data alone.
+
 ### Alternate flow
 
 Use this path when you already know the target itinerary or need an independent price check.
@@ -137,6 +143,8 @@ Call `getOffers.do` and keep the returned `OfferId`.
 ### Optional ancillaries
 
 Query `getLuggage.do` or `seatAvailability.do` only when baggage or seat choice matters before booking.
+
+Use the returned `OfferId` for `seatAvailability.do` when seat lookup is needed in this flow.
 {% endstep %}
 
 {% step %}

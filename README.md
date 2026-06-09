@@ -11,7 +11,7 @@ description: >-
 Use this page to track the latest Atlas API documentation updates.
 
 {% hint style="success" %}
-Latest update: [MCP-Assisted Development](readme/quick-start/mcp-assisted-development.md) is now available under **Quick Start**.
+Latest update: `seatAvailability.do` now requires a valid `sessionId` or `OfferId`.
 {% endhint %}
 
 It highlights new guides, major troubleshooting improvements, and the next pages to read by use case.
@@ -23,6 +23,22 @@ Start here if you need to:
 * choose the right page to read next
 
 ### Latest Atlas API documentation updates
+
+#### SeatAvailability call rules update
+
+Updated the seat-selection guidance to reflect the current `seatAvailability.do` calling rules.
+
+What changed:
+
+* independent mode is no longer available
+* `seatAvailability.do` now requires `sessionId` from `verify.do` or `OfferId` from `getOffers.do`
+* flight-only seat quote requests are not supported
+
+Read next:
+
+* [Inflow Seat & Baggage](api-reference/booking-apis/inflow-seat-and-baggage.md)
+* [Seats & Baggage](integration-guides/booking-overview/seats-and-baggage.md)
+* [Verify](integration-guides/booking-overview/verify.md)
 
 #### MCP-Assisted Development
 
@@ -107,7 +123,7 @@ Start with:
 
 #### What changed in the Atlas API docs recently?
 
-Recent updates added [MCP-Assisted Development](readme/quick-start/mcp-assisted-development.md), published [Sandbox Validation Test Kit](readme/quick-start/sandbox-development/sandbox-validation-test-kit.md), and improved [Error Codes](troubleshooting-and-support/errors-handing/) as a troubleshooting entry point.
+Recent updates changed `seatAvailability.do` call rules, added [MCP-Assisted Development](readme/quick-start/mcp-assisted-development.md), published [Sandbox Validation Test Kit](readme/quick-start/sandbox-development/sandbox-validation-test-kit.md), and improved [Error Codes](troubleshooting-and-support/errors-handing/) as a troubleshooting entry point.
 
 #### Which guide should I read first for sandbox integration?
 
@@ -120,6 +136,27 @@ Use [Booking Overview](integration-guides/booking-overview/) for the main flow, 
 ### Full change log
 
 {% updates format="full" %}
+{% update date="2026-06-09" %}
+## Updated SeatAvailability call rules
+
+Updated seat-selection documentation to reflect the latest `seatAvailability.do` requirements.
+
+What changed:
+
+* independent mode is no longer available
+* use `sessionId` from `verify.do` or `OfferId` from `getOffers.do`
+* flight-only seat quote requests are not supported
+
+Updated pages:
+
+* [Inflow Seat & Baggage](api-reference/booking-apis/inflow-seat-and-baggage.md)
+* [Seats & Baggage](integration-guides/booking-overview/seats-and-baggage.md)
+* [Verify](integration-guides/booking-overview/verify.md)
+* [Get Offer](integration-guides/booking-overview/get-offer.md)
+* [Booking Overview](integration-guides/booking-overview/)
+* [Search & Booking](troubleshooting-and-support/faqs/atlas-api-search-and-book.md)
+{% endupdate %}
+
 {% update date="2026-04-15" %}
 ## Added MCP-Assisted Development
 

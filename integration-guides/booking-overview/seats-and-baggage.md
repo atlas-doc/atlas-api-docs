@@ -41,6 +41,10 @@ Query baggage or seat data only when it affects the booking decision.
 
 Do not add ancillary calls to every booking flow by default.
 
+For `seatAvailability.do`, use a valid `sessionId` from `verify.do` or `OfferId` from `getOffers.do`.
+
+Do not call it with flight data alone.
+
 #### Which APIs are used for inflow ancillaries?
 
 Use `getLuggage.do` for baggage options.
@@ -52,11 +56,26 @@ Use `seatAvailability.do` for seat availability and seat-selection support.
 * `seatAvailability.do`
 * `getLuggage.do`
 
+### SeatAvailability call rules
+
+`seatAvailability.do` only supports transaction-linked calls.
+
+Use one of these identifiers:
+
+* `sessionId` from `verify.do`
+* `OfferId` from `getOffers.do`
+
+Independent mode is no longer available.
+
+Flight-only seat quote requests are not supported.
+
 ### What should you confirm first?
 
 Confirm that the airline supports the required ancillary flow.
 
 Confirm that the current session or offer context is still valid for the ancillary request.
+
+Confirm that the seat request still maps to the original booking context.
 
 ### Use this when you need
 
@@ -72,10 +91,17 @@ Then query baggage or seats only when those choices affect conversion, policy, o
 
 Keep ancillary mapping consistent with the current booking context before `order.do`.
 
+If your upstream seat request arrives without `sessionId`, cache the `sessionId` from `verify.do` first.
+
+Then match the incoming flight to that cached `sessionId`.
+
+If no match exists, do not send a flight-only `seatAvailability.do` request.
+
 ### Notes
 
 * Availability depends on airline support
-* Session validity matters for seat queries
+* `seatAvailability.do` requires a valid `sessionId` or `OfferId`
+* Flight-only seat requests are not supported
 * Baggage and seat rules may vary by carrier
 
 ### What comes next?

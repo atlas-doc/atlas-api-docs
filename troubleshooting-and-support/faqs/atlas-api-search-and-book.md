@@ -108,6 +108,16 @@ Atlas does not support non-Atlas-issued orders or post-ticketing seat selection.
 
 See [Seats & Baggage](../../integration-guides/booking-overview/seats-and-baggage.md) for the current support scope.
 
+### Can we call `seatAvailability.do` with flight information only?
+
+No.
+
+Use a valid `sessionId` from `verify.do` or `OfferId` from `getOffers.do`.
+
+`seatAvailability.do` no longer supports independent mode.
+
+If your upstream seat request only contains flight data, match it to a cached `sessionId` first.
+
 ### How long can we wait between verification and order?
 
 Up to 2 hours is allowed.\

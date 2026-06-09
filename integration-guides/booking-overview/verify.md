@@ -21,6 +21,7 @@ Start here when you need to:
 * recheck fare and routing before booking
 * get the required passenger and document fields
 * create a fresh `sessionId` for `order.do`
+* keep a valid `sessionId` for `seatAvailability.do`
 
 ### FAQ
 
@@ -48,7 +49,7 @@ Treat `bookingRequirement` as the source of truth for the order request.
 
 ### Key outputs
 
-* `sessionId` for order creation, valid for up to 2 hours
+* `sessionId` for order creation and seat lookup, valid for up to 2 hours
 * Latest fare and routing details
 * `bookingRequirement` for required passenger and document fields
 * Ancillary options
@@ -58,12 +59,15 @@ Treat `bookingRequirement` as the source of truth for the order request.
 Keep:
 
 * `sessionId` for `order.do`
+* `sessionId` for `seatAvailability.do` when seat selection is needed before booking
 * `bookingRequirement` for required input fields
 * current ancillary options when baggage or seats matter before booking
 
 Use `sessionId` within 2 hours.
 
 Do not reuse an expired `sessionId`.
+
+If your seat request arrives later from an upstream system, keep enough itinerary linkage to match that request back to the current `sessionId`.
 
 ### Use this when you need
 

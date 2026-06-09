@@ -36,6 +36,8 @@ Keep `OfferId`.
 
 Use it as the key identifier for downstream order creation.
 
+Use the same `OfferId` for `seatAvailability.do` when seat lookup is needed before booking.
+
 ### Main API
 
 * `getOffers.do`
@@ -51,6 +53,7 @@ Use it as the key identifier for downstream order creation.
 * Latest bookable fare
 * Inventory status
 * `OfferId` for downstream order creation
+* `OfferId` for `seatAvailability.do` in the Get Offer path
 
 ### What comes next?
 
@@ -162,6 +165,8 @@ Keep the returned `OfferId`.
 If needed, query `getLuggage.do` or `seatAvailability.do`.
 
 Use this only after the offer matches your target flight and price.
+
+For seat lookup, pass the returned `OfferId`.
 {% endstep %}
 
 {% step %}
@@ -189,7 +194,9 @@ Run it after you confirm the target offer.
 
 Use it when seat availability or paid seat selection matters before booking.
 
-Airline support and session rules may vary by carrier.
+Use the returned `OfferId` as the request context in this flow.
+
+Do not call it with flight data alone.
 
 #### Keep ancillaries optional
 
