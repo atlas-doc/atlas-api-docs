@@ -70,7 +70,7 @@ This is handled free of charge.
 Baggage may be added after ticketing when the airline and order support it.\
 Seat selection after ticketing is not supported.
 
-See [Seats & Baggage](../../integration-guides/booking-overview/seats-and-baggage.md) for the current seat-selection support scope.
+See [Seats](../../integration-guides/booking-overview/seats-and-baggage.md) for the current seat-selection support scope.
 
 ### What happens in case of booking or service failure?
 

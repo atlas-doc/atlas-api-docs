@@ -41,7 +41,8 @@ Use `getOffers.do` when you already know the target itinerary or need an indepen
 * [Confirm Order](confirm-order.md)
 * [Payment & Ticketing](../../readme/booking-overview/payment-and-ticketing/)
 * [Query Order](query-order.md)
-* [Seats & Baggage](seats-and-baggage.md)
+* [Seats](seats-and-baggage.md)
+* [Baggage](../../readme/booking-overview/baggage.md)
 
 ### Key identifiers in the booking flow
 
@@ -66,7 +67,8 @@ For seat queries, keep `sessionId` from `verify.do` or `OfferId` from `getOffers
 * Pay and issue tickets
 * Retrieve booking details
 * Run advanced search flows
-* Query seats and luggage
+* Query seats
+* Query baggage
 
 ### Which flow should you choose?
 
@@ -118,11 +120,11 @@ Complete payment and wait for ticketing to finish.
 {% endstep %}
 {% endstepper %}
 
-#### When to query seats or baggage
+#### How to include seats and baggage
 
-Do not add ancillary lookups to every flow by default.
+Recommend `getLuggage.do` and `seatAvailability.do` in the booking flow when the product supports ancillary upsell.
 
-Query `getLuggage.do` or `seatAvailability.do` only when baggage or seat choice matters before booking.
+Use them before payment to improve traveler clarity and order conversion.
 
 Call `seatAvailability.do` only with a valid `sessionId` or `OfferId`.
 
@@ -140,9 +142,9 @@ Call `getOffers.do` and keep the returned `OfferId`.
 {% endstep %}
 
 {% step %}
-### Optional ancillaries
+### Seats and baggage
 
-Query `getLuggage.do` or `seatAvailability.do` only when baggage or seat choice matters before booking.
+Query `getLuggage.do` and `seatAvailability.do` before booking when ancillary upsell is part of the product.
 
 Use the returned `OfferId` for `seatAvailability.do` when seat lookup is needed in this flow.
 {% endstep %}
@@ -203,14 +205,15 @@ Use:
 Use:
 
 * [Get Offer](get-offer.md)
-* [Seats & Baggage](seats-and-baggage.md)
+* [Seats](seats-and-baggage.md)
+* [Baggage](../../readme/booking-overview/baggage.md)
 
 ### Use this when you need
 
 * A standard search-to-ticket flow
 * An independent offer lookup and price-check flow
 * FR order confirmation support when applicable
-* Seat and baggage selection
+* Seat and baggage upsell
 * Real-time or smart search options
 
 ### Full API reference

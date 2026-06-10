@@ -52,7 +52,7 @@ Fare families can be returned in search.
 
 Baggage and seat queries should stay optional unless they are required for conversion.
 
-See [Seats & Baggage](../../integration-guides/booking-overview/seats-and-baggage.md).
+See [Seats](../../integration-guides/booking-overview/seats-and-baggage.md) and [Baggage](../../readme/booking-overview/baggage.md).
 
 ### 5. Which payment modes are available?
 

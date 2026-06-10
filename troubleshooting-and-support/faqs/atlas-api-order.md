@@ -108,7 +108,7 @@ Atlas supports Atlas-issued orders and seat selection purchased with the ticket 
 
 Atlas does not support non-Atlas-issued orders or post-ticketing seat selection.
 
-See [Seats & Baggage](../../integration-guides/booking-overview/seats-and-baggage.md) for the current support scope.
+See [Seats](../../integration-guides/booking-overview/seats-and-baggage.md) for the current support scope.
 
 ### Can VCC be used for a round trip built from two one-way fares?
 

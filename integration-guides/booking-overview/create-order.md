@@ -30,6 +30,8 @@ You need a fresh `sessionId` from verify, the current `bookingRequirement`, pass
 
 Use the `sessionId` within 2 hours after `verify.do`.
 
+If seat selection is included, decide the seat fulfillment handling mode before `order.do`.
+
 #### What should I keep after `order.do`?
 
 Keep the returned `orderNo`.
@@ -47,6 +49,7 @@ Use it for payment, order query, and later follow-up.
 * Passenger details
 * Contact details
 * Ancillary selections when needed
+* Seat fulfillment handling mode when seat selection is included
 
 ### Key outputs
 
@@ -63,6 +66,18 @@ Keep ancillary mapping consistent with the current verify response.
 Do not use a `sessionId` older than 2 hours.
 
 Do not build the order from stale verify data.
+
+If seat selection is included, pass the seat fulfillment handling mode in the order request.
+
+Use the same order request to define how Atlas should handle seat fulfillment failure.
+
+Supported modes:
+
+* `STOP_TICKET` — stop ticket issuance, cancel the whole order, and refund it
+* `STOP_SEAT` — issue the ticket, remove the seat, and refund the seat amount
+* `SIMILAR_SEAT` — issue the ticket with a similar seat selected by operations
+
+For deposit customers, `STOP_SEAT` may require a split fund order and a `credit note`.
 
 ### Use this when you need
 

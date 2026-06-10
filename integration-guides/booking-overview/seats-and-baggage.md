@@ -1,20 +1,20 @@
 ---
 description: >-
-  Atlas API seat and baggage flow for seat availability, luggage lookup, and
-  ancillary decisions before booking.
+  Atlas API seat flow for seat availability, seat selection support, and
+  conversion-focused booking decisions.
 ---
 
-# Seats & Baggage
+# Seats
 
 {% include "../../.gitbook/includes/eva-help-hint.md" %}
 
-Use this page when seat or baggage selection is needed.
+Use this page to build seat selection into the booking flow.
 
 Start here when you need to:
 
-* check baggage options before booking
-* query seat availability when seat choice matters
-* decide whether ancillaries belong in the base booking flow
+* surface seat options before booking
+* confirm whether seat selection is supported
+* add seat choice to the booking experience
 
 ### Service scope
 
@@ -35,26 +35,43 @@ In this case, Atlas is only used to add seat service after ticketing.
 
 ### FAQ
 
-#### When should I query baggage or seat data?
+#### When should I call `seatAvailability.do`?
 
-Query baggage or seat data only when it affects the booking decision.
+Call `seatAvailability.do` as a recommended step before payment.
 
-Do not add ancillary calls to every booking flow by default.
+Seat choice helps improve traveler confidence and order conversion.
 
-For `seatAvailability.do`, use a valid `sessionId` from `verify.do` or `OfferId` from `getOffers.do`.
+Call it after `verify.do` or `getOffers.do`.
+
+#### Which identifiers can I use?
+
+Use a valid `sessionId` from `verify.do` or `OfferId` from `getOffers.do`.
 
 Do not call it with flight data alone.
 
-#### Which APIs are used for inflow ancillaries?
+#### What happens if the selected seat becomes unavailable?
 
-Use `getLuggage.do` for baggage options.
+This is a fulfillment-stage rule.
 
-Use `seatAvailability.do` for seat availability and seat-selection support.
+It applies when the selected seat is no longer available at ticketing time.
 
-### Main APIs
+Atlas supports these handling modes:
+
+* `STOP_TICKET` — stop ticket issuance, cancel the whole order, and refund it
+* `STOP_SEAT` — issue the ticket, remove the seat, and refund the seat amount
+* `SIMILAR_SEAT` — issue the ticket with a similar seat selected by operations
+
+For deposit customers, `STOP_SEAT` may require a split fund order and a `credit note`.
+
+Atlas does not expose similarity rules for `SIMILAR_SEAT`.
+
+If manual handling is needed, operations selects the similar seat in OPSDeck.
+
+Choose the handling mode in the order creation request for that booking.
+
+### Main API
 
 * `seatAvailability.do`
-* `getLuggage.do`
 
 ### SeatAvailability call rules
 
@@ -71,7 +88,7 @@ Flight-only seat quote requests are not supported.
 
 ### What should you confirm first?
 
-Confirm that the airline supports the required ancillary flow.
+Confirm that the airline supports seat selection for the current flow.
 
 Confirm that the current session or offer context is still valid for the ancillary request.
 
@@ -79,15 +96,17 @@ Confirm that the seat request still maps to the original booking context.
 
 ### Use this when you need
 
-* Seat map and seat selection support
-* Baggage option lookup
-* Ancillary decisions before payment
+* Seat map and seat upsell support
+* Seat-selection support checks
+* Seat decisions before payment
 
 ### Best practice
 
 Choose the itinerary first.
 
-Then query baggage or seats only when those choices affect conversion, policy, or traveler experience.
+Then query seats as a recommended conversion step before payment.
+
+Position seat choice as a standard part of the booking journey.
 
 Keep ancillary mapping consistent with the current booking context before `order.do`.
 
@@ -102,16 +121,20 @@ If no match exists, do not send a flight-only `seatAvailability.do` request.
 * Availability depends on airline support
 * `seatAvailability.do` requires a valid `sessionId` or `OfferId`
 * Flight-only seat requests are not supported
-* Baggage and seat rules may vary by carrier
+* Seat rules may vary by carrier
+* Seat fulfillment handling should be chosen before `order.do`
 
 ### What comes next?
 
 Use [Create Order](create-order.md) to send the selected ancillary data with the booking when required.
 
+If you also need baggage options, use [Baggage](../../readme/booking-overview/baggage.md).
+
 ### Related pages
 
 * [Verify](verify.md)
 * [Create Order](create-order.md)
+* [Baggage](../../readme/booking-overview/baggage.md)
 * [Post-ticketing Ancillaries](../post-booking-overview/post-booking-operations/post-ticketing-ancillaries.md)
 
 ### Full API reference

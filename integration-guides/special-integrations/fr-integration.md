@@ -113,7 +113,7 @@ Call [Verify](../booking-overview/verify.md) and keep the returned `sessionId`.
 {% step %}
 ### Optional seat selection
 
-If you support FR seat selection, call [Seats & Baggage](../booking-overview/seats-and-baggage.md) before booking.
+If you support FR seat selection, call [Seats](../booking-overview/seats-and-baggage.md) before booking.
 
 Skip this step if you use the FR child-seat simplification.
 {% endstep %}

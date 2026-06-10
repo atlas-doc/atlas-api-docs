@@ -1,7 +1,7 @@
 ---
 description: >-
   Atlas API Get Offer flow for real-time price checks, OfferId handling,
-  optional ancillaries, and downstream order creation.
+  recommended ancillary upsell, and downstream order creation.
 ---
 
 # Get Offer
@@ -20,7 +20,7 @@ Start here when you need to:
 
 * price a known itinerary without the standard search flow
 * fetch a fresh `OfferId` before order creation
-* run optional baggage or seat lookup before booking
+* run baggage or seat lookup before booking
 
 ### FAQ
 
@@ -61,9 +61,9 @@ Use the same `OfferId` for `seatAvailability.do` when seat lookup is needed befo
 
 Continue with [Create Order](create-order.md), then [Payment & Ticketing](../../readme/booking-overview/payment-and-ticketing/).
 
-#### Path with ancillaries
+#### Path with seats and baggage
 
-If seat or baggage choice matters before booking, use [Seats & Baggage](seats-and-baggage.md) before order creation.
+Use [Seats](seats-and-baggage.md) and [Baggage](../../readme/booking-overview/baggage.md) before order creation.
 
 ### How this differs from standard search
 
@@ -123,9 +123,9 @@ Use this path when you only need fare retrieval and ticketing:
 3. Call `order.do`
 4. Call `pay.do`
 
-#### Chain with ancillaries
+#### Chain with seats and baggage
 
-Use this path when baggage or seat selection is required:
+Use this path when baggage and seat upsell are part of the booking flow:
 
 1. Call `getOffers.do`
 2. Confirm the fare and target flight
@@ -140,7 +140,7 @@ Stop and refresh the offer if any of these change:
 * target flight
 * passenger mix
 * expected fare
-* ancillary requirement that affects the booking decision
+* ancillary requirement that changes the booking plan
 
 ### Best practice
 
@@ -160,11 +160,11 @@ Keep the returned `OfferId`.
 {% endstep %}
 
 {% step %}
-### Optional ancillaries
+### Seats and baggage
 
-If needed, query `getLuggage.do` or `seatAvailability.do`.
+Query `getLuggage.do` or `seatAvailability.do`.
 
-Use this only after the offer matches your target flight and price.
+Run this after the offer matches your target flight and price.
 
 For seat lookup, pass the returned `OfferId`.
 {% endstep %}
@@ -186,23 +186,23 @@ Call `pay.do` to complete ticketing.
 
 #### Use `getLuggage.do`
 
-Use it when baggage price or baggage options affect conversion.
+Use it to surface baggage price and baggage options before booking.
 
 Run it after you confirm the target offer.
 
 #### Use `seatAvailability.do`
 
-Use it when seat availability or paid seat selection matters before booking.
+Use it to surface seat availability and paid seat selection before booking.
 
 Use the returned `OfferId` as the request context in this flow.
 
 Do not call it with flight data alone.
 
-#### Keep ancillaries optional
+#### Treat ancillaries as recommended
 
-Do not make ancillary queries part of the base flow unless the business needs them.
+Include ancillary queries when your booking product supports seat and baggage upsell.
 
-The shortest production path is still `getOffers.do` → `order.do` → `pay.do`.
+The shortest technical path is still `getOffers.do` → `order.do` → `pay.do`.
 
 ### Implementation guidance
 
@@ -261,9 +261,9 @@ This flow is centered on `OfferId` and downstream order creation.
 
 #### Is ancillary lookup mandatory?
 
-No.
+Seat and baggage lookup is strongly recommended when your product includes ancillary upsell.
 
-Use `getLuggage.do` or `seatAvailability.do` only when seat or baggage choice matters before booking.
+Use `getLuggage.do` or `seatAvailability.do` before `order.do` to improve conversion and traveler clarity.
 
 #### When should I refresh the offer?
 
@@ -363,7 +363,8 @@ This speeds up support review.
 * [Search](search.md)
 * [Create Order](create-order.md)
 * [Payment & Ticketing](../../readme/booking-overview/payment-and-ticketing/)
-* [Seats & Baggage](seats-and-baggage.md)
+* [Seats](seats-and-baggage.md)
+* [Baggage](../../readme/booking-overview/baggage.md)
 
 ### Full API reference
 

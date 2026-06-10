@@ -168,9 +168,9 @@ No.
 
 Choose the itinerary first.
 
-Then query baggage or seat options only when they affect the booking decision.
+Then query baggage and seat options before booking to strengthen conversion and traveler clarity.
 
-See [Seats & Baggage](../../integration-guides/booking-overview/seats-and-baggage.md).
+See [Baggage](../../readme/booking-overview/baggage.md).
 
 ### Ancillaries and fare content
 
@@ -181,7 +181,7 @@ Confirm early whether your product needs:
 * seat map before booking
 * post-ticketing baggage or seat sales
 
-Keep ancillary queries optional unless they are critical to conversion.
+Treat baggage and seat queries as recommended commercial capabilities in the booking flow.
 
 ### Which payment methods are supported?
 

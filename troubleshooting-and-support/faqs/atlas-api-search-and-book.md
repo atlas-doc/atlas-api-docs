@@ -98,6 +98,8 @@ Choose the itinerary first.
 
 Then query baggage options with `getLuggage.do` when baggage matters before booking.
 
+See [Baggage](../../readme/booking-overview/baggage.md).
+
 ### What seat selection scenarios are supported?
 
 Atlas supports seat selection for airlines that support Atlas API seat capability.
@@ -106,7 +108,7 @@ Atlas supports Atlas-issued orders and seat selection purchased with the ticket 
 
 Atlas does not support non-Atlas-issued orders or post-ticketing seat selection.
 
-See [Seats & Baggage](../../integration-guides/booking-overview/seats-and-baggage.md) for the current support scope.
+See [Seats](../../integration-guides/booking-overview/seats-and-baggage.md) for the current support scope.
 
 ### Can we call `seatAvailability.do` with flight information only?
 
