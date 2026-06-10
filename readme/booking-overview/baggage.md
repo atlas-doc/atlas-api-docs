@@ -95,4 +95,4 @@ If seat selection is also needed, use [Seats](../../integration-guides/booking-o
 
 See the complete endpoint schemas and samples here:
 
-[Inflow Seat & Baggage](../../api-reference/booking-apis/inflow-seat-and-baggage.md)
+[Baggage](../../api-reference/booking-apis/baggage.md)

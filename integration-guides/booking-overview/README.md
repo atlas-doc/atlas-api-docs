@@ -17,6 +17,7 @@ Start here when you need to:
 * understand the standard Atlas API booking flow
 * choose between `search.do` and `getOffers.do`
 * see which identifier to keep at each step
+* evaluate route coverage and raw prices in pre-sale
 
 ### FAQ
 
@@ -32,9 +33,18 @@ Use `search.do` when Atlas is your main shopping entry point.
 
 Use `getOffers.do` when you already know the target itinerary or need an independent price check.
 
+#### When should I use `priceCompareSearch.do`?
+
+Use `priceCompareSearch.do` for pre-sale route coverage checks and raw price discovery.
+
+It is not part of the standard booking flow.
+
+Do not treat it as a production booking price source.
+
 ### Pages in this section
 
 * [Search](search.md)
+* [Price Compare Search](../../api-reference/booking-apis/price-compare-search.md)
 * [Get Offer](get-offer.md)
 * [Verify](verify.md)
 * [Create Order](create-order.md)
@@ -83,6 +93,14 @@ This path uses `search.do` first, then `verify.do` before booking.
 Use this when the itinerary is already known or when you need an independent price check before order creation.
 
 This path starts with `getOffers.do` and uses `OfferId`.
+
+#### Price compare search
+
+Use this when you need pre-sale coverage visibility and raw price signals.
+
+This path uses `priceCompareSearch.do`.
+
+It does not replace the standard booking flow.
 
 ### Typical flow
 
@@ -173,6 +191,7 @@ Webhook can help, but it should not be your only confirmation path.
 ### Main APIs
 
 * `search.do`
+* `priceCompareSearch.do`
 * `getOffers.do`
 * `verify.do`
 * `order.do`
@@ -208,10 +227,18 @@ Use:
 * [Seats](seats-and-baggage.md)
 * [Baggage](../../readme/booking-overview/baggage.md)
 
+#### Evaluate pre-sale route coverage
+
+Use:
+
+* [Price Compare Search](../../api-reference/booking-apis/price-compare-search.md)
+* [Search](search.md)
+
 ### Use this when you need
 
 * A standard search-to-ticket flow
 * An independent offer lookup and price-check flow
+* A pre-sale route coverage and raw-price check
 * FR order confirmation support when applicable
 * Seat and baggage upsell
 * Real-time or smart search options

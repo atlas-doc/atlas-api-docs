@@ -371,6 +371,7 @@ This speeds up support review.
 See endpoint-level details here:
 
 * [Get Offer](../../api-reference/booking-apis/get-offer.md)
-* [Inflow Seat & Baggage](../../api-reference/booking-apis/inflow-seat-and-baggage.md)
+* [Seat](../../api-reference/booking-apis/inflow-seat-and-baggage.md)
+* [Baggage](../../api-reference/booking-apis/baggage.md)
 * [Create Order](../../api-reference/booking-apis/create-order.md)
 * [Payment & Ticketing](../../api-reference/booking-apis/payment-and-ticketing.md)

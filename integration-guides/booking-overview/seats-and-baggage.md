@@ -141,4 +141,4 @@ If you also need baggage options, use [Baggage](../../readme/booking-overview/ba
 
 See the complete endpoint schemas and samples here:
 
-[Inflow Seat & Baggage](../../api-reference/booking-apis/inflow-seat-and-baggage.md)
+[Seat](../../api-reference/booking-apis/inflow-seat-and-baggage.md)

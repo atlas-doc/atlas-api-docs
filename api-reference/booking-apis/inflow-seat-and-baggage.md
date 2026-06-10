@@ -1,6 +1,8 @@
-# Inflow Seat & Baggage
+# Seat
 
 {% include "../../.gitbook/includes/eva-help-hint.md" %}
+
+Use this page for the endpoint details of inflow seat lookup.
 
 {% hint style="warning" %}
 `seatAvailability.do` no longer supports independent mode.
@@ -51,10 +53,10 @@ This rule keeps seat pricing and fulfillment aligned with the real booking chain
 
 It also reduces invalid airline-side queries.
 
-{% openapi-operation spec="atlas-api" path="/seatAvailability.do" method="post" %}
-[OpenAPI atlas-api](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/16d5f2d8196b3ef49a60acb409c448368fd1ff7b7e7d5d750ed7be17dd37bd3c.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20260609%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260609T013804Z&X-Amz-Expires=172800&X-Amz-Signature=1acc44fc61c40d1bd7a0764ad0093f79eae4e845c1354df2eaa5dceffc9a0d49&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
-{% endopenapi-operation %}
+### Related page
 
-{% openapi-operation spec="atlas-api" path="/getLuggage.do" method="post" %}
-[OpenAPI atlas-api](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/16d5f2d8196b3ef49a60acb409c448368fd1ff7b7e7d5d750ed7be17dd37bd3c.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20260609%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260609T013804Z&X-Amz-Expires=172800&X-Amz-Signature=1acc44fc61c40d1bd7a0764ad0093f79eae4e845c1354df2eaa5dceffc9a0d49&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+For baggage endpoint details, use [Baggage](baggage.md).
+
+{% openapi-operation spec="atlas-api" path="/seatAvailability.do" method="post" %}
+[OpenAPI atlas-api](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/4edb8a3042d0894360cf76978724aeb9cb325bfe857f4e134d8c0e87ae544be6.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20260610%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260610T121514Z&X-Amz-Expires=172800&X-Amz-Signature=7f497d4a79494dc8574074bfa7f80943ac77e4a66aeb747c949bb06c0b6f0698&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
 {% endopenapi-operation %}
