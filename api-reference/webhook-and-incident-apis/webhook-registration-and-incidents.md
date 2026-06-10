@@ -20,7 +20,11 @@ Start here when you need to:
 
 #### When should we register the webhook URL?
 
-Register the webhook URL before go-live, then update it whenever the receiving endpoint changes.
+Register the webhook URL before go-live.
+
+Then update it whenever the receiving endpoint changes.
+
+The same URL receives all supported events, including `order.void`.
 
 #### When should we query incidents?
 
@@ -51,7 +55,7 @@ Save the endpoint that Atlas should call for webhook delivery.
 {% step %}
 ### Receive webhook events
 
-Handle ticketing, schedule change, airline status, email, and incident notifications.
+Handle ticketing, void, schedule change, airline status, email, and incident notifications.
 {% endstep %}
 
 {% step %}
@@ -68,6 +72,14 @@ Use incident lookup to reconcile missed or unresolved events.
 * incident reconciliation
 * operational follow-up after schedule changes or cancellations
 
+### Registration scope
+
+Register one webhook URL with `updateWebhookURL.do`.
+
+Atlas uses that URL for all supported webhook event types.
+
+That includes `order.void`.
+
 ### Related pages
 
 * [Webhooks](../../integration-guides/webhook-overview/)
@@ -75,9 +87,9 @@ Use incident lookup to reconcile missed or unresolved events.
 * [Incident Notification](../../integration-guides/webhook-overview/incident-notification.md)
 
 {% openapi-operation spec="atlas-api" path="/updateWebhookURL.do" method="post" %}
-[OpenAPI atlas-api](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/16d5f2d8196b3ef49a60acb409c448368fd1ff7b7e7d5d750ed7be17dd37bd3c.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20260607%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260607T043812Z&X-Amz-Expires=172800&X-Amz-Signature=42ed1445cc22afaa4312262c7e8f41326d2a538faff7539598025f25603213e6&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+[OpenAPI atlas-api](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/c2c450b51656273efc99b5771c703cdf1e99923fa326d50b30f9bd2a7d1bdff6.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20260610%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260610T164511Z&X-Amz-Expires=172800&X-Amz-Signature=3ee5ba33f9fbb01fcb748c4212e0fc79ac229c36d02a4439538e5a654c849c38&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
 {% endopenapi-operation %}
 
 {% openapi-operation spec="atlas-api" path="/event/getPageList.do" method="post" %}
-[OpenAPI atlas-api](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/16d5f2d8196b3ef49a60acb409c448368fd1ff7b7e7d5d750ed7be17dd37bd3c.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20260607%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260607T043812Z&X-Amz-Expires=172800&X-Amz-Signature=42ed1445cc22afaa4312262c7e8f41326d2a538faff7539598025f25603213e6&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+[OpenAPI atlas-api](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/c2c450b51656273efc99b5771c703cdf1e99923fa326d50b30f9bd2a7d1bdff6.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20260610%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260610T164511Z&X-Amz-Expires=172800&X-Amz-Signature=3ee5ba33f9fbb01fcb748c4212e0fc79ac229c36d02a4439538e5a654c849c38&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
 {% endopenapi-operation %}

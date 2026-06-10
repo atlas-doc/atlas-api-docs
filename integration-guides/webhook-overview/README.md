@@ -28,7 +28,7 @@ Use order query, airline email, and incident follow-up for final reconciliation.
 
 #### What should webhook be used for?
 
-Use webhook to speed up event handling for ticketing completion, schedule changes, airline status updates, email capture, and incident follow-up.
+Use webhook to speed up event handling for ticketing completion, void updates, schedule changes, airline status updates, email capture, and incident follow-up.
 
 Do not treat webhook as the only source of truth for booking state.
 
@@ -56,12 +56,15 @@ Use [Webhook Registration & Incidents](../../api-reference/webhook-and-incident-
 {% step %}
 ### Receive and process events
 
-Handle ticketing, schedule, airline, email, and incident notifications. Currently, we send out webhook notifications in four scenarios:
+Handle ticketing, void, schedule, airline, email, and incident notifications.
+
+Atlas sends webhook notifications for these common scenarios:
 
 1. Ticket booked: [Ticketing Complete Notification](ticketing-complete-notification.md)
-2. Change in flight schedule: [Schedule Change Notification](schedule-change-notification.md)
-3. Airline status update: [Airline Status Update Notification](airline-status-update-notification.md)
-4. Email received: [Email Notification](email-notification.md)
+2. Void submitted or updated: [Void Notification](../../readme/webhook-overview/void-notification.md)
+3. Change in flight schedule: [Schedule Change Notification](schedule-change-notification.md)
+4. Airline status update: [Airline Status Update Notification](airline-status-update-notification.md)
+5. Email received: [Email Notification](email-notification.md)
 {% endstep %}
 
 {% step %}
@@ -79,5 +82,6 @@ Use incident queries and order APIs to confirm final state.
 Webhook should not replace:
 
 * `queryOrderDetails.do` for final ticketing confirmation
+* `queryVoidOrders.do` for final void reconciliation
 * airline email for schedule-change awareness
 * incident query for deeper incident reconciliation
