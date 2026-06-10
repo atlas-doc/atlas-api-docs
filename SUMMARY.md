@@ -59,6 +59,7 @@
   * [Post-booking APIs](api-reference/post-booking-apis/README.md)
     * [Post-ticketing Ancillaries](api-reference/post-booking-apis/post-ticketing-ancillaries.md)
     * [Refunds](api-reference/post-booking-apis/refunds.md)
+    * [Void](api-reference/post-booking-apis/void.md)
     * [Regenerate Order](api-reference/post-booking-apis/regenerate-order.md)
     * [Stop Ticket Issuance](api-reference/post-booking-apis/stop-ticket-issuance.md)
     * [Order List](api-reference/post-booking-apis/order-list.md)
