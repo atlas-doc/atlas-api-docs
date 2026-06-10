@@ -1,6 +1,6 @@
 ---
 description: >-
-  Atlas API post-booking operations for refunds, ticket maintenance,
+  Atlas API post-booking operations for refunds, voids, ticket maintenance,
   ancillaries, and PNR claim actions after ticketing.
 ---
 
@@ -20,24 +20,26 @@ Start here when you need to:
 
 #### What belongs in post-booking operations?
 
-Use this section for refund actions, ticket maintenance, post-ticketing ancillaries, and PNR claim or extraction work after the original booking flow.
+Use this section for refund actions, void actions, ticket maintenance, post-ticketing ancillaries, and PNR claim or extraction work after the original booking flow.
 
 #### Which page should we open first for a post-ticketing case?
 
 Open the page that matches the task.
 
-Use **Refunds** for refund flow, **Order Maintenance** for intervention tasks, **Post-ticketing Ancillaries** for extra seat or baggage handling, and **PNR Claim & Extraction** for claim or extraction cases.
+Use **Refunds** for refund flow, [**Void**](../../../readme/post-booking-overview/post-booking-operations/void.md) for the dedicated void flow, **Order Maintenance** for intervention tasks, **Post-ticketing Ancillaries** for extra seat or baggage handling, and **PNR Claim & Extraction** for claim or extraction cases.
 
 ### Pages in this section
 
 * [Order Maintenance](order-maintenance.md)
 * [Refunds](refunds.md)
+* [Void](../../../readme/post-booking-overview/post-booking-operations/void.md)
 * [Post-ticketing Ancillaries](post-ticketing-ancillaries.md)
 * [PNR Claim & Extraction](pnr-claim-and-extraction.md)
 
 ### Use this when you need
 
 * Handle refunds after ticketing
+* Handle void requests inside the airline void window
 * Regenerate or stop ticketing operations
 * Add ancillaries to issued tickets
 * Extract PNRs or manage claim flows

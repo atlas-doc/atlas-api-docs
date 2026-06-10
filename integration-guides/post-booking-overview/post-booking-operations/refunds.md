@@ -12,9 +12,9 @@ Use this section for the full refund lifecycle.
 
 Start here when you need to:
 
-* check refundable amount and refund conditions
-* submit a refund request
-* track refund progress after submission
+* decide whether the case should use **Refund** or **Void**
+* follow the standard refund sequence
+* confirm which identifiers to keep for follow-up
 
 ### FAQ
 
@@ -22,39 +22,43 @@ Start here when you need to:
 
 The standard flow is `refundQuotation.do` → `refund.do` → `queryRefundOrders.do`.
 
-Use quotation first when you need the latest refundable amount and conditions before submission.
+Start with quotation before submission.
 
 #### When can a refund request fail even before submission?
 
-Refund requests can fail when ticketing is not complete, the refund offer expired, the order number is wrong, or the itinerary in the request is incomplete.
+Refund requests can fail when ticketing is not complete, the refund offer expired, the order number is wrong, or the itinerary is incomplete.
 
 Check current order state and refund conditions first.
 
-### What this section covers
+#### When should I use Refund instead of Void?
 
-* Request refund quotations
-* Submit refund requests
-* Query refund status and results
+Use Refund when the case is outside the void window or needs the refund flow.
+
+Use [Void](../../../readme/post-booking-overview/post-booking-operations/void.md) when the order is still eligible for the dedicated void flow.
 
 ### Typical flow
 
 {% stepper %}
 {% step %}
-### Refund Quotation
+### Check refund eligibility
 
-Get the latest refundable amount and refund conditions.
+Call `refundQuotation.do` first.
+
+Confirm the latest refundable amount and conditions.
 {% endstep %}
 
 {% step %}
-### Make a Refund
+### Submit the refund
 
-Submit the refund request with the quotation result or refund details.
+Use the latest `refundOfferId` when the flow requires quotation-based submission.
+
+Keep the returned `refundCode`.
 {% endstep %}
 
 {% step %}
-### Query Refund Status
+### Query final status
 
-Track progress until the refund is completed, rejected, or closed.
+Use `queryRefundOrders.do` until the case is completed, rejected, or otherwise closed.
 {% endstep %}
 {% endstepper %}
 
@@ -62,42 +66,34 @@ Track progress until the refund is completed, rejected, or closed.
 
 Confirm:
 
-* the order is the correct original order
+* the original `orderNo` is correct
 * ticketing is complete when required
 * the itinerary in the refund request is complete
-* the refund offer or quotation is still valid
+* the latest `refundOfferId` or quotation result is still valid
 
 The refund path and reconciliation timing can also depend on the payment mode.
 
-### Main APIs
+### Use this page when you need
 
-* `refundQuotation.do`
-* `refund.do`
-* `queryRefundOrders.do`
+* voluntary refunds
+* involuntary refunds
+* refund status follow-up
 
-### Use this when you need
+### What this page does not cover
 
-* Voluntary refunds
-* Involuntary refunds
-* Void handling
-* Refund status tracking
+This page does not list full endpoint schemas or field-level definitions.
 
-### What comes next?
-
-Use refund quotation to read current conditions.
-
-Then submit the refund request.
-
-After submission, use refund query until the case is completed, rejected, or closed.
+Use the API reference for request and response details.
 
 ### Full API reference
 
-See endpoint-level details here:
+Use endpoint-level details here:
 
 * [Refunds](../../../api-reference/post-booking-apis/refunds.md)
 
 ### Related pages
 
+* [Void](../../../readme/post-booking-overview/post-booking-operations/void.md)
 * [Finance](../../../troubleshooting-and-support/faqs/atlas-api-finance.md)
 * [Post-booking](../../../troubleshooting-and-support/faqs/atlas-api-post-ticketing.md)
 * [Error Codes](../../../troubleshooting-and-support/errors-handing/)

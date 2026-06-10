@@ -1,7 +1,7 @@
 ---
 description: >-
-  Common Atlas API post-booking errors for refund quotation, refund submission,
-  refund query, order query, and post-ticketing ancillaries.
+  Common Atlas API post-booking errors for refund, void, order query, and
+  post-ticketing ancillary workflows.
 ---
 
 # Refund, Query & Post-booking Errors
@@ -10,7 +10,7 @@ Use this page when issues happen after ticketing.
 
 Start here when you need to:
 
-* understand a refund, order-query, or ancillary failure after booking
+* understand a refund, void, order-query, or ancillary failure after booking
 * decide whether to wait, retry, or fix the request first
 * route the case to the correct post-booking workflow
 
@@ -27,6 +27,12 @@ Wait for ticketing or the in-flight submission to finish before retrying.
 Codes such as `816`, `817`, `818`, `504`, and `505` usually mean a refund or baggage action already exists or was already applied.
 
 Query the current status instead of submitting again.
+
+#### Which errors are most specific to the dedicated void flow?
+
+Codes such as `822` and `823` point to void-only submission problems.
+
+Use the dedicated [Void](../../readme/post-booking-overview/post-booking-operations/void.md) flow when the order is still inside the airline void window.
 
 ### Refund quotation and submission
 
@@ -78,6 +84,30 @@ A matching refund or claim already exists.
 
 * Do not resubmit
 * Query refund status instead
+
+### Void flow
+
+Void uses dedicated endpoints and should follow the void quotation → void submission → void query sequence.
+
+If the order is still inside the airline void window, use [Void](../../readme/post-booking-overview/post-booking-operations/void.md) instead of the refund flow.
+
+#### `822` Exceed the ticket void deadline
+
+The void request was submitted after the airline void window closed.
+
+**Action**
+
+* Do not retry the same void submission
+* Re-check whether the case should move to the refund flow
+
+#### `823` Void not all pax
+
+The void request does not cover the required passenger scope.
+
+**Action**
+
+* Re-check the void eligibility and passenger scope
+* Submit the void only when the request matches the supported full-void requirement
 
 ### Query order
 
@@ -148,6 +178,8 @@ Examples:
 
 * `801`
 * `811`
+* `822`
+* `823`
 * `703`
 * `502`
 
@@ -165,6 +197,8 @@ Examples:
 
 Use [Refunds](../../integration-guides/post-booking-overview/post-booking-operations/refunds.md) for refund flow guidance.
 
+Use [Void](../../readme/post-booking-overview/post-booking-operations/void.md) for the dedicated void flow.
+
 Use [Query Order](../../integration-guides/booking-overview/query-order.md) when the current order state is still unclear.
 
 Use [Post-booking Overview](../../integration-guides/post-booking-overview/) to route the case to the right post-booking workflow.
@@ -172,6 +206,7 @@ Use [Post-booking Overview](../../integration-guides/post-booking-overview/) to 
 ### Related pages
 
 * [Refunds](../../integration-guides/post-booking-overview/post-booking-operations/refunds.md)
+* [Void](../../readme/post-booking-overview/post-booking-operations/void.md)
 * [Post-booking Operations](../../integration-guides/post-booking-overview/post-booking-operations/)
 * [Post-ticketing Ancillaries](../../integration-guides/post-booking-overview/post-booking-operations/post-ticketing-ancillaries.md)
 * [Order Maintenance](../../integration-guides/post-booking-overview/post-booking-operations/order-maintenance.md)
