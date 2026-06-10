@@ -11,7 +11,7 @@ description: >-
 Use this page to track the latest Atlas API documentation updates.
 
 {% hint style="success" %}
-Latest update: `seatAvailability.do` now requires a valid `sessionId` or `OfferId`.
+Latest update: Void workflow, API reference, and webhook guidance are now expanded.
 {% endhint %}
 
 It highlights new guides, major troubleshooting improvements, and the next pages to read by use case.
@@ -23,6 +23,22 @@ Start here if you need to:
 * choose the right page to read next
 
 ### Latest Atlas API documentation updates
+
+#### Void workflow and notification updates
+
+Updated the void documentation to reflect the current post-booking flow and webhook handling.
+
+What changed:
+
+* clarified the standard flow: `voidQuotation.do` → `void.do` → `queryVoidOrders.do`
+* added stronger guidance for `voidOfferId`, `voidCode`, and void-window checks
+* expanded `order.void` webhook coverage, status values, and retry-failure behavior
+
+Read next:
+
+* [Void workflow](readme/post-booking-overview/post-booking-operations/void.md)
+* [Void](api-reference/post-booking-apis/void.md)
+* [Void Notification](readme/webhook-overview/void-notification.md)
 
 #### SeatAvailability call rules update
 
@@ -123,7 +139,7 @@ Start with:
 
 #### What changed in the Atlas API docs recently?
 
-Recent updates changed `seatAvailability.do` call rules, added [MCP-Assisted Development](readme/quick-start/mcp-assisted-development.md), published [Sandbox Validation Test Kit](readme/quick-start/sandbox-development/sandbox-validation-test-kit.md), and improved [Error Codes](troubleshooting-and-support/errors-handing/) as a troubleshooting entry point.
+Recent updates expanded the [Void workflow](readme/post-booking-overview/post-booking-operations/void.md), [Void](api-reference/post-booking-apis/void.md), and [Void Notification](readme/webhook-overview/void-notification.md) pages, changed `seatAvailability.do` call rules, added [MCP-Assisted Development](readme/quick-start/mcp-assisted-development.md), published [Sandbox Validation Test Kit](readme/quick-start/sandbox-development/sandbox-validation-test-kit.md), and improved [Error Codes](troubleshooting-and-support/errors-handing/) as a troubleshooting entry point.
 
 #### Which guide should I read first for sandbox integration?
 
@@ -136,6 +152,24 @@ Use [Booking Overview](integration-guides/booking-overview/) for the main flow, 
 ### Full change log
 
 {% updates format="full" %}
+{% update date="2026-06-10" %}
+## Expanded Void workflow and webhook guidance
+
+Updated the void documentation to reflect the current post-booking flow.
+
+What changed:
+
+* clarified the standard `voidQuotation.do` → `void.do` → `queryVoidOrders.do` sequence
+* added guidance for `voidOfferId`, `voidCode`, and strict void-window handling
+* expanded `order.void` webhook trigger rules, status values, and retry-failure behavior
+
+Updated pages:
+
+* [Void workflow](readme/post-booking-overview/post-booking-operations/void.md)
+* [Void](api-reference/post-booking-apis/void.md)
+* [Void Notification](readme/webhook-overview/void-notification.md)
+{% endupdate %}
+
 {% update date="2026-06-09" %}
 ## Updated SeatAvailability call rules
 
