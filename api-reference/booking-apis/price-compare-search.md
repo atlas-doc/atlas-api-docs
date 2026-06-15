@@ -30,6 +30,8 @@ It is not a standard booking step.
 {% hint style="warning" %}
 `priceCompareSearch.do` is only available to pre-sale customers.
 
+The default usage quota is 1,000 calls per day.
+
 Do not treat the returned price as a production booking price.
 {% endhint %}
 
@@ -143,5 +145,5 @@ Use the standard booking flow when you need a bookable path.
 See [Booking Overview](../../integration-guides/booking-overview/) for the normal search-to-ticket flow.
 
 {% openapi-operation spec="atlas-api" path="/priceCompareSearch.do" method="post" %}
-[OpenAPI atlas-api](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/4edb8a3042d0894360cf76978724aeb9cb325bfe857f4e134d8c0e87ae544be6.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20260610%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260610T121513Z&X-Amz-Expires=172800&X-Amz-Signature=338e34a37d0c35870a3f27fd479680c1e3c2d6419af0ad61cdf7e2510271e6ee&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+[OpenAPI atlas-api](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/6c230aefee8e2d0300c90686bcf3d3f5bfb467c8bfde2cb189f5db488abdadc9.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20260615%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260615T025309Z&X-Amz-Expires=172800&X-Amz-Signature=921147762ef685e091f058c486b995a036eafa99096d966e292e99f7e5371147&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
 {% endopenapi-operation %}
