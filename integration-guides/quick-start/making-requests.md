@@ -65,6 +65,14 @@ Use this base URL for sandbox API calls:
 
 Combine it with the endpoint path for each request.
 
+{% hint style="warning" %}
+This base URL is for sandbox only.
+
+Production uses different base URLs shown in ATRIP under `My Profile` → `Company Information`.
+
+Production uses one base URL for `search` and another for all other transaction APIs.
+{% endhint %}
+
 ### Standard headers
 
 Send these headers by default:

@@ -12,6 +12,14 @@ Use this guide to move from Atlas sandbox access to live launch.
 
 {% include "../../.gitbook/includes/sandbox-search-currency-note.md" %}
 
+{% hint style="warning" %}
+All API Reference endpoint examples use sandbox base URLs.
+
+When you move to production, get the live API base URLs in ATRIP under `My Profile` → `Company Information`.
+
+Production uses one base URL for `search` and another for all other transaction APIs.
+{% endhint %}
+
 <figure><img src="../../.gitbook/assets/FlowChart_1_QuickStart.png" alt=""><figcaption><p>End-to-end integration flow from sandbox access to go-live</p></figcaption></figure>
 
 Start here when you need to:

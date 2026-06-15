@@ -2,6 +2,8 @@
 
 {% include "../../.gitbook/includes/eva-help-hint.md" %}
 
+{% include "../../.gitbook/includes/environment-endpoint-note.md" %}
+
 Use this section for endpoint-level post-booking reference.
 
 Start here when you need:

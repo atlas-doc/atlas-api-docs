@@ -8,6 +8,8 @@ description: >-
 
 {% include "../.gitbook/includes/eva-help-hint.md" %}
 
+{% include "../.gitbook/includes/environment-endpoint-note.md" %}
+
 Use this section for exact endpoint schemas, fields, and samples.
 
 Start here when you need to:

@@ -66,6 +66,12 @@ Header rules stay the same.
 
 Live bookings and payments are real transactions.
 
+In production, get the live API base URLs in ATRIP under `My Profile` → `Company Information`.
+
+Do not reuse the sandbox base URL after go-live.
+
+Production uses one base URL for `search` and another for all other transaction APIs.
+
 ### Best practice
 
 Switch credentials and endpoints in a controlled release.
@@ -105,6 +111,12 @@ Customers can generate these values directly only after the account is set to `L
 ### Switch your environment
 
 Replace sandbox credentials and sandbox endpoints in your server configuration.
+
+Get the live API base URLs from ATRIP under `My Profile` → `Company Information`.
+
+Use the production `search` base URL for search traffic.
+
+Use the other production base URL for all remaining transaction APIs.
 {% endstep %}
 
 {% step %}
