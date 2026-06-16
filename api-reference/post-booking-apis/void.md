@@ -47,6 +47,30 @@ Then submit the void with the latest `voidOfferId`.
 
 After submission, query status until the case is completed or rejected.
 
+#### Will Atlas reject a void request after the deadline?
+
+Yes.
+
+If the returned same-day void deadline has already passed, `void.do` fails in real time.
+
+Typical error message:
+
+* `Void deadline exceeded. This ticket can no longer be voided`
+
+#### Does Atlas support partial-pax void?
+
+No.
+
+Atlas accepts full-order void only.
+
+Do not submit void for only some passengers.
+
+#### Is `voidQuotation.do` still required when the service fee is fixed?
+
+Yes.
+
+Call `voidQuotation.do` before every `void.do` request.
+
 #### When should I use Void instead of Refund?
 
 Use Void when the order is still inside the airline void window.
@@ -91,12 +115,15 @@ Confirm:
 
 * the original `orderNo` is correct
 * the order is still inside the airline void window
+* the returned same-day deadline has not passed yet
 * the latest `voidOfferId` is used
 * the case should go through Void, not Refund
 
 Void handling is usually stricter than refund handling.
 
 Window expiry can make the order non-voidable even if refund is still possible.
+
+If the deadline already passed, Atlas rejects the void request immediately.
 
 ### Key behavior
 
@@ -123,6 +150,8 @@ Use the dedicated void flow with these inputs:
 Void should be handled at order level.
 
 Do not treat Void like a partial refund flow.
+
+Atlas accepts full-order void only.
 {% endhint %}
 
 ### Endpoint notes
@@ -143,6 +172,8 @@ Important fields to read first:
 * `voidOfferId`
 * `expectedConfirmationDate`
 * `expectedRefundDate`
+* `voidWindow.sameDayDeadlineTime`
+* `voidWindow.sameDayTimezone`
 
 #### `void.do`
 
@@ -152,9 +183,17 @@ Keep the returned `voidCode`.
 
 Use that code for all later status follow-up.
 
+Do not skip quotation, even when the service fee is fixed.
+
+If the returned same-day deadline already passed, Atlas rejects the request in real time.
+
 #### `queryVoidOrders.do`
 
 Use query to track the void after submission.
+
+In most cases, Atlas returns within about 5 minutes whether the void request was accepted for processing.
+
+Final completion or rejection can still take longer.
 
 Important fields to read first:
 
@@ -191,6 +230,8 @@ Atlas can also send `order.void` to your registered webhook URL.
 
 Use it after `void.do` for near-real-time status updates.
 
+Webhook is the recommended way to follow progress changes after submission.
+
 Read these fields first:
 
 * `data.orderNo`
@@ -214,13 +255,13 @@ Read [Void Notification](../../readme/webhook-overview/void-notification.md).
 * [Post-booking APIs](./)
 
 {% openapi-operation spec="atlas-api" path="/voidQuotation.do" method="post" %}
-[OpenAPI atlas-api](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/c2c450b51656273efc99b5771c703cdf1e99923fa326d50b30f9bd2a7d1bdff6.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20260610%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260610T164511Z&X-Amz-Expires=172800&X-Amz-Signature=3ee5ba33f9fbb01fcb748c4212e0fc79ac229c36d02a4439538e5a654c849c38&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+[OpenAPI atlas-api](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/1f58c7a4bf1c8d9b924a439b7af5dbea859628dfc47dfb14838ad8ad7672dea6.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20260616%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260616T090047Z&X-Amz-Expires=172800&X-Amz-Signature=d723f1e1a0ab670dfefa2df243a123e39a7a721171b8c45ca719606d71b76c47&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
 {% endopenapi-operation %}
 
 {% openapi-operation spec="atlas-api" path="/void.do" method="post" %}
-[OpenAPI atlas-api](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/c2c450b51656273efc99b5771c703cdf1e99923fa326d50b30f9bd2a7d1bdff6.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20260610%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260610T164511Z&X-Amz-Expires=172800&X-Amz-Signature=3ee5ba33f9fbb01fcb748c4212e0fc79ac229c36d02a4439538e5a654c849c38&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+[OpenAPI atlas-api](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/1f58c7a4bf1c8d9b924a439b7af5dbea859628dfc47dfb14838ad8ad7672dea6.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20260616%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260616T090047Z&X-Amz-Expires=172800&X-Amz-Signature=d723f1e1a0ab670dfefa2df243a123e39a7a721171b8c45ca719606d71b76c47&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
 {% endopenapi-operation %}
 
 {% openapi-operation spec="atlas-api" path="/queryVoidOrders.do" method="post" %}
-[OpenAPI atlas-api](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/c2c450b51656273efc99b5771c703cdf1e99923fa326d50b30f9bd2a7d1bdff6.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20260610%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260610T164511Z&X-Amz-Expires=172800&X-Amz-Signature=3ee5ba33f9fbb01fcb748c4212e0fc79ac229c36d02a4439538e5a654c849c38&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+[OpenAPI atlas-api](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/1f58c7a4bf1c8d9b924a439b7af5dbea859628dfc47dfb14838ad8ad7672dea6.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20260616%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260616T090047Z&X-Amz-Expires=172800&X-Amz-Signature=d723f1e1a0ab670dfefa2df243a123e39a7a721171b8c45ca719606d71b76c47&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
 {% endopenapi-operation %}

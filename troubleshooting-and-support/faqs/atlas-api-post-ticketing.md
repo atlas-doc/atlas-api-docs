@@ -51,6 +51,51 @@ Final confirmation and fund return still depend on the airline.
 
 After Atlas receives the funds, reconciliation and balance credit follow.
 
+### How does Atlas void handling work?
+
+Use the dedicated void flow:
+
+* `voidQuotation.do`
+* `void.do`
+* `queryVoidOrders.do`
+
+Request quotation first.
+
+Then submit the void with the latest `voidOfferId`.
+
+Track status until the case is closed.
+
+See [Void](../../readme/post-booking-overview/post-booking-operations/void.md).
+
+### Does Atlas support partial void for some passengers?
+
+No.\
+Atlas accepts full-order void only.
+
+Do not submit void for only some passengers.
+
+### What happens if we submit void after the deadline?
+
+Atlas rejects the request in real time.\
+Typical message:
+
+* `Void deadline exceeded. This ticket can no longer be voided`
+
+If the void window has passed, re-check whether the case should move to refund.
+
+### Is void quotation required when the void fee is fixed?
+
+Yes.\
+`voidQuotation.do` is still required before `void.do`.
+
+### How fast can we get a void result?
+
+In most cases, Atlas returns within about 5 minutes whether the void request was accepted for processing.\
+Final completion or rejection can still take longer.
+
+Use webhook for progress updates.\
+Use void query for final reconciliation.
+
 ### How should booking changes be requested?
 
 Submit a Service Request through Eva in ATRIP for name correction, flight change, or similar post-booking action.

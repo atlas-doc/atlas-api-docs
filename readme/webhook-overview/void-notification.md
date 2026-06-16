@@ -32,6 +32,14 @@ Use this webhook as a fast signal.
 
 Use `queryVoidOrders.do` for final reconciliation.
 
+#### How fast should we expect the first void result?
+
+In most cases, Atlas returns within about 5 minutes whether the void request was accepted for processing.
+
+Final completion or rejection can still take longer.
+
+Use this webhook for progress changes.
+
 ### Trigger
 
 Atlas sends `order.void` for these scenarios:
@@ -113,6 +121,7 @@ Use `data.message` to route manual follow-up.
 
 * `status` is internal and is normally `-1`
 * `message` is descriptive and can vary by case
+* first submission feedback usually appears within about 5 minutes
 * use void query if refund completion is still unclear
 
 {% tabs %}

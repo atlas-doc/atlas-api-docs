@@ -34,6 +34,14 @@ Void can fail when the order is already outside the void window, the `orderNo` i
 
 Check current order state and request a fresh quotation first.
 
+#### Does Atlas support partial-pax void?
+
+No.
+
+Atlas accepts full-order void only.
+
+Do not plan a split-order or split-PNR workaround for Atlas void.
+
 #### When should I use Void?
 
 Use **Void** when the order is still inside the airline void window.
@@ -78,8 +86,10 @@ Confirm:
 
 * the original `orderNo` is correct
 * the order is still inside the void window
+* the returned same-day deadline has not passed yet
 * the latest `voidOfferId` is used
 * the case should not move to the refund flow instead
+* the request covers the full order, not only some passengers
 
 ### Which identifiers matter?
 
@@ -92,6 +102,10 @@ Keep these values through the flow:
 Use the latest quotation result before submission.
 
 Do not reuse an older `voidOfferId`.
+
+Treat the returned deadline as strict.
+
+After it passes, `void.do` is rejected immediately.
 
 ### Use this page when you need
 

@@ -95,6 +95,12 @@ If the order is still inside the airline void window, use [Void](../../readme/po
 
 The void request was submitted after the airline void window closed.
 
+Atlas rejects this request immediately.
+
+Typical message:
+
+* `Void deadline exceeded. This ticket can no longer be voided`
+
 **Action**
 
 * Do not retry the same void submission
@@ -104,10 +110,12 @@ The void request was submitted after the airline void window closed.
 
 The void request does not cover the required passenger scope.
 
+Atlas accepts full-order void only.
+
 **Action**
 
-* Re-check the void eligibility and passenger scope
-* Submit the void only when the request matches the supported full-void requirement
+* Do not submit void for only some passengers
+* Submit the void only when the request covers the full order
 
 ### Query order
 
