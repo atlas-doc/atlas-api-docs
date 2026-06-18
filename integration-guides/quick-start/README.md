@@ -12,6 +12,8 @@ Use this guide to move from Atlas sandbox access to live launch.
 
 {% include "../../.gitbook/includes/sandbox-search-currency-note.md" %}
 
+If you want an importable assistant for workflow guidance and troubleshooting, use [Atlas AI Assistant Skill](../../readme/atlas-ai-assistant-skill.md).
+
 {% hint style="warning" %}
 All API Reference endpoint examples use sandbox base URLs.
 
@@ -187,10 +189,11 @@ If you use the Get Offer path, keep `OfferId` instead of `sessionId`.
 ### Recommended first path
 
 1. Use [Sandbox Access](making-requests.md) to get credentials and confirm request basics.
-2. Run [Sandbox Validation Test Kit](../../readme/quick-start/sandbox-development/sandbox-validation-test-kit.md) for a fast no-code health check.
-3. Use [Sandbox Development](sandbox-development.md) to implement the full flow.
-4. Move to [UAT Validation](uat-submission-guide.md) after the sandbox flow is stable.
-5. Finish with [Production Go-Live](production-go-live.md).
+2. Use [Atlas AI Assistant Skill](../../readme/atlas-ai-assistant-skill.md) if you want an importable AI helper during implementation.
+3. Run [Sandbox Validation Test Kit](../../readme/quick-start/sandbox-development/sandbox-validation-test-kit.md) for a fast no-code health check.
+4. Use [Sandbox Development](sandbox-development.md) to implement the full flow.
+5. Move to [UAT Validation](uat-submission-guide.md) after the sandbox flow is stable.
+6. Finish with [Production Go-Live](production-go-live.md).
 
 ### First end-to-end test resource
 
