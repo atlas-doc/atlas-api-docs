@@ -78,7 +78,6 @@ Production uses one base URL for `search` and another for all other transaction 
 Send these headers by default:
 
 * `Content-Type: application/json`
-* `Accept: application/json`
 * `Accept-Encoding: gzip`
 * `x-atlas-client-id: <your-client-id>`
 * `x-atlas-client-secret: <your-client-secret>`

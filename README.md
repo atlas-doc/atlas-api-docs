@@ -11,7 +11,7 @@ description: >-
 Use this page to track the latest Atlas API documentation updates.
 
 {% hint style="success" %}
-Latest update: UAT Validation now reflects the new ATRIP **UAT Testing** flow and automatic verification.
+Latest update: Standard request headers no longer include `Accept: application/json`.
 {% endhint %}
 
 It highlights new guides, major troubleshooting improvements, and the next pages to read by use case.
@@ -23,6 +23,20 @@ Start here if you need to:
 * choose the right page to read next
 
 ### Latest Atlas API documentation updates
+
+#### Standard headers cleanup
+
+Updated the sandbox access guidance to remove an unnecessary standard request header.
+
+What changed:
+
+* removed `Accept: application/json` from the standard headers list
+* kept `Accept-Encoding`, `Authorization`, and `Content-Type` guidance unchanged
+
+Read next:
+
+* [Sandbox Access](integration-guides/quick-start/making-requests.md)
+* [Quick Start](integration-guides/quick-start/)
 
 #### UAT Testing flow update
 
@@ -169,6 +183,21 @@ Use [Booking Overview](integration-guides/booking-overview/) for the main flow, 
 ### Full change log
 
 {% updates format="full" %}
+{% update date="2026-06-29" %}
+## Removed `Accept: application/json` from standard headers
+
+Updated the sandbox access guidance to keep the standard request headers aligned with current usage.
+
+What changed:
+
+* removed `Accept: application/json` from the standard headers list
+* kept the remaining standard header guidance unchanged
+
+Updated pages:
+
+* [Sandbox Access](integration-guides/quick-start/making-requests.md)
+{% endupdate %}
+
 {% update date="2026-06-29" %}
 ## Updated UAT Validation for ATRIP UAT Testing
 
