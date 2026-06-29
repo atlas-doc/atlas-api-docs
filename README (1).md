@@ -13,7 +13,7 @@ Use this section to complete your Atlas API integration from setup to go-live.
 ### Recommended reading order
 
 1. [Quick Start](integration-guides/quick-start/)
-2. [Atlas AI Assistant Skill](readme/atlas-ai-assistant-skill.md)
+2. [Atlas AI Assistant Skill](readme/quick-start/atlas-ai-assistant-skill.md)
 3. [Sandbox Access](integration-guides/quick-start/making-requests.md)
 4. [Sandbox Development](integration-guides/quick-start/sandbox-development.md)
 5. [Booking Overview](integration-guides/booking-overview/)
@@ -27,7 +27,7 @@ Use this section to complete your Atlas API integration from setup to go-live.
 
 Start with [Quick Start](integration-guides/quick-start/).
 
-Use [Atlas AI Assistant Skill](readme/atlas-ai-assistant-skill.md) if you want an importable AI helper during implementation.
+Use [Atlas AI Assistant Skill](readme/quick-start/atlas-ai-assistant-skill.md) if you want an importable AI helper during implementation.
 
 Then move through:
 

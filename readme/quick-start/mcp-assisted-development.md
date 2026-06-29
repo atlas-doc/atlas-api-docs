@@ -12,7 +12,7 @@ Use GitBook MCP to speed up Atlas API development.
 
 It helps you find the right pages, understand the flow, and narrow down the next step faster.
 
-If you want a packaged assistant setup, use [Atlas AI Assistant Skill](../atlas-ai-assistant-skill.md).
+If you want a packaged assistant setup, use [Atlas AI Assistant Skill](atlas-ai-assistant-skill.md).
 
 ### When to use MCP
 

@@ -59,25 +59,29 @@ Yes.
 
 Use the Postman collection in [Quick Start](../../integration-guides/quick-start/).
 
-Use the UAT collections later when you prepare validation evidence.
+Use the UAT guidance later when you prepare for formal verification.
 
 ### Is there a Postman collection for first tests?
 
 Yes.\
 Use the Postman collection in [Quick Start](../../integration-guides/quick-start/).
 
-Use the UAT collections when you prepare validation evidence.
+Use the UAT guidance when you prepare for formal verification.
 
 #### How do we start UAT?
 
 Start UAT only after the sandbox flow is stable end to end.
 
-Pick the correct UAT track, complete the template, attach evidence, and submit through Eva in ATRIP.
+Open **UAT Testing** in ATRIP, choose the required function scope, and complete **flight booking** at minimum.
+
+Then click **Confirm and Continue**, fill the case order details, and use **Submit Verification** for automatic validation.
 
 ### How do we start UAT?
 
 Start UAT only after the sandbox flow is stable end to end.\
-Pick the correct UAT track, complete the template, attach evidence, and submit through Eva in ATRIP.
+Open **UAT Testing** in ATRIP, choose the required function scope, and complete **flight booking** at minimum.
+
+Then click **Confirm and Continue**, fill the case order details, and use **Submit Verification** for automatic validation.
 
 ### Are airline capabilities always the same?
 

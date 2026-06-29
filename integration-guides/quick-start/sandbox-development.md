@@ -16,6 +16,26 @@ Before you build the integration, run the [Sandbox Validation Test Kit](../../re
 Use it to confirm credentials, network access, and the core happy path without writing code.
 {% endhint %}
 
+Start here when you need to:
+
+* build the full sandbox booking flow
+* validate webhook handling and follow-up logic
+* confirm the integration is ready for UAT
+
+### FAQ
+
+#### What should be working before sandbox development starts?
+
+Sandbox credentials should work first.
+
+Headers, request format, and gzip handling should also be ready.
+
+#### What proves sandbox development is complete?
+
+The full booking flow should run end to end in a stable way.
+
+Your team should also be able to reproduce expected success and failure paths.
+
 ### Goal of this phase
 
 Build the end-to-end integration flow in sandbox.
@@ -85,6 +105,40 @@ During this phase, keep and reuse:
 * `routingIdentifier`
 * `sessionId`
 * `orderNo`
+
+### Recommended build order
+
+{% stepper %}
+{% step %}
+### Confirm sandbox setup
+
+Make sure credentials, headers, gzip handling, and the sandbox base URL are working.
+{% endstep %}
+
+{% step %}
+### Build the booking flow
+
+Implement search, verify, order creation, payment, and order query.
+{% endstep %}
+
+{% step %}
+### Add webhook handling
+
+Register the webhook endpoint and validate event delivery and processing.
+{% endstep %}
+
+{% step %}
+### Test expected failures
+
+Simulate payment and flow failures and confirm error handling works as expected.
+{% endstep %}
+
+{% step %}
+### Prepare for UAT
+
+Keep traceable test orders and confirm the full sandbox flow is stable and repeatable.
+{% endstep %}
+{% endstepper %}
 
 ### Test mode
 
@@ -167,3 +221,11 @@ You can do all of these reliably in sandbox:
 ### Next step
 
 Move to [UAT Validation](uat-submission-guide.md) after the sandbox flow is stable.
+
+### Related pages
+
+* [Quick Start](./)
+* [Sandbox Access](making-requests.md)
+* [Sandbox Validation Test Kit](../../readme/quick-start/sandbox-development/sandbox-validation-test-kit.md)
+* [UAT Validation](uat-submission-guide.md)
+* [Webhook Overview](../webhook-overview/)

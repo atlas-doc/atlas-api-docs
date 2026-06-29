@@ -36,6 +36,15 @@ Move the integration from sandbox to production.
 
 This is the final step in the overall onboarding flow.
 
+### Do not start go-live yet if
+
+Wait before switching environments when any of these are still open:
+
+* UAT is not approved
+* the account is not switched to `LIVE`
+* production credentials are not generated yet
+* the team is not ready to monitor first live traffic
+
 ### When to start
 
 Start this step after:
@@ -77,6 +86,15 @@ Production uses one base URL for `search` and another for all other transaction 
 Switch credentials and endpoints in a controlled release.
 
 Validate the first live flow end to end before scaling traffic.
+
+### What to check during the first smoke test
+
+Confirm these items on the first live run:
+
+* authentication succeeds with production credentials
+* the correct production base URL is used for each API group
+* payment completes with the intended production method
+* order follow-up and webhook delivery work as expected
 
 ### Go-live checklist
 
@@ -156,9 +174,23 @@ You have all of these in production:
 * Confirm that your production IP whitelist stays up to date.
 * UAT completion alone does not unlock production credentials. Your customer manager must switch the account to `LIVE`.
 
+### If the first live run fails
+
+Use this recovery order:
+
+1. Confirm the account status is `LIVE`.
+2. Confirm the production client ID and client secret are correct.
+3. Confirm the correct production base URL is used for `search` and for the remaining transaction APIs.
+4. Confirm the production IP whitelist includes the active source IPs.
+5. Retry only after the failing configuration is corrected.
+
 ### What comes next?
 
 After the first live smoke test succeeds, keep monitoring early production traffic until order status, payment handling, and webhook behavior are stable.
+
+### Next step
+
+After launch, keep monitoring early live traffic and route any booking or payment issues to the relevant troubleshooting pages quickly.
 
 ### Related pages
 

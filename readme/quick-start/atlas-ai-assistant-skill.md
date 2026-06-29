@@ -6,7 +6,7 @@ description: >-
 
 # Atlas AI Assistant Skill
 
-{% include "../.gitbook/includes/eva-help-hint.md" %}
+{% include "../../.gitbook/includes/eva-help-hint.md" %}
 
 Use this page to access the Atlas AI assistant skill for Atlas API integration.
 
@@ -16,7 +16,7 @@ This package is separate from GitBook MCP.
 
 Use it when you want an importable AI assistant setup.
 
-{% file src="../.gitbook/assets/atlas-api-integration-advisor (2).zip" %}
+{% file src="../../.gitbook/assets/atlas-api-integration-advisor (2).zip" %}
 
 ### What it helps with
 
@@ -56,6 +56,6 @@ After import, use the skill to:
 
 ### Related pages
 
-* [MCP-Assisted Development](quick-start/mcp-assisted-development.md)
-* [Quick Start](../integration-guides/quick-start/)
-* [API Reference](../api-reference/)
+* [MCP-Assisted Development](mcp-assisted-development.md)
+* [Quick Start](../../integration-guides/quick-start/)
+* [API Reference](../../api-reference/)

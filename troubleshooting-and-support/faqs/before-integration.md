@@ -91,7 +91,7 @@ Yes.
 
 Use the collection in [Quick Start](../../integration-guides/quick-start/) for first end-to-end tests.
 
-Use the UAT collections later for validation evidence.
+Use the UAT guidance later when you are ready for formal verification.
 
 ### Which booking flow should we use?
 
@@ -306,7 +306,7 @@ Start UAT only after the sandbox flow is stable end to end.
 
 Prepare:
 
-* the correct UAT template
+* the required case order details
 * evidence for each scenario
 * webhook evidence when required
 * relevant order numbers or request IDs

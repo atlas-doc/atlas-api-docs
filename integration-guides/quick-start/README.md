@@ -12,7 +12,7 @@ Use this guide to move from Atlas sandbox access to live launch.
 
 {% include "../../.gitbook/includes/sandbox-search-currency-note.md" %}
 
-If you want an importable assistant for workflow guidance and troubleshooting, use [Atlas AI Assistant Skill](../../readme/atlas-ai-assistant-skill.md).
+If you want an importable assistant for workflow guidance and troubleshooting, use [Atlas AI Assistant Skill](../../readme/quick-start/atlas-ai-assistant-skill.md).
 
 {% hint style="warning" %}
 All API Reference endpoint examples use sandbox base URLs.
@@ -37,6 +37,18 @@ Start here when you need to:
 Start with sandbox credentials and request basics.
 
 Then build the full booking flow in sandbox, complete UAT, and move to production only after approval and environment switch.
+
+#### When should I move to the next phase?
+
+Move forward only when the current phase is stable.
+
+Each phase should produce a clear output that the next phase depends on.
+
+### Goal of this guide
+
+Use this page to understand the full integration path before implementation starts.
+
+Use it to decide which page to open next and what must be finished first.
 
 ### Integration flow
 
@@ -78,7 +90,7 @@ Build and test the booking flow, payment path, order query, and webhook handling
 
 #### UAT Validation
 
-Submit the required validation evidence and get approval for production readiness.
+Complete the required UAT verification and get approval for production readiness.
 
 #### Production Go-Live
 
@@ -140,16 +152,15 @@ UAT is the validation phase before production.
 
 Use this phase to prove that your integration is ready for go-live.
 
-Prepare:
+Run UAT in ATRIP under **UAT Testing**.
 
-* the correct UAT template
-* end-to-end evidence
-* webhook samples when required
-* relevant order numbers or request IDs
+Choose the required function scope and always complete **flight booking**.
+
+Then click **Confirm and Continue**, fill the case order details, and use **Submit Verification** for automatic validation.
 
 The main output of this phase is UAT approval.
 
-Use [UAT Validation](uat-submission-guide.md) for the submission steps.
+Use [UAT Validation](uat-submission-guide.md) for the verification steps.
 
 #### 4. Production Go-Live
 
@@ -186,10 +197,19 @@ If you use the Get Offer path, keep `OfferId` instead of `sessionId`.
 * UAT Validation → approved validation result
 * Production Go-Live → production-ready environment
 
+### Move to the next phase when
+
+Use these exit checks:
+
+* Move past Sandbox Access when authenticated sandbox requests work reliably.
+* Move past Sandbox Development when the full sandbox flow is stable and repeatable.
+* Move past UAT Validation when the required scope is approved.
+* Move past Production Go-Live when live smoke tests pass and first live traffic is monitored.
+
 ### Recommended first path
 
 1. Use [Sandbox Access](making-requests.md) to get credentials and confirm request basics.
-2. Use [Atlas AI Assistant Skill](../../readme/atlas-ai-assistant-skill.md) if you want an importable AI helper during implementation.
+2. Use [Atlas AI Assistant Skill](../../readme/quick-start/atlas-ai-assistant-skill.md) if you want an importable AI helper during implementation.
 3. Run [Sandbox Validation Test Kit](../../readme/quick-start/sandbox-development/sandbox-validation-test-kit.md) for a fast no-code health check.
 4. Use [Sandbox Development](sandbox-development.md) to implement the full flow.
 5. Move to [UAT Validation](uat-submission-guide.md) after the sandbox flow is stable.
@@ -202,3 +222,16 @@ If you want a no-code environment check first, use [Sandbox Validation Test Kit]
 Then use this Postman collection during sandbox development:
 
 {% file src="../../.gitbook/assets/TheAtlas UAT Test Shopping & Ticketing Services Only Postman Collection.zip" %}
+
+### Next step
+
+If you are starting fresh, continue with [Sandbox Access](making-requests.md).
+
+If sandbox access is already done, continue with [Sandbox Development](sandbox-development.md).
+
+### Related pages
+
+* [Sandbox Access](making-requests.md)
+* [Sandbox Development](sandbox-development.md)
+* [UAT Validation](uat-submission-guide.md)
+* [Production Go-Live](production-go-live.md)

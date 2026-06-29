@@ -11,7 +11,7 @@ description: >-
 Use this page to track the latest Atlas API documentation updates.
 
 {% hint style="success" %}
-Latest update: Void workflow, API reference, and webhook guidance are now expanded.
+Latest update: UAT Validation now reflects the new ATRIP **UAT Testing** flow and automatic verification.
 {% endhint %}
 
 It highlights new guides, major troubleshooting improvements, and the next pages to read by use case.
@@ -23,6 +23,23 @@ Start here if you need to:
 * choose the right page to read next
 
 ### Latest Atlas API documentation updates
+
+#### UAT Testing flow update
+
+Updated the UAT documentation to reflect the current ATRIP validation flow.
+
+What changed:
+
+* UAT now starts in **UAT Testing**
+* partners must choose the target function scope before continuing
+* **flight booking** is the required core function
+* **Submit Verification** now triggers automatic validation and returns failure reasons directly
+
+Read next:
+
+* [UAT Validation](integration-guides/quick-start/uat-submission-guide.md)
+* [Quick Start](integration-guides/quick-start/)
+* [Getting Started](troubleshooting-and-support/faqs/atlas-api-general-information.md)
 
 #### Void workflow and notification updates
 
@@ -139,7 +156,7 @@ Start with:
 
 #### What changed in the Atlas API docs recently?
 
-Recent updates expanded the [Void workflow](readme/post-booking-overview/post-booking-operations/void.md), [Void](api-reference/post-booking-apis/void.md), and [Void Notification](readme/webhook-overview/void-notification.md) pages, changed `seatAvailability.do` call rules, added [MCP-Assisted Development](readme/quick-start/mcp-assisted-development.md), published [Sandbox Validation Test Kit](readme/quick-start/sandbox-development/sandbox-validation-test-kit.md), and improved [Error Codes](troubleshooting-and-support/errors-handing/) as a troubleshooting entry point.
+Recent updates added the new ATRIP **UAT Testing** flow to [UAT Validation](integration-guides/quick-start/uat-submission-guide.md), clarified that **flight booking** is required, added automatic verification guidance, expanded the [Void workflow](readme/post-booking-overview/post-booking-operations/void.md), changed `seatAvailability.do` call rules, added [MCP-Assisted Development](readme/quick-start/mcp-assisted-development.md), published [Sandbox Validation Test Kit](readme/quick-start/sandbox-development/sandbox-validation-test-kit.md), and improved [Error Codes](troubleshooting-and-support/errors-handing/) as a troubleshooting entry point.
 
 #### Which guide should I read first for sandbox integration?
 
@@ -152,6 +169,26 @@ Use [Booking Overview](integration-guides/booking-overview/) for the main flow, 
 ### Full change log
 
 {% updates format="full" %}
+{% update date="2026-06-29" %}
+## Updated UAT Validation for ATRIP UAT Testing
+
+Updated the UAT guidance to reflect the latest ATRIP flow.
+
+What changed:
+
+* UAT now starts from **UAT Testing**
+* partners choose the target function scope before continuing
+* **flight booking** is now documented as the required core function
+* **Confirm and Continue** and **Submit Verification** are now part of the documented flow
+* failed cases now point users to the ATRIP failure reason directly
+
+Updated pages:
+
+* [UAT Validation](integration-guides/quick-start/uat-submission-guide.md)
+* [Quick Start](integration-guides/quick-start/)
+* [Getting Started](troubleshooting-and-support/faqs/atlas-api-general-information.md)
+{% endupdate %}
+
 {% update date="2026-06-10" %}
 ## Expanded Void workflow and webhook guidance
 
