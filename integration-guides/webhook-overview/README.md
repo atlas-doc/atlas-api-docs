@@ -15,6 +15,13 @@ Start here when you need to:
 * register webhook delivery before go-live
 * understand which booking events Atlas can notify
 * decide how webhook fits with order query and airline email
+* configure webhook as one delivery option in Atlas notifications
+
+{% hint style="info" %}
+Need ATRIP notification setup across webhook, email, and team chat? Start with [Multi-channel Notifications](../../readme/multi-channel-notifications.md).
+{% endhint %}
+
+If you need channel setup first, open [Multi-channel Notifications](../../readme/multi-channel-notifications.md) before reading webhook event details.
 
 ### FAQ
 
@@ -28,7 +35,11 @@ Use order query, airline email, and incident follow-up for final reconciliation.
 
 #### What should webhook be used for?
 
+Use webhook as the server-to-server delivery option in Atlas notifications.
+
 Use webhook to speed up event handling for ticketing completion, void updates, schedule changes, airline status updates, email capture, and incident follow-up.
+
+Use [Multi-channel Notifications](../../readme/multi-channel-notifications.md) when you also need ATRIP delivery in email, DingTalk, WeCom, Slack, or Teams.
 
 Do not treat webhook as the only source of truth for booking state.
 
@@ -51,6 +62,8 @@ Then confirm the final state with order query, incident query, or airline email 
 ### Register your endpoint
 
 Use [Webhook Registration & Incidents](../../api-reference/webhook-and-incident-apis/webhook-registration-and-incidents.md) to save the webhook URL before go-live.
+
+If you also use mailbox or chat delivery, configure those channels in [Multi-channel Notifications](../../readme/multi-channel-notifications.md).
 {% endstep %}
 
 {% step %}

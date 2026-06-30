@@ -23,6 +23,7 @@
       * [Hybrid Payment Guide](readme/booking-overview/payment-and-ticketing/hybrid-payment-guide.md)
     * [Query Order](integration-guides/booking-overview/query-order.md)
   * [Flight Data Feed](readme/flight-data-feed.md)
+  * [Multi-channel Notifications](readme/multi-channel-notifications.md)
   * [Webhook Overview](integration-guides/webhook-overview/README.md)
     * [Ticketing Complete Notification](integration-guides/webhook-overview/ticketing-complete-notification.md)
     * [Void Notification](readme/webhook-overview/void-notification.md)

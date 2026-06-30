@@ -11,7 +11,7 @@ description: >-
 Use this page to track the latest Atlas API documentation updates.
 
 {% hint style="success" %}
-Latest update: Standard request headers no longer include `Accept: application/json`.
+Latest update: Atlas notifications now support ATRIP delivery across webhook, email, DingTalk, WeCom, Slack, and Teams.
 {% endhint %}
 
 It highlights new guides, major troubleshooting improvements, and the next pages to read by use case.
@@ -23,6 +23,22 @@ Start here if you need to:
 * choose the right page to read next
 
 ### Latest Atlas API documentation updates
+
+#### Multi-channel notifications launch
+
+Published the new Atlas notification setup guidance for ATRIP delivery across webhook, email, DingTalk, WeCom, Slack, and Teams.
+
+What changed:
+
+* added a new setup guide for multi-channel notifications in ATRIP
+* clarified that webhook is one delivery option in the notification model
+* linked airline status updates to the first live multi-channel scenario
+
+Read next:
+
+* [Multi-channel Notifications](readme/multi-channel-notifications.md)
+* [Webhook Overview](integration-guides/webhook-overview/)
+* [Airline Status Update Notification](integration-guides/webhook-overview/airline-status-update-notification.md)
 
 #### Standard headers cleanup
 
@@ -170,7 +186,7 @@ Start with:
 
 #### What changed in the Atlas API docs recently?
 
-Recent updates added the new ATRIP **UAT Testing** flow to [UAT Validation](integration-guides/quick-start/uat-submission-guide.md), clarified that **flight booking** is required, added automatic verification guidance, expanded the [Void workflow](readme/post-booking-overview/post-booking-operations/void.md), changed `seatAvailability.do` call rules, added [MCP-Assisted Development](readme/quick-start/mcp-assisted-development.md), published [Sandbox Validation Test Kit](readme/quick-start/sandbox-development/sandbox-validation-test-kit.md), and improved [Error Codes](troubleshooting-and-support/errors-handing/) as a troubleshooting entry point.
+Recent updates added [Multi-channel Notifications](readme/multi-channel-notifications.md) for ATRIP notification setup, added the new ATRIP **UAT Testing** flow to [UAT Validation](integration-guides/quick-start/uat-submission-guide.md), clarified that **flight booking** is required, added automatic verification guidance, expanded the [Void workflow](readme/post-booking-overview/post-booking-operations/void.md), changed `seatAvailability.do` call rules, added [MCP-Assisted Development](readme/quick-start/mcp-assisted-development.md), published [Sandbox Validation Test Kit](readme/quick-start/sandbox-development/sandbox-validation-test-kit.md), and improved [Error Codes](troubleshooting-and-support/errors-handing/) as a troubleshooting entry point.
 
 #### Which guide should I read first for sandbox integration?
 
@@ -183,6 +199,24 @@ Use [Booking Overview](integration-guides/booking-overview/) for the main flow, 
 ### Full change log
 
 {% updates format="full" %}
+{% update date="2026-06-30" %}
+## Added multi-channel notification setup guidance
+
+Published [Multi-channel Notifications](readme/multi-channel-notifications.md) for ATRIP delivery across webhook, email, DingTalk, WeCom, Slack, and Teams.
+
+What changed:
+
+* added a new guide for channel selection, ATRIP setup, and test notifications
+* clarified in [Webhook Overview](integration-guides/webhook-overview/) that webhook is one delivery option in the broader notification model
+* updated [Airline Status Update Notification](integration-guides/webhook-overview/airline-status-update-notification.md) to position airline status as the first live multi-channel scenario
+
+Updated pages:
+
+* [Multi-channel Notifications](readme/multi-channel-notifications.md)
+* [Webhook Overview](integration-guides/webhook-overview/)
+* [Airline Status Update Notification](integration-guides/webhook-overview/airline-status-update-notification.md)
+{% endupdate %}
+
 {% update date="2026-06-29" %}
 ## Removed `Accept: application/json` from standard headers
 

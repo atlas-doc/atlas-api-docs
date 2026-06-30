@@ -10,9 +10,15 @@ description: >-
 
 Use this webhook when you need to react to airline-level availability changes.
 
+This is the first live scenario in Atlas multi-channel notifications.
+
+Use [Multi-channel Notifications](../../readme/multi-channel-notifications.md) to configure ATRIP delivery across webhook, email, and team chat.
+
 ### Trigger
 
 Atlas sends `airline.status` when an airline moves between active, maintenance, or inactive states.
+
+Common reasons include data quality issues, system issues, insufficient balance, scheduled maintenance, and look-to-book limits.
 
 ### What you should do
 
@@ -50,6 +56,10 @@ POST to the webhook URL you registered with Atlas.
   "type": "airline.status"
 }
 ```
+
+{% hint style="info" %}
+Email and chat deliveries may render this event with business fields such as airline, status, start time, reason, expected restoration time, and a details link. Those display fields are channel-specific and are not part of the webhook schema on this page.
+{% endhint %}
 
 ### Notes
 
@@ -128,5 +138,6 @@ POST to the webhook URL you registered with Atlas.
 
 ### Related pages
 
+* [Multi-channel Notifications](../../readme/multi-channel-notifications.md)
 * [Webhook Overview](./)
 * [Search Errors](../../troubleshooting-and-support/errors-handing/search-errors.md)

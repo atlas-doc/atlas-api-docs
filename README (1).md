@@ -10,6 +10,10 @@ description: >-
 
 Use this section to complete your Atlas API integration from setup to go-live.
 
+{% hint style="info" %}
+Need ATRIP notification setup across webhook, email, DingTalk, WeCom, Slack, and Teams? Use [Multi-channel Notifications](readme/multi-channel-notifications.md).
+{% endhint %}
+
 ### Recommended reading order
 
 1. [Quick Start](integration-guides/quick-start/)
@@ -17,9 +21,10 @@ Use this section to complete your Atlas API integration from setup to go-live.
 3. [Sandbox Access](integration-guides/quick-start/making-requests.md)
 4. [Sandbox Development](integration-guides/quick-start/sandbox-development.md)
 5. [Booking Overview](integration-guides/booking-overview/)
-6. [Webhook Overview](integration-guides/webhook-overview/)
-7. [UAT Validation](integration-guides/quick-start/uat-submission-guide.md)
-8. [Production Go-Live](integration-guides/quick-start/production-go-live.md)
+6. [Multi-channel Notifications](readme/multi-channel-notifications.md)
+7. [Webhook Overview](integration-guides/webhook-overview/)
+8. [UAT Validation](integration-guides/quick-start/uat-submission-guide.md)
+9. [Production Go-Live](integration-guides/quick-start/production-go-live.md)
 
 ### Choose the right path
 
@@ -39,6 +44,12 @@ Then move through:
 #### Core booking flow
 
 Use [Booking Overview](integration-guides/booking-overview/) for search, verify, order, payment, and order lookup.
+
+#### Notification setup
+
+Use [Multi-channel Notifications](readme/multi-channel-notifications.md) when you need ATRIP notification delivery and channel setup.
+
+Use [Webhook Overview](integration-guides/webhook-overview/) when you need webhook event coverage and handling guidance.
 
 #### Local pricing data
 
